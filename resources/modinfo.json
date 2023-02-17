@@ -1,0 +1,14 @@
+{
+    "type": "code",
+    "modid": "butchering",
+    "name": "Butchering",
+    "side": "universal",
+    "authors": [
+        "G3rste", "CaptainOats"
+    ],
+    "description": "Carry animals back to your place for proper butchering.",
+    "version": "1.0.0",
+    "dependencies": {
+        "game": "1.17.2"
+    }
+}
