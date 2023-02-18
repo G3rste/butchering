@@ -9,6 +9,12 @@ namespace Butchering
         {
             base.Start(api);
 
+            api.RegisterItemClass("butcherable", typeof(ItemButcherable));
+
+            api.RegisterBlockClass("BlockButcherTable", typeof(BlockButcherTable));
+
+            api.RegisterBlockEntityClass("ButcherTable", typeof(BlockEntityButcherTable));
+
             api.RegisterEntityBehaviorClass("butcherable", typeof(EntityBehaviorButcherable));
         }
     }

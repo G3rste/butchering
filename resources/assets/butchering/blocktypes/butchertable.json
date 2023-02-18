@@ -1,0 +1,99 @@
+{
+	"code": "butchertable",
+	"class": "BlockButcherTable",
+	"entityClass": "ButcherTable",
+	"variantGroups": [
+		{
+			"code": "side",
+			"loadFromProperties": "abstract/horizontalorientation"
+		}
+	],
+	"behaviors": [
+		{
+			"name": "HorizontalOrientable"
+		},
+		{
+			"name": "Multiblock",
+			"propertiesByType": {
+				"*-north": {
+					"sizex": 2,
+					"sizey": 1,
+					"sizez": 1,
+					"cposition": {
+						"x": 0,
+						"y": 0,
+						"z": 0
+					}
+				},
+				"*-east": {
+					"sizex": 1,
+					"sizey": 1,
+					"sizez": 2,
+					"cposition": {
+						"x": 0,
+						"y": 0,
+						"z": 0
+					}
+				},
+				"*-south": {
+					"sizex": 2,
+					"sizey": 1,
+					"sizez": 1,
+					"cposition": {
+						"x": 1,
+						"y": 0,
+						"z": 0
+					}
+				},
+				"*-west": {
+					"sizex": 1,
+					"sizey": 1,
+					"sizez": 2,
+					"cposition": {
+						"x": 0,
+						"y": 0,
+						"z": 1
+					}
+				}
+			}
+		}
+	],
+	"creativeinventory": {
+		"general": [
+			"*"
+		],
+		"terrain": [
+			"*"
+		]
+	},
+	"shape": {
+		"base": "butchertable",
+		"rotateYByType": {
+			"*-north": 0,
+			"*-east": 270,
+			"*-south": 180,
+			"*-west": 90
+		}
+	},
+	"drawtype": "json",
+	"blockmaterial": "Wood",
+	"replaceable": 600,
+	"resistance": 3,
+	"heldTpIdleAnimation": "holdbothhandslarge",
+	"heldTpUseAnimation": "twohandplaceblock",
+	"sounds": {
+		"walk": "player/buildhigh"
+	},
+	"sideopaque": {
+		"all": false
+	},
+	"sideao": {
+		"all": true
+	},
+	"emitsideao": {
+		"all": false
+	},
+	"sidesolid": {
+		"all": false
+	}
+}
