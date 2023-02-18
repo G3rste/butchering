@@ -11,6 +11,8 @@ namespace Butchering
         public List<ItemButcherable> butcherableList = new List<ItemButcherable>();
         public List<ItemKnife> knifeList = new List<ItemKnife>();
 
+        public float ButcheringEfficiency => Attributes["butcheringEfficiency"].AsFloat(1f);
+
         public override void OnLoaded(ICoreAPI api)
         {
             base.OnLoaded(api);

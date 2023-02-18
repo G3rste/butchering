@@ -20,7 +20,8 @@ namespace Butchering
         public override void TranslateMesh(MeshData mesh, int index)
         {
             float sideOffset = 1.5f;
-            if(inventory[0].Itemstack?.Item is ItemButcherable butcherable){
+            if (inventory[0].Itemstack?.Item is ItemButcherable butcherable)
+            {
                 sideOffset -= butcherable.Size / 2;
             }
             float heightOffset = 1;
@@ -61,10 +62,13 @@ namespace Butchering
                     inventory[0].TakeOutWhole();
                     updateMesh(0);
                     MarkDirty(true);
+                    float efficiency = (Block as BlockButcherTable).ButcheringEfficiency;
                     foreach (var loot in item.ButcheringRewards)
                     {
                         Api.World.SpawnItemEntity(
-                            new ItemStack(Api.World.GetItem(new AssetLocation(loot.Code)), Api.World.Rand.Next(loot.MinAmount, loot.MaxAmount + 1)),
+                            new ItemStack(Api.World.GetItem(
+                                new AssetLocation(loot.Code)),
+                                Api.World.Rand.Next((int)(loot.MinAmount * efficiency), (int)((loot.MaxAmount + 1) * efficiency))),
                             Pos.ToVec3d().Add(0.5, 1.5, 0.5));
                     }
                     return true;
