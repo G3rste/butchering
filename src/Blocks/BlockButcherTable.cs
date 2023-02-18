@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
+using Vintagestory.API.MathTools;
 using Vintagestory.GameContent;
 
 namespace Butchering
@@ -65,6 +66,15 @@ namespace Butchering
                 };
             }
             return base.GetPlacedBlockInteractionHelp(world, selection, forPlayer);
+        }
+        public override ItemStack[] GetDrops(IWorldAccessor world, BlockPos pos, IPlayer byPlayer, float dropQuantityMultiplier = 1)
+        {
+            ItemStack[] items = new ItemStack[Drops.Length];
+            for (int i = 0; i < Drops.Length; i++)
+            {
+                items[i] = Drops[i].GetNextItemStack();
+            }
+            return items;
         }
     }
 }

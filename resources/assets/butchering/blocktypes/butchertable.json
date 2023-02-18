@@ -2,6 +2,9 @@
 	"code": "butchertable",
 	"class": "BlockButcherTable",
 	"entityClass": "ButcherTable",
+	"attributes": {
+		"butcheringEfficiency": 0.8
+	},
 	"variantGroups": [
 		{
 			"code": "side",
@@ -82,7 +85,7 @@
 	"heldTpIdleAnimation": "holdbothhandslarge",
 	"heldTpUseAnimation": "twohandplaceblock",
 	"sounds": {
-		"walk": "player/buildhigh"
+		"walk": "game:player/buildhigh"
 	},
 	"sideopaque": {
 		"all": false
@@ -95,5 +98,15 @@
 	},
 	"sidesolid": {
 		"all": false
-	}
+	},
+	"drops": [
+		{
+			"type": "item",
+			"code": "game:plank-aged",
+			"quantity": {
+				"avg": 4,
+				"var": 1
+			}
+		}
+	]
 }
