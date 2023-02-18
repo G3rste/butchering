@@ -1,7 +1,5 @@
-using System;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
-using Vintagestory.API.MathTools;
 using Vintagestory.GameContent;
 
 namespace Butchering
@@ -53,6 +51,20 @@ namespace Butchering
                 if (activeSlot.Empty)
                 {
                     return TryTake(byPlayer, blockSel);
+                }
+                else if (activeSlot.Itemstack.Item is ItemKnife)
+                {
+                    var item = inventory[0].Itemstack.Item as ItemButcherable;
+                    inventory[0].TakeOutWhole();
+                    updateMesh(0);
+                    MarkDirty(true);
+                    foreach (var loot in item.ButcheringRewards)
+                    {
+                        Api.World.SpawnItemEntity(
+                            new ItemStack(Api.World.GetItem(new AssetLocation(loot.Code)), Api.World.Rand.Next(loot.MinAmount, loot.MaxAmount + 1)),
+                            Pos.ToVec3d().Add(0.5, 1.5, 0.5));
+                    }
+                    return true;
                 }
             }
             return false;
