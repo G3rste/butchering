@@ -65,10 +65,10 @@ namespace Butchering
                     float efficiency = (Block as BlockButcherTable).ButcheringEfficiency;
                     foreach (var loot in item.ButcheringRewards)
                     {
+                        Api.World.PlaySoundAt(new AssetLocation("sounds/thud"), byPlayer.Entity, byPlayer, false);
                         Api.World.SpawnItemEntity(
-                            new ItemStack(Api.World.GetItem(
-                                new AssetLocation(loot.Code)),
-                                Api.World.Rand.Next((int)(loot.MinAmount * efficiency), (int)((loot.MaxAmount + 1) * efficiency))),
+                            new ItemStack(Api.World.GetItem(new AssetLocation(loot.Code)),
+                                (int)(Api.World.Rand.Next(loot.MinAmount, loot.MaxAmount + 1) * efficiency)),
                             Pos.ToVec3d().Add(0.5, 1.5, 0.5));
                     }
                     return true;
