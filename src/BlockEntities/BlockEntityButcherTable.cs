@@ -43,7 +43,7 @@ namespace Butchering
             }
         }
 
-        internal bool OnInteract(IPlayer byPlayer, BlockSelection blockSel)
+        internal bool OnInteract(IPlayer byPlayer, BlockSelection blockSel, float secondsUsed = 0)
         {
             var activeSlot = byPlayer.InventoryManager.ActiveHotbarSlot;
             if (inventory.Empty && activeSlot.Itemstack?.Collectible is ItemButcherable)
@@ -56,7 +56,7 @@ namespace Butchering
                 {
                     return TryTake(byPlayer, blockSel);
                 }
-                else if (activeSlot.Itemstack.Item is ItemKnife)
+                else if (activeSlot.Itemstack.Item is ItemKnife && secondsUsed >= 4)
                 {
                     var item = inventory[0].Itemstack.Item as ItemButcherable;
                     inventory[0].TakeOutWhole();

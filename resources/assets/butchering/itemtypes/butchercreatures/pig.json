@@ -38,7 +38,8 @@
 			"freshHours": { "avg": 80 },
 			"transitionHours": { "avg": 24 },
 			"transitionedStack": { "type": "item", "code": "game:rot", "quantity": 8 },
-			"transitionRatio": 1}
+			"transitionRatio": 1
+		}
     ],
 	"creativeinventory": { "general": ["*"], "items": ["*"] },
 	"guiTransform": {

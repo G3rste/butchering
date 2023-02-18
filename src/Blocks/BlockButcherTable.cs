@@ -30,13 +30,24 @@ namespace Butchering
         }
         public override bool OnBlockInteractStart(IWorldAccessor world, IPlayer byPlayer, BlockSelection blockSel)
         {
+            if(byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack?.Item is ItemKnife){
+                world.PlaySoundAt(new AssetLocation("sounds/player/scrape"), byPlayer.Entity, byPlayer, false, 12);
+            }
+            return true;
+        }
+
+        public override bool OnBlockInteractStep(float secondsUsed, IWorldAccessor world, IPlayer byPlayer, BlockSelection blockSel)
+        {
+            return secondsUsed < 4 && byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack?.Item is ItemKnife;
+        }
+
+        public override void OnBlockInteractStop(float secondsUsed, IWorldAccessor world, IPlayer byPlayer, BlockSelection blockSel)
+        {
             BlockEntityButcherTable tableEntity = world.BlockAccessor.GetBlockEntity(blockSel.Position) as BlockEntityButcherTable;
             if (tableEntity != null)
             {
-                return tableEntity.OnInteract(byPlayer, blockSel);
+                tableEntity.OnInteract(byPlayer, blockSel, secondsUsed);
             }
-
-            return false;
         }
 
         public override WorldInteraction[] GetPlacedBlockInteractionHelp(IWorldAccessor world, BlockSelection selection, IPlayer forPlayer)
