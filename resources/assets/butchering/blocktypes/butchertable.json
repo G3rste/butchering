@@ -16,7 +16,7 @@
 			"name": "Multiblock",
 			"propertiesByType": {
 				"*-north": {
-					"sizex": 2,
+					"sizex": 3,
 					"sizey": 1,
 					"sizez": 1,
 					"cposition": {
@@ -28,7 +28,7 @@
 				"*-east": {
 					"sizex": 1,
 					"sizey": 1,
-					"sizez": 2,
+					"sizez": 3,
 					"cposition": {
 						"x": 0,
 						"y": 0,
@@ -36,7 +36,7 @@
 					}
 				},
 				"*-south": {
-					"sizex": 2,
+					"sizex": 3,
 					"sizey": 1,
 					"sizez": 1,
 					"cposition": {
@@ -48,7 +48,7 @@
 				"*-west": {
 					"sizex": 1,
 					"sizey": 1,
-					"sizez": 2,
+					"sizez": 3,
 					"cposition": {
 						"x": 0,
 						"y": 0,

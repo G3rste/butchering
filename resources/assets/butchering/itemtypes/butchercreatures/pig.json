@@ -6,6 +6,7 @@
 	"attributes": {
 		"wearableAttachment": true,
 		"attachShape": { "base": "butchering:butchercreatures/pig/carried" },
+		"size": 1.2,
 		"butcheringRewards": [
 			{
 				"Code": "game:redmeat-raw",

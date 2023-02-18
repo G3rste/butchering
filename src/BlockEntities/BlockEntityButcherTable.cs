@@ -19,7 +19,10 @@ namespace Butchering
 
         public override void TranslateMesh(MeshData mesh, int index)
         {
-            float sideOffset = 8f / 16f;
+            float sideOffset = 1.5f;
+            if(inventory[0].Itemstack?.Item is ItemButcherable butcherable){
+                sideOffset -= butcherable.Size / 2;
+            }
             float heightOffset = 1;
 
             switch (Block.Variant["side"])
