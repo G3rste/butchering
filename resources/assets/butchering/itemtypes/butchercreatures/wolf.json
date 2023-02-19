@@ -13,7 +13,7 @@
 		"*": { "skin": { "base": "game:entity/wolf/wolf{texture}" } } 
 	},
 	"attributesByType": {
-	    "*-male-*": {
+	    "deadwolf-male-*": {
 			"size": 0.5,
 			"butcheringRewards": [
 				{
@@ -38,7 +38,7 @@
 				}
 			]
 		},
-		"*-female-*": {
+		"deadwolf-female-*": {
 			"size": 0.5,
 			"butcheringRewards": [
 				{
@@ -63,7 +63,7 @@
 				}
 			]
 		},
-		"*-baby-*": {
+		"deadwolf-baby-*": {
 			"size": 0.5,
 			"butcheringRewards": [
 				{
@@ -86,13 +86,13 @@
 	},
 	
 	"shapeByType": {
-		 "*-male-*": { "base": "butchercreatures/wolf/wolf-male-dead" },
-		 "*-female-*": { "base": "butchercreatures/wolf/wolf-female-dead" },
-		 "*-baby-*": { "base": "butchercreatures/wolf/wolf-pup-dead" }
+		 "deadwolf-male-*": { "base": "butchercreatures/wolf/wolf-male-dead" },
+		 "deadwolf-female-*": { "base": "butchercreatures/wolf/wolf-female-dead" },
+		 "deadwolf-baby-*": { "base": "butchercreatures/wolf/wolf-pup-dead" }
 
 	},
 	"storageFlagsbytype": {
-		"*-baby-*": 2049,
+		"deadwolf-baby-*": 2049,
 		"*": 2050
 	},
     "transitionableProps": [
