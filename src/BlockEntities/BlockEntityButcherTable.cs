@@ -1,5 +1,6 @@
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
+using Vintagestory.API.MathTools;
 using Vintagestory.GameContent;
 
 namespace Butchering
@@ -11,6 +12,8 @@ namespace Butchering
 
         public override string InventoryClassName => "butchertable";
 
+        private float tableWidth => (Block as BlockButcherTable).TableWith;
+
         public BlockEntityButcherTable()
         {
             inventory = new InventoryGeneric(1, "butchertable-0", null, null, (index, self) => new ItemSlotUniversal(self));
@@ -19,7 +22,7 @@ namespace Butchering
 
         public override void TranslateMesh(MeshData mesh, int index)
         {
-            float sideOffset = 1.5f;
+            var sideOffset = tableWidth / 2;
             if (inventory[0].Itemstack?.Item is ItemButcherable butcherable)
             {
                 sideOffset -= butcherable.Size / 2;
@@ -58,6 +61,22 @@ namespace Butchering
                 }
                 else if (activeSlot.Itemstack.Item is ItemKnife knife && secondsUsed >= 5)
                 {
+                    var offset = new Vec3d(0, 1.5, 0);
+                    switch (Block.Variant["side"])
+                    {
+                        case "north":
+                            offset.Add(tableWidth / 2, 0, 0.5);
+                            break;
+                        case "east":
+                            offset.Add(0.5, 0, tableWidth / 2);
+                            break;
+                        case "south":
+                            offset.Add(-tableWidth / 2 + 1, 0, 0.5);
+                            break;
+                        case "west":
+                            offset.Add(0.5, 0, -tableWidth / 2 + 1);
+                            break;
+                    }
                     var item = inventory[0].Itemstack.Item as ItemButcherable;
                     inventory[0].TakeOutWhole();
                     updateMesh(0);
@@ -69,7 +88,7 @@ namespace Butchering
                         Api.World.SpawnItemEntity(
                             new ItemStack(Api.World.GetItem(new AssetLocation(loot.Code)),
                                 (int)(Api.World.Rand.Next(loot.MinAmount, loot.MaxAmount + 1) * efficiency)),
-                            Pos.ToVec3d().Add(0.5, 1.5, 0.5));
+                            Pos.ToVec3d().Add(offset));
                     }
                     return true;
                 }
