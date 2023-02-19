@@ -1,5 +1,6 @@
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
+using Vintagestory.API.Config;
 using Vintagestory.API.MathTools;
 using Vintagestory.GameContent;
 
@@ -49,9 +50,22 @@ namespace Butchering
         internal bool OnInteract(IPlayer byPlayer, BlockSelection blockSel, float secondsUsed = 0)
         {
             var activeSlot = byPlayer.InventoryManager.ActiveHotbarSlot;
-            if (inventory.Empty && activeSlot.Itemstack?.Collectible is ItemButcherable)
+            if (inventory.Empty)
             {
-                return TryPut(byPlayer, blockSel);
+                foreach (var inventory in byPlayer.InventoryManager.Inventories.Values)
+                {
+                    if (inventory.ClassName == GlobalConstants.creativeInvClassName)
+                    {
+                        continue;
+                    }
+                    foreach (var slot in inventory)
+                    {
+                        if (slot.Itemstack?.Collectible is ItemButcherable)
+                        {
+                            return TryPut(byPlayer, blockSel, slot);
+                        }
+                    }
+                }
             }
             if (!inventory.Empty)
             {
@@ -96,9 +110,8 @@ namespace Butchering
             return false;
         }
 
-        private bool TryPut(IPlayer byPlayer, BlockSelection blockSel)
+        private bool TryPut(IPlayer byPlayer, BlockSelection blockSel, ItemSlot slot)
         {
-            var slot = byPlayer.InventoryManager.ActiveHotbarSlot;
             int index = 0;
 
             if (inventory[index].Empty)
