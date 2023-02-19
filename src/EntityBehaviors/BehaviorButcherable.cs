@@ -1,3 +1,4 @@
+using System;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;
@@ -33,7 +34,15 @@ namespace Butchering
                 && entity.GetBehavior<EntityBehaviorHarvestable>()?.IsHarvested != true)
             {
                 handled = EnumHandling.PreventDefault;
-                if(player.Player.InventoryManager.TryGiveItemstack(new ItemStack(item))){
+                var itemWithTexture = string.IsNullOrEmpty(item.Variant["texture"])
+                    ? item
+                    : entity.World.GetItem(item.CodeWithVariant("texture", (entity.WatchedAttributes.GetInt("textureIndex", 0) + 1).ToString()));
+                if (itemWithTexture == null)
+                {
+                    throw new Exception(string.Format("Could not find butchering item {0}", item.CodeWithVariant("texture", (entity.WatchedAttributes.GetInt("textureIndex", 0) + 1).ToString()).Path));
+                }
+                if (player.Player.InventoryManager.TryGiveItemstack(new ItemStack(itemWithTexture)))
+                {
                     entity.Die(EnumDespawnReason.PickedUp);
                 }
             }
