@@ -63,10 +63,7 @@
 	],
 	"creativeinventory": {
 		"general": [
-			"*"
-		],
-		"terrain": [
-			"*"
+			"*-north"
 		]
 	},
 	"shape": {
@@ -82,7 +79,7 @@
 	"blockmaterial": "Wood",
 	"replaceable": 600,
 	"resistance": 3,
-	"heldTpIdleAnimation": "holdbothhandslarge",
+	"heldTpIdleAnimation": "holdunderarm",
 	"heldTpUseAnimation": "twohandplaceblock",
 	"sounds": {
 		"walk": "game:player/buildhigh"
@@ -108,5 +105,14 @@
 				"var": 1
 			}
 		}
-	]
+	],
+	"tpHandTransform": {
+		"translation": { "x": 0, "y": -0.5, "z": -0.7 },
+		"rotation": { "x": 79, "y": 9, "z": -25 },
+		"scale": 0.48
+	},
+	"guiTransform": {
+		"translation": { "x": -10, "y": 5, "z": 0 },
+		"scale": 0.56
+	}
 }

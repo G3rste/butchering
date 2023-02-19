@@ -42,6 +42,7 @@
 		}
     ],
 	"creativeinventory": { "general": ["*"], "items": ["*"] },
+	"heldTpIdleAnimation": "holdunderarm",
 	"guiTransform": {
 		"translation": { "x": 0, "y": 0, "z": 0 },
 		"rotation": { "x": -20, "y": 21, "z": 180 },
@@ -50,13 +51,12 @@
 		"rotate": true
 	},
 	"fpHandTransform": {
-		"translation": { "x": 0, "y": 0, "z": 0.2 },
-		"rotation": { "x": 20, "y": -73, "z": 10 },
-		"scale": 1
+		"translation": { "x": 0, "y": 0, "z": 0 },
+		"rotation": { "x": -132, "y": -180, "z": -18 }
 	},
 	"tpHandTransform": {
-		"translation": { "x": -0.66, "y": -0.5, "z": -0.45 },
-		"rotation": { "x": -89, "y": 67, "z": -91 },
+		"translation": { "x": -0.5, "y": -0.3, "z": -0.7 },
+		"rotation": { "x": -89, "y": -12, "z": 3 },
 		"scale": 0.86
 	},
 	"groundTransform": {
