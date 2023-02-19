@@ -30,7 +30,10 @@ namespace Butchering
         }
         public override bool OnBlockInteractStart(IWorldAccessor world, IPlayer byPlayer, BlockSelection blockSel)
         {
-            if(byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack?.Item is ItemKnife){
+            BlockEntityButcherTable tableEntity = world.BlockAccessor.GetBlockEntity(blockSel.Position) as BlockEntityButcherTable;
+            if (byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack?.Item is ItemKnife 
+                && tableEntity?.Inventory?.Empty == false)
+            {
                 world.PlaySoundAt(new AssetLocation("sounds/player/scrape"), byPlayer.Entity, byPlayer, false, 12);
             }
             return true;
@@ -38,7 +41,7 @@ namespace Butchering
 
         public override bool OnBlockInteractStep(float secondsUsed, IWorldAccessor world, IPlayer byPlayer, BlockSelection blockSel)
         {
-            return secondsUsed < 4 && byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack?.Item is ItemKnife;
+            return secondsUsed < 5.5 && byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack?.Item is ItemKnife;
         }
 
         public override void OnBlockInteractStop(float secondsUsed, IWorldAccessor world, IPlayer byPlayer, BlockSelection blockSel)

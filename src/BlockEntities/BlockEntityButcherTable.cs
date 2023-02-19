@@ -56,7 +56,7 @@ namespace Butchering
                 {
                     return TryTake(byPlayer, blockSel);
                 }
-                else if (activeSlot.Itemstack.Item is ItemKnife && secondsUsed >= 4)
+                else if (activeSlot.Itemstack.Item is ItemKnife knife && secondsUsed >= 5)
                 {
                     var item = inventory[0].Itemstack.Item as ItemButcherable;
                     inventory[0].TakeOutWhole();
