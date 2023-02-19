@@ -1,5 +1,5 @@
 {
-	"code": "dead-chicken",
+	"code": "deadchicken",
 	"class": "butcherable",
 	"variantgroups": [
 		{ "code": "type", "states": [ "male", "female", "baby"] }

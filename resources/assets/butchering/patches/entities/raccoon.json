@@ -4,7 +4,7 @@
         "path": "/server/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-raccoon-female"
+            "item": "butchering:deadraccoon-female"
         },
         "file": "game:entities/land/raccoon-female.json"
     },
@@ -13,7 +13,7 @@
         "path": "/client/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-raccoon-female"
+            "item": "butchering:deadraccoon-female"
         },
         "file": "game:entities/land/raccoon-female.json"
     },
@@ -22,7 +22,7 @@
         "path": "/server/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-raccoon-male"
+            "item": "butchering:deadraccoon-male"
         },
         "file": "game:entities/land/raccoon-male.json"
     },
@@ -31,7 +31,7 @@
         "path": "/client/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-raccoon-male"
+            "item": "butchering:deadraccoon-male"
         },
         "file": "game:entities/land/raccoon-male.json"
     },
@@ -40,7 +40,7 @@
         "path": "/server/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-raccoon-baby"
+            "item": "butchering:deadraccoon-baby"
         },
         "file": "game:entities/land/raccoon-pup.json"
     },
@@ -49,7 +49,7 @@
         "path": "/client/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-raccoon-baby"
+            "item": "butchering:deadraccoon-baby"
         },
         "file": "game:entities/land/raccoon-pup.json"
     },

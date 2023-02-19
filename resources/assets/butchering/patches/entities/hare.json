@@ -4,7 +4,7 @@
         "path": "/server/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-hare-female"
+            "item": "butchering:deadhare-female"
         },
         "file": "game:entities/land/hare-female.json"
     },
@@ -13,7 +13,7 @@
         "path": "/client/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-hare-female"
+            "item": "butchering:deadhare-female"
         },
         "file": "game:entities/land/hare-female.json"
     },
@@ -22,7 +22,7 @@
         "path": "/server/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-hare-male"
+            "item": "butchering:deadhare-male"
         },
         "file": "game:entities/land/hare-male.json"
     },
@@ -31,7 +31,7 @@
         "path": "/client/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-hare-male"
+            "item": "butchering:deadhare-male"
         },
         "file": "game:entities/land/hare-male.json"
     },
@@ -40,7 +40,7 @@
         "path": "/server/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-hare-baby"
+            "item": "butchering:deadhare-baby"
         },
         "file": "game:entities/land/hare-baby.json"
     },
@@ -49,7 +49,7 @@
         "path": "/client/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-hare-baby"
+            "item": "butchering:deadhare-baby"
         },
         "file": "game:entities/land/hare-baby.json"
     },

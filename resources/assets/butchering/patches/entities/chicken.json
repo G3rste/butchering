@@ -4,7 +4,7 @@
         "path": "/server/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-chicken-female"
+            "item": "butchering:deadchicken-female"
         },
         "file": "game:entities/land/chicken-hen.json"
     },
@@ -13,7 +13,7 @@
         "path": "/client/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-chicken-female"
+            "item": "butchering:deadchicken-female"
         },
         "file": "game:entities/land/chicken-hen.json"
     },
@@ -22,7 +22,7 @@
         "path": "/server/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-chicken-male"
+            "item": "butchering:deadchicken-male"
         },
         "file": "game:entities/land/chicken-rooster.json"
     },
@@ -31,7 +31,7 @@
         "path": "/client/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-chicken-male"
+            "item": "butchering:deadchicken-male"
         },
         "file": "game:entities/land/chicken-rooster.json"
     },
@@ -40,7 +40,7 @@
         "path": "/server/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-chicken-baby"
+            "item": "butchering:deadchicken-baby"
         },
         "file": "game:entities/land/chicken-baby.json"
     },
@@ -49,7 +49,7 @@
         "path": "/client/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-chicken-baby"
+            "item": "butchering:deadchicken-baby"
         },
         "file": "game:entities/land/chicken-baby.json"
     },

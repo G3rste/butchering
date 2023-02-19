@@ -1,5 +1,5 @@
 {
-	"code": "dead-bear",
+	"code": "deadbear",
 	"class": "butcherable",
 	"variantgroups": [
 		{ "code": "type", "states": [ "male", "female" ] }

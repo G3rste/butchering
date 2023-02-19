@@ -1,5 +1,5 @@
 {
-	"code": "dead-raccoon",
+	"code": "deadraccoon",
 	"class": "butcherable",
 	"variantgroups": [
 		{ "code": "type", "states": [ "male", "female", "baby"] }

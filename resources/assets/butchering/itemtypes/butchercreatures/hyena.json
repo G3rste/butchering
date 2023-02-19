@@ -1,5 +1,5 @@
 {
-	"code": "dead-hyena",
+	"code": "deadhyena",
 	"class": "butcherable",
 	"variantgroups": [
 		{ "code": "type", "states": [ "male", "female", "baby"] }

@@ -4,7 +4,7 @@
         "path": "/server/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-wolf-female"
+            "item": "butchering:deadwolf-female-1"
         },
         "file": "game:entities/land/wolf-female.json"
     },
@@ -13,7 +13,7 @@
         "path": "/client/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-wolf-female"
+            "item": "butchering:deadwolf-female-1"
         },
         "file": "game:entities/land/wolf-female.json"
     },
@@ -22,7 +22,7 @@
         "path": "/server/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-wolf-male"
+            "item": "butchering:deadwolf-male-1"
         },
         "file": "game:entities/land/wolf-male.json"
     },
@@ -31,7 +31,7 @@
         "path": "/client/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-wolf-male"
+            "item": "butchering:deadwolf-male-1"
         },
         "file": "game:entities/land/wolf-male.json"
     },
@@ -40,7 +40,7 @@
         "path": "/server/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-wolf-baby"
+            "item": "butchering:deadwolf-baby-1"
         },
         "file": "game:entities/land/wolf-pup.json"
     },
@@ -49,7 +49,7 @@
         "path": "/client/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-wolf-baby"
+            "item": "butchering:deadwolf-baby-1"
         },
         "file": "game:entities/land/wolf-pup.json"
     },
