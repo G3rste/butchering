@@ -1,0 +1,104 @@
+[
+    {
+        "op": "add",
+        "path": "/server/behaviors/-",
+        "value": {
+            "code": "butcherable",
+            "item": "butchering:dead-chicken-female"
+        },
+        "file": "game:entities/land/chicken-hen.json"
+    },
+    {
+        "op": "add",
+        "path": "/client/behaviors/-",
+        "value": {
+            "code": "butcherable",
+            "item": "butchering:dead-chicken-female"
+        },
+        "file": "game:entities/land/chicken-hen.json"
+    },
+    {
+        "op": "add",
+        "path": "/server/behaviors/-",
+        "value": {
+            "code": "butcherable",
+            "item": "butchering:dead-chicken-male"
+        },
+        "file": "game:entities/land/chicken-rooster.json"
+    },
+    {
+        "op": "add",
+        "path": "/client/behaviors/-",
+        "value": {
+            "code": "butcherable",
+            "item": "butchering:dead-chicken-male"
+        },
+        "file": "game:entities/land/chicken-rooster.json"
+    },
+    {
+        "op": "add",
+        "path": "/server/behaviors/-",
+        "value": {
+            "code": "butcherable",
+            "item": "butchering:dead-chicken-baby"
+        },
+        "file": "game:entities/land/chicken-baby.json"
+    },
+    {
+        "op": "add",
+        "path": "/client/behaviors/-",
+        "value": {
+            "code": "butcherable",
+            "item": "butchering:dead-chicken-baby"
+        },
+        "file": "game:entities/land/chicken-baby.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/6/drops/0/quantityByType/*-roosterpoult/avg",
+        "value": 4.5,
+        "file": "game:entities/land/chicken-rooster.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/6/drops/0/quantityByType/*/avg",
+        "value": 0.5,
+        "file": "game:entities/land/chicken-rooster.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/6/drops/1/quantity/avg",
+        "value": 1,
+        "file": "game:entities/land/chicken-rooster.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/6/drops/2/quantity/avg",
+        "value": 1.7,
+        "file": "game:entities/land/chicken-rooster.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/5/drops/0/quantityByType/*-henpoult/avg",
+        "value": 4.5,
+        "file": "game:entities/land/chicken-hen.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/5/drops/0/quantityByType/*/avg",
+        "value": 10,
+        "file": "game:entities/land/chicken-hen.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/5/drops/1/quantity/avg",
+        "value": 10,
+        "file": "game:entities/land/chicken-hen.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/5/drops/2/quantity/avg",
+        "value": 10,
+        "file": "game:entities/land/chicken-hen.json"
+    }
+]

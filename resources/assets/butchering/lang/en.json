@@ -1,6 +1,18 @@
 {
-    "item-dead-pig": "Pig (dead)",
+    "item-dead-bear-*": "Bear (dead)",
+    "item-dead-chicken-*": "Chicken (dead)",
+    "item-dead-fox-*": "Fox (dead)",
+    "item-dead-gazelle-*": "Gazelle (dead)",
+    "item-dead-hare-*": "Hare (dead)",
+    "item-dead-hyena-*": "Hyena (dead)",
+    "item-dead-pig-*": "Pig (dead)",
+    "item-dead-raccoon-*": "Raccoon (dead)",
+    "item-dead-sheep-*": "Sheep (dead)",
+    "item-dead-wolf-*": "Wolf (dead)",
+
     "block-butchertable-*": "Butchering Table",
+    "block-butchertableprimitive-*": "Primitive Butchering Table",
+
     "right-click-pick-up-empty-slot": "Pick up into an empty slot",
     "right-click-pick-up-empty-backpack-slot": "Pick up into an empty backpack slot",
     "put-creature-on-table": "Put creature on table",

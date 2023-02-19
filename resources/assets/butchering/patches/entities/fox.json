@@ -4,107 +4,101 @@
         "path": "/server/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-pig-female"
+            "item": "butchering:dead-fox-female"
         },
-        "file": "game:entities/land/pig-wild-female.json"
+        "file": "game:entities/land/fox-female.json"
     },
     {
         "op": "add",
         "path": "/client/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-pig-female"
+            "item": "butchering:dead-fox-female"
         },
-        "file": "game:entities/land/pig-wild-female.json"
+        "file": "game:entities/land/fox-female.json"
     },
     {
         "op": "add",
         "path": "/server/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-pig-male"
+            "item": "butchering:dead-fox-male"
         },
-        "file": "game:entities/land/pig-wild-male.json"
+        "file": "game:entities/land/fox-male.json"
     },
     {
         "op": "add",
         "path": "/client/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-pig-male"
+            "item": "butchering:dead-fox-male"
         },
-        "file": "game:entities/land/pig-wild-male.json"
+        "file": "game:entities/land/fox-male.json"
     },
     {
         "op": "add",
         "path": "/server/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-pig-baby"
+            "item": "butchering:dead-fox-baby"
         },
-        "file": "game:entities/land/pig-wild-piglet.json"
+        "file": "game:entities/land/fox-pup.json"
     },
     {
         "op": "add",
         "path": "/client/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-pig-baby"
+            "item": "butchering:dead-fox-baby"
         },
-        "file": "game:entities/land/pig-wild-piglet.json"
+        "file": "game:entities/land/fox-pup.json"
     },
     {
         "op": "replace",
         "path": "/server/behaviors/6/drops/0/quantity/avg",
         "value": 4.5,
-        "file": "game:entities/land/pig-wild-male.json"
+        "file": "game:entities/land/fox-male.json"
     },
     {
         "op": "replace",
         "path": "/server/behaviors/6/drops/1/quantity/avg",
-        "value": 0,
-        "file": "game:entities/land/pig-wild-male.json"
+        "value": 0.5,
+        "file": "game:entities/land/fox-male.json"
     },
     {
         "op": "replace",
         "path": "/server/behaviors/6/drops/2/quantity/avg",
-        "value": 0,
-        "file": "game:entities/land/pig-wild-male.json"
+        "value": 1,
+        "file": "game:entities/land/fox-male.json"
     },
     {
         "op": "replace",
         "path": "/server/behaviors/6/drops/3/quantity/avg",
         "value": 1.7,
-        "file": "game:entities/land/pig-wild-male.json"
+        "file": "game:entities/land/fox-male.json"
     },
     {
         "op": "replace",
         "path": "/server/behaviors/6/drops/0/quantity/avg",
         "value": 4.5,
-        "file": "game:entities/land/pig-wild-female.json"
+        "file": "game:entities/land/fox-female.json"
     },
     {
         "op": "replace",
         "path": "/server/behaviors/6/drops/1/quantity/avg",
-        "value": 0,
-        "file": "game:entities/land/pig-wild-female.json"
+        "value": 0.5,
+        "file": "game:entities/land/fox-female.json"
     },
     {
         "op": "replace",
         "path": "/server/behaviors/6/drops/2/quantity/avg",
-        "value": 0,
-        "file": "game:entities/land/pig-wild-female.json"
+        "value": 1,
+        "file": "game:entities/land/fox-female.json"
     },
     {
         "op": "replace",
         "path": "/server/behaviors/6/drops/3/quantity/avg",
         "value": 1.7,
-        "file": "game:entities/land/pig-wild-female.json"
-    },
-    {
-        "op": "replace",
-        "path": "/server/behaviors/6/drops/0/quantity/avg",
-        "value": 0,
-        "file": "game:entities/land/pig-wild-piglet.json"
+        "file": "game:entities/land/fox-female.json"
     }
 ]

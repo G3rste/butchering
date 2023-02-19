@@ -1,0 +1,80 @@
+[
+    {
+        "op": "add",
+        "path": "/server/behaviors/-",
+        "value": {
+            "code": "butcherable",
+            "item": "butchering:dead-hare-female"
+        },
+        "file": "game:entities/land/hare-female.json"
+    },
+    {
+        "op": "add",
+        "path": "/client/behaviors/-",
+        "value": {
+            "code": "butcherable",
+            "item": "butchering:dead-hare-female"
+        },
+        "file": "game:entities/land/hare-female.json"
+    },
+    {
+        "op": "add",
+        "path": "/server/behaviors/-",
+        "value": {
+            "code": "butcherable",
+            "item": "butchering:dead-hare-male"
+        },
+        "file": "game:entities/land/hare-male.json"
+    },
+    {
+        "op": "add",
+        "path": "/client/behaviors/-",
+        "value": {
+            "code": "butcherable",
+            "item": "butchering:dead-hare-male"
+        },
+        "file": "game:entities/land/hare-male.json"
+    },
+    {
+        "op": "add",
+        "path": "/server/behaviors/-",
+        "value": {
+            "code": "butcherable",
+            "item": "butchering:dead-hare-baby"
+        },
+        "file": "game:entities/land/hare-baby.json"
+    },
+    {
+        "op": "add",
+        "path": "/client/behaviors/-",
+        "value": {
+            "code": "butcherable",
+            "item": "butchering:dead-hare-baby"
+        },
+        "file": "game:entities/land/hare-baby.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/6/drops/0/quantity/avg",
+        "value": 1,
+        "file": "game:entities/land/hare-male.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/6/drops/1/quantity/avg",
+        "value": 0,
+        "file": "game:entities/land/hare-male.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/6/drops/0/quantity/avg",
+        "value": 1,
+        "file": "game:entities/land/hare-female.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/6/drops/1/quantity/avg",
+        "value": 0,
+        "file": "game:entities/land/hare-female.json"
+    }
+]

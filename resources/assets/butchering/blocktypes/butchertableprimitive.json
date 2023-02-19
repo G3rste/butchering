@@ -1,5 +1,5 @@
 {
-	"code": "butchertable",
+	"code": "butchertableprimitive",
 	"class": "BlockButcherTable",
 	"entityClass": "ButcherTable",
 	"attributes": {
@@ -68,7 +68,7 @@
 		]
 	},
 	"shape": {
-		"base": "butcherytables/butcherytable",
+		"base": "butcherytables/butcherytableprimitive",
 		"rotateYByType": {
 			"*-north": 0,
 			"*-east": 270,

@@ -4,107 +4,101 @@
         "path": "/server/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-pig-female"
+            "item": "butchering:dead-hyena-female"
         },
-        "file": "game:entities/land/pig-wild-female.json"
+        "file": "game:entities/land/hyena-female.json"
     },
     {
         "op": "add",
         "path": "/client/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-pig-female"
+            "item": "butchering:dead-hyena-female"
         },
-        "file": "game:entities/land/pig-wild-female.json"
+        "file": "game:entities/land/hyena-female.json"
     },
     {
         "op": "add",
         "path": "/server/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-pig-male"
+            "item": "butchering:dead-hyena-male"
         },
-        "file": "game:entities/land/pig-wild-male.json"
+        "file": "game:entities/land/hyena-male.json"
     },
     {
         "op": "add",
         "path": "/client/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-pig-male"
+            "item": "butchering:dead-hyena-male"
         },
-        "file": "game:entities/land/pig-wild-male.json"
+        "file": "game:entities/land/hyena-male.json"
     },
     {
         "op": "add",
         "path": "/server/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-pig-baby"
+            "item": "butchering:dead-hyena-baby"
         },
-        "file": "game:entities/land/pig-wild-piglet.json"
+        "file": "game:entities/land/hyena-pup.json"
     },
     {
         "op": "add",
         "path": "/client/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:dead-pig-baby"
+            "item": "butchering:dead-hyena-baby"
         },
-        "file": "game:entities/land/pig-wild-piglet.json"
+        "file": "game:entities/land/hyena-pup.json"
     },
     {
         "op": "replace",
         "path": "/server/behaviors/6/drops/0/quantity/avg",
         "value": 4.5,
-        "file": "game:entities/land/pig-wild-male.json"
+        "file": "game:entities/land/hyena-male.json"
     },
     {
         "op": "replace",
         "path": "/server/behaviors/6/drops/1/quantity/avg",
-        "value": 0,
-        "file": "game:entities/land/pig-wild-male.json"
+        "value": 0.5,
+        "file": "game:entities/land/hyena-male.json"
     },
     {
         "op": "replace",
         "path": "/server/behaviors/6/drops/2/quantity/avg",
         "value": 0,
-        "file": "game:entities/land/pig-wild-male.json"
+        "file": "game:entities/land/hyena-male.json"
     },
     {
         "op": "replace",
         "path": "/server/behaviors/6/drops/3/quantity/avg",
-        "value": 1.7,
-        "file": "game:entities/land/pig-wild-male.json"
+        "value": 1,
+        "file": "game:entities/land/hyena-male.json"
     },
     {
         "op": "replace",
         "path": "/server/behaviors/6/drops/0/quantity/avg",
         "value": 4.5,
-        "file": "game:entities/land/pig-wild-female.json"
+        "file": "game:entities/land/hyena-female.json"
     },
     {
         "op": "replace",
         "path": "/server/behaviors/6/drops/1/quantity/avg",
         "value": 0,
-        "file": "game:entities/land/pig-wild-female.json"
+        "file": "game:entities/land/hyena-female.json"
     },
     {
         "op": "replace",
         "path": "/server/behaviors/6/drops/2/quantity/avg",
         "value": 0,
-        "file": "game:entities/land/pig-wild-female.json"
+        "file": "game:entities/land/hyena-female.json"
     },
     {
         "op": "replace",
         "path": "/server/behaviors/6/drops/3/quantity/avg",
-        "value": 1.7,
-        "file": "game:entities/land/pig-wild-female.json"
-    },
-    {
-        "op": "replace",
-        "path": "/server/behaviors/6/drops/0/quantity/avg",
-        "value": 0,
-        "file": "game:entities/land/pig-wild-piglet.json"
+        "value": 1,
+        "file": "game:entities/land/hyena-female.json"
     }
 ]
