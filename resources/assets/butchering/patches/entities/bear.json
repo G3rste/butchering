@@ -1,0 +1,116 @@
+[
+    {
+        "op": "add",
+        "path": "/server/behaviors/-",
+        "value": {
+            "code": "butcherable",
+            "item": "butchering:deadbear-male-{type}-1"
+        },
+        "file": "game:entities/land/bear.json"
+    },
+    {
+        "op": "add",
+        "path": "/client/behaviors/-",
+        "value": {
+            "code": "butcherable",
+            "item": "butchering:deadbear-male-{type}-1"
+        },
+        "file": "game:entities/land/bear.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/6/drops/0/quantityByType/*-black/avg",
+        "value": 6,
+        "file": "game:entities/land/bear.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/6/drops/0/quantityByType/*-brown/avg",
+        "value": 8,
+        "file": "game:entities/land/bear.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/6/drops/0/quantityByType/*-sun/avg",
+        "value": 4.5,
+        "file": "game:entities/land/bear.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/6/drops/0/quantityByType/*-panda/avg",
+        "value": 5,
+        "file": "game:entities/land/bear.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/6/drops/0/quantityByType/*-polar/avg",
+        "value": 11,
+        "file": "game:entities/land/bear.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/6/drops/1/quantityByType/*-black/avg",
+        "value": 0,
+        "file": "game:entities/land/bear.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/6/drops/1/quantityByType/*-brown/avg",
+        "value": 0,
+        "file": "game:entities/land/bear.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/6/drops/1/quantityByType/*-sun/avg",
+        "value": 0,
+        "file": "game:entities/land/bear.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/6/drops/1/quantityByType/*-panda/avg",
+        "value": 0,
+        "file": "game:entities/land/bear.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/6/drops/1/quantityByType/*-polar/avg",
+        "value": 0,
+        "file": "game:entities/land/bear.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/6/drops/2/quantityByType/*-black/avg",
+        "value": 0,
+        "file": "game:entities/land/bear.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/6/drops/2/quantityByType/*-brown/avg",
+        "value": 0,
+        "file": "game:entities/land/bear.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/6/drops/2/quantityByType/*-sun/avg",
+        "value": 0,
+        "file": "game:entities/land/bear.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/6/drops/2/quantityByType/*-panda/avg",
+        "value": 0,
+        "file": "game:entities/land/bear.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/6/drops/2/quantityByType/*-polar/avg",
+        "value": 0,
+        "file": "game:entities/land/bear.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/6/drops/3/quantity/avg",
+        "value": 2,
+        "file": "game:entities/land/bear.json"
+    }
+]

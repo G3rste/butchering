@@ -4,7 +4,7 @@
         "path": "/server/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:deadfox-female"
+            "item": "butchering:deadfox-female-forest"
         },
         "file": "game:entities/land/fox-female.json"
     },
@@ -13,7 +13,7 @@
         "path": "/client/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:deadfox-female"
+            "item": "butchering:deadfox-female-forest"
         },
         "file": "game:entities/land/fox-female.json"
     },
@@ -22,7 +22,7 @@
         "path": "/server/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:deadfox-male"
+            "item": "butchering:deadfox-male-forest"
         },
         "file": "game:entities/land/fox-male.json"
     },
@@ -31,7 +31,7 @@
         "path": "/client/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:deadfox-male"
+            "item": "butchering:deadfox-male-forest"
         },
         "file": "game:entities/land/fox-male.json"
     },
@@ -40,7 +40,7 @@
         "path": "/server/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:deadfox-baby"
+            "item": "butchering:deadfox-baby-forest"
         },
         "file": "game:entities/land/fox-pup.json"
     },
@@ -49,9 +49,45 @@
         "path": "/client/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:deadfox-baby"
+            "item": "butchering:deadfox-baby-forest"
         },
         "file": "game:entities/land/fox-pup.json"
+    },
+    {
+        "op": "add",
+        "path": "/server/behaviors/-",
+        "value": {
+            "code": "butcherable",
+            "item": "butchering:deadfox-female-arctic"
+        },
+        "file": "game:entities/land/fox-arctic-female.json"
+    },
+    {
+        "op": "add",
+        "path": "/client/behaviors/-",
+        "value": {
+            "code": "butcherable",
+            "item": "butchering:deadfox-female-arctic"
+        },
+        "file": "game:entities/land/fox-arctic-female.json"
+    },
+    {
+        "op": "add",
+        "path": "/server/behaviors/-",
+        "value": {
+            "code": "butcherable",
+            "item": "butchering:deadfox-male-arctic"
+        },
+        "file": "game:entities/land/fox-arctic-male.json"
+    },
+    {
+        "op": "add",
+        "path": "/client/behaviors/-",
+        "value": {
+            "code": "butcherable",
+            "item": "butchering:deadfox-male-arctic"
+        },
+        "file": "game:entities/land/fox-arctic-male.json"
     },
     {
         "op": "replace",
@@ -100,5 +136,54 @@
         "path": "/server/behaviors/6/drops/3/quantity/avg",
         "value": 1.7,
         "file": "game:entities/land/fox-female.json"
+    },
+
+    {
+        "op": "replace",
+        "path": "/server/behaviors/6/drops/0/quantity/avg",
+        "value": 4.5,
+        "file": "game:entities/land/fox-arctic-male.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/6/drops/1/quantity/avg",
+        "value": 0.5,
+        "file": "game:entities/land/fox-arctic=male.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/6/drops/2/quantity/avg",
+        "value": 1,
+        "file": "game:entities/land/fox-arctic-male.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/6/drops/3/quantity/avg",
+        "value": 1.7,
+        "file": "game:entities/land/fox-arctic-male.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/6/drops/0/quantity/avg",
+        "value": 4.5,
+        "file": "game:entities/land/fox-arctic-female.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/6/drops/1/quantity/avg",
+        "value": 0.5,
+        "file": "game:entities/land/fox-arctic-female.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/6/drops/2/quantity/avg",
+        "value": 1,
+        "file": "game:entities/land/fox-arctic-female.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/6/drops/3/quantity/avg",
+        "value": 1.7,
+        "file": "game:entities/land/fox-arctic-female.json"
     }
 ]

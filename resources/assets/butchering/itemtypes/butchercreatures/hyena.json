@@ -2,12 +2,19 @@
 	"code": "deadhyena",
 	"class": "butcherable",
 	"variantgroups": [
-		{ "code": "type", "states": [ "male", "female", "baby"] }
+		{ "code": "type", "states": [ "male", "female", "baby"] },
+		{ "code": "texture", "states": [ "1", "2" ] }
 	],
+	"allowedVariants": [ "deadhyena-male-1", "deadhyena-female-*", "deadhyena-baby-1" ],
 	"maxstacksize": 1,
 	"behaviors": [{ "name": "GroundStorable", "properties": { "layout": "SingleCenter", "collisionBox": { "x1": 0.2, "y1": 0, "z1": 0.2, "x2": 0.8, "y2": 0.5, "z2": 0.8 }}}],
+	"texturesByType": { 
+		"deadhyena-male-1*": { "hyena": { "base": "game:entity/hyena/hyena-male1" } },
+		"deadhyena-female-*": { "hyena": { "base": "game:entity/hyena/hyena-female{texture}" } },
+		"deadhyena-baby-1": { "hyena": { "base": "game:entity/hyena/pup" } }
+	},
 	"attributesByType": {
-	    "*-male": {
+	    "deadhyena-male-*": {
 			"size": 0.5,
 			"butcheringRewards": [
 				{
@@ -32,7 +39,7 @@
 				}
 			]
 		},
-		"*-female": {
+		"deadhyena-female-*": {
 			"size": 0.5,
 			"butcheringRewards": [
 				{
@@ -57,7 +64,7 @@
 				}
 			]
 		},
-		"*-baby": {
+		"deadhyena-baby-*": {
 			"size": 0.5,
 			"butcheringRewards": [
 				{
@@ -80,9 +87,9 @@
 	},
 	
 	"shapeByType": {
-		 "*-male": { "base": "butchercreatures/hyena/hyena-male-dead" },
-		 "*-female": { "base": "butchercreatures/hyena/hyena-female-dead" },
-		 "*-baby": { "base": "butchercreatures/hyena/hyena-pup-dead" }
+		 "deadhyena-male-*": { "base": "butchercreatures/hyena/hyena-male-dead" },
+		 "deadhyena-female-*": { "base": "butchercreatures/hyena/hyena-female-dead" },
+		 "deadhyena-baby-*": { "base": "butchercreatures/hyena/hyena-pup-dead" }
 
 	},
 	"storageFlagsbytype": {

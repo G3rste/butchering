@@ -4,7 +4,7 @@
         "path": "/server/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:deadhyena-female"
+            "item": "butchering:deadhyena-female-1"
         },
         "file": "game:entities/land/hyena-female.json"
     },
@@ -13,7 +13,7 @@
         "path": "/client/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:deadhyena-female"
+            "item": "butchering:deadhyena-female-1"
         },
         "file": "game:entities/land/hyena-female.json"
     },
@@ -22,7 +22,7 @@
         "path": "/server/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:deadhyena-male"
+            "item": "butchering:deadhyena-male-1"
         },
         "file": "game:entities/land/hyena-male.json"
     },
@@ -31,7 +31,7 @@
         "path": "/client/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:deadhyena-male"
+            "item": "butchering:deadhyena-male-1"
         },
         "file": "game:entities/land/hyena-male.json"
     },
@@ -40,7 +40,7 @@
         "path": "/server/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:deadhyena-baby"
+            "item": "butchering:deadhyena-baby-1"
         },
         "file": "game:entities/land/hyena-pup.json"
     },
@@ -49,7 +49,7 @@
         "path": "/client/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:deadhyena-baby"
+            "item": "butchering:deadhyena-baby-1"
         },
         "file": "game:entities/land/hyena-pup.json"
     },

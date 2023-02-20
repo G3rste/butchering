@@ -2,12 +2,20 @@
 	"code": "deadhare",
 	"class": "butcherable",
 	"variantgroups": [
-		{ "code": "type", "states": [ "male", "female", "baby"] }
+		{ "code": "type", "states": [ "male", "female", "baby"] },
+		{ "code": "skin", "states": [ "arctic", "ashgrey", "darkbrown", "darkgrey", "desert", "gold", "lightbrown", "lightgrey", "silver", "smokegrey", "brown" ] }
 	],
+	"skipVariants": [ "deadhare-male-brown", "deadhare-female-brown" ],
+	"allowedVariants": [ "deadhare-male-*", "deadhare-female-*", "deadhare-baby-brown" ],
 	"maxstacksize": 1,
 	"behaviors": [{ "name": "GroundStorable", "properties": { "layout": "SingleCenter", "collisionBox": { "x1": 0.2, "y1": 0, "z1": 0.2, "x2": 0.8, "y2": 0.5, "z2": 0.8 }}}],
+	"texturesByType": { 
+		"deadhare-male-*": { "skin": { "base": "game:entity/hare/male-{skin}" } },
+		"deadhare-female-*": { "skin": { "base": "game:entity/hare/female-{skin}" } } ,
+		"deadhare-baby-*": { "hare": { "base": "game:entity/hare/baby-{skin}" } } 
+	},
 	"attributesByType": {
-	    "*-male": {
+	    "deadhare-male-*": {
 			"size": 0.5,
 			"butcheringRewards": [
 				{
@@ -32,7 +40,7 @@
 				}
 			]
 		},
-		"*-female": {
+		"deadhare-female-*": {
 			"size": 0.5,
 			"butcheringRewards": [
 				{
@@ -57,7 +65,7 @@
 				}
 			]
 		},
-		"*-baby": {
+		"deadhare-baby-*": {
 			"size": 0.5,
 			"butcheringRewards": [
 				{
@@ -80,9 +88,9 @@
 	},
 	
 	"shapeByType": {
-		 "*-male": { "base": "butchercreatures/hare/hare-male-dead" },
-		 "*-female": { "base": "butchercreatures/hare/hare-female-dead" },
-		 "*-baby": { "base": "butchercreatures/hare/hare-baby-dead" }
+		 "deadhare-male-*": { "base": "butchercreatures/hare/hare-male-dead" },
+		 "deadhare-female-*": { "base": "butchercreatures/hare/hare-female-dead" },
+		 "deadhare-baby-*": { "base": "butchercreatures/hare/hare-baby-dead" }
 
 	},
 	"storageFlagsbytype": {

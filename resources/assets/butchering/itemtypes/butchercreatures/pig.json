@@ -2,14 +2,19 @@
 	"code": "deadpig",
 	"class": "butcherable",
 	"variantgroups": [
-		{ "code": "type", "states": [ "male", "female", "baby"] }
+		{ "code": "type", "states": [ "male", "female", "baby"] },
+		{ "code": "texture", "states": [ "1", "2", "3", "4", "5"  ] }
 	],
+	"allowedVariants": [ "deadpig-male-*", "deadpig-female-1", "deadpig-baby-1" ],
 	"maxstacksize": 1,
 	"behaviors": [{ "name": "GroundStorable", "properties": { "layout": "SingleCenter", "collisionBox": { "x1": 0.2, "y1": 0, "z1": 0.2, "x2": 0.8, "y2": 0.5, "z2": 0.8 }}}],
+	"texturesByType": { 
+		"deadpig-male-*": { "boar": { "base": "game:entity/pig/pig-wild-male{texture}" } },
+		"deadpig-female-1": { "sow": { "base": "game:entity/pig/pig-wild-female1" } },
+		"deadpig-baby-1": { "piglet": { "base": "game:entity/pig/pig-wild-piglet" } }
+	},
 	"attributesByType": {
-	    "*-male": {
-			"wearableAttachment": true,
-			"attachShape": { "base": "butchering:butchercreatures/pig/carried" },
+	    "deadpig-male-*": {
 			"size": 0.5,
 			"butcheringRewards": [
 				{
@@ -34,9 +39,7 @@
 				}
 			]
 		},
-		"*-female": {
-			"wearableAttachment": true,
-			"attachShape": { "base": "butchering:butchercreatures/pig/carried" },
+		"deadpig-female-*": {
 			"size": 0.5,
 			"butcheringRewards": [
 				{
@@ -61,9 +64,7 @@
 				}
 			]
 		},
-		"*-baby": {
-			"wearableAttachment": true,
-			"attachShape": { "base": "butchering:butchercreatures/pig/carried" },
+		"deadpig-baby-*": {
 			"size": 0.5,
 			"butcheringRewards": [
 				{
@@ -86,10 +87,9 @@
 	},
 	
 	"shapeByType": {
-		 "*-male": { "base": "butchercreatures/pig/pig-wild-male-dead" },
-		 "*-female": { "base": "butchercreatures/pig/pig-wild-female-dead" },
-		 "*-baby": { "base": "butchercreatures/pig/pig-wild-piglet-dead" }
-
+		 "deadpig-male-*": { "base": "butchercreatures/pig/pig-wild-male-dead" },
+		 "deadpig-female-*": { "base": "butchercreatures/pig/pig-wild-female-dead" },
+		 "deadpig-baby-*": { "base": "butchercreatures/pig/pig-wild-piglet-dead" }
 	},
 	"storageFlagsbytype": {
 		"*-baby": 2049,
