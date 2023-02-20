@@ -41,7 +41,12 @@ namespace Butchering
                 {
                     throw new Exception(string.Format("Could not find butchering item {0}", item.CodeWithVariant("texture", (entity.WatchedAttributes.GetInt("textureIndex", 0) + 1).ToString()).Path));
                 }
-                if (player.Player.InventoryManager.TryGiveItemstack(new ItemStack(itemWithTexture)))
+                var stack = new ItemStack(itemWithTexture);
+                if (entity.HasBehavior<EntityBehaviorHarvestable>())
+                {
+                    stack.Attributes.SetFloat("AnimalWeight", entity.GetBehavior<EntityBehaviorHarvestable>().AnimalWeight);
+                }
+                if (player.Player.InventoryManager.TryGiveItemstack(stack))
                 {
                     entity.Die(EnumDespawnReason.PickedUp);
                 }

@@ -92,18 +92,21 @@ namespace Butchering
                             break;
                     }
                     var item = inventory[0].Itemstack.Item as ItemButcherable;
-                    inventory[0].TakeOutWhole();
-                    updateMesh(0);
                     MarkDirty(true);
                     float efficiency = (Block as BlockButcherTable).ButcheringEfficiency;
                     foreach (var loot in item.ButcheringRewards)
                     {
                         Api.World.PlaySoundAt(new AssetLocation("sounds/thud"), byPlayer.Entity, byPlayer, false);
-                        Api.World.SpawnItemEntity(
-                            new ItemStack(Api.World.GetItem(new AssetLocation(loot.Code)),
-                                (int)(Api.World.Rand.Next(loot.MinAmount, loot.MaxAmount + 1) * efficiency)),
-                            Pos.ToVec3d().Add(offset));
+                        int lootAmount = (int)(Api.World.Rand.Next(loot.MinAmount, loot.MaxAmount + 1) * efficiency * inventory[0].Itemstack.Attributes.GetFloat("AnimalWeight", 1));
+                        if (lootAmount > 0)
+                        {
+                            Api.World.SpawnItemEntity(
+                                new ItemStack(Api.World.GetItem(new AssetLocation(loot.Code)), lootAmount),
+                                Pos.ToVec3d().Add(offset));
+                        }
                     }
+                    inventory[0].TakeOutWhole();
+                    updateMesh(0);
                     return true;
                 }
             }
