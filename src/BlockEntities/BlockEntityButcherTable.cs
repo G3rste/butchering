@@ -18,10 +18,9 @@ namespace Butchering
         public BlockEntityButcherTable()
         {
             inventory = new InventoryGeneric(1, "butchertable-0", null, null, (index, self) => new ItemSlotUniversal(self));
-            meshes = new MeshData[1];
         }
 
-        public override void TranslateMesh(MeshData mesh, int index)
+        protected override float[][] genTransformationMatrices()
         {
             var sideOffset = tableWidth / 2;
             if (inventory[0].Itemstack?.Item is ItemButcherable butcherable)
@@ -33,17 +32,15 @@ namespace Butchering
             switch (Block.Variant["side"])
             {
                 case "north":
-                    mesh.Translate(sideOffset, heightOffset, 0);
-                    break;
+                    return new float[][] { new Matrixf().Translate(sideOffset, heightOffset, 0).Values };
                 case "east":
-                    mesh.Translate(0, heightOffset, sideOffset);
-                    break;
+                    return new float[][] { new Matrixf().Translate(1, heightOffset, sideOffset).RotateYDeg(270).Values };
                 case "south":
-                    mesh.Translate(-sideOffset, heightOffset, 0);
-                    break;
+                    return new float[][] { new Matrixf().Translate(-sideOffset + 1, heightOffset, 1).RotateYDeg(180).Values };
                 case "west":
-                    mesh.Translate(0, heightOffset, -sideOffset);
-                    break;
+                    return new float[][] { new Matrixf().Translate(0, heightOffset, -sideOffset + 1).RotateYDeg(90).Values };
+                default:
+                    return new float[][] { new Matrixf().Values };
             }
         }
 
