@@ -6,6 +6,12 @@ namespace Butchering
     {
         public ButcheringReward[] ButcheringRewards => Attributes["butcheringRewards"].AsObject<ButcheringReward[]>();
         public float Size => Attributes["size"].AsFloat(1);
+        public Shape GetHangingShape()
+        {
+            var shape = Attributes["hangingShape"].AsObject<CompositeShape>(null, Code.Domain);
+
+            return api.Assets.Get<Shape>(shape.Base.CopyWithPath("shapes/" + shape.Base.Path + ".json"));
+        }
     }
 
     public class ButcheringReward

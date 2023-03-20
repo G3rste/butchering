@@ -3,19 +3,26 @@
 	"class": "butcherable",
 	"variantgroups": [
 		{ "code": "type", "states": [ "male", "female", "baby"] },
-		{ "code": "texture", "states": [ "1", "2", "3", "4", "5"  ] }
+		{ "code": "texture", "states": [ "1", "2", "3", "4", "5" ] },
+		{ "code": "state", "states": [ "dead", "skinned" ] }
 	],
-	"allowedVariants": [ "deadpig-male-*", "deadpig-female-1", "deadpig-baby-1" ],
+	"allowedVariants": [ "deadpig-male-*", "deadpig-female-1-*", "deadpig-baby-1-*" ],
 	"maxstacksize": 1,
 	"behaviors": [{ "name": "GroundStorable", "properties": { "layout": "SingleCenter", "collisionBox": { "x1": 0.2, "y1": 0, "z1": 0.2, "x2": 0.8, "y2": 0.5, "z2": 0.8 }}}],
 	"texturesByType": { 
-		"deadpig-male-*": { "boar": { "base": "game:entity/pig/pig-wild-male{texture}" } },
-		"deadpig-female-1": { "sow": { "base": "game:entity/pig/pig-wild-female1" } },
-		"deadpig-baby-1": { "piglet": { "base": "game:entity/pig/pig-wild-piglet" } }
+		"deadpig-male-*-dead": { "boar": { "base": "game:entity/pig/pig-wild-male{texture}" } },
+		"deadpig-female-1-dead": { "sow": { "base": "game:entity/pig/pig-wild-female1" } },
+		"deadpig-baby-1-dead": { "piglet": { "base": "game:entity/pig/pig-wild-piglet" } },
+		"deadpig-male-*-skinned": { "boar": { "base": "butchering:item/skinnedcreatures/pig-wild-female" } },
+		"deadpig-female-1-skinned": { "sow": { "base": "butchering:item/skinnedcreatures/pig-wild-female" } },
+		"deadpig-baby-1-skinned": { "piglet": { "base": "butchering:item/skinnedcreatures/pig-wild-piglet" } }
 	},
 	"attributesByType": {
 	    "deadpig-male-*": {
 			"size": 0.5,
+			"wearableAttachment": true,
+			"attachShape": { "base": "butchering:butchercreatures/pig/pig-wild-male-carried" },
+			"hangingShape": { "base": "butchering:butchercreatures/pig/pig-wild-male-hanging" },
 			"butcheringRewards": [
 				{
 					"Code": "game:redmeat-raw",
@@ -41,6 +48,9 @@
 		},
 		"deadpig-female-*": {
 			"size": 0.5,
+			"wearableAttachment": true,
+			"attachShape": { "base": "butchering:butchercreatures/pig/pig-wild-female-carried" },
+			"hangingShape": { "base": "butchering:butchercreatures/pig/pig-wild-female-hanging" },
 			"butcheringRewards": [
 				{
 					"Code": "game:redmeat-raw",
