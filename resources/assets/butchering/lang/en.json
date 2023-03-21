@@ -12,10 +12,14 @@
 
     "block-butchertable-*": "Butchering Table",
     "block-butchertableprimitive-*": "Primitive Butchering Table",
+    "block-butcherhook-*": "Skinning Rack",
 
     "right-click-pick-up-empty-slot": "Pick up into an empty slot",
     "right-click-pick-up-empty-backpack-slot": "Pick up into an empty backpack slot",
     "put-creature-on-table": "Put creature on table",
     "take-creature-from-table": "Take creature from table",
-    "butcher-creature": "Butcher creature"
+    "butcher-creature": "Butcher creature",
+    "put-creature-on-hook": "Put creature on hook",
+    "take-creature-from-hook": "Take creature from hook",
+    "skin-creature": "Skin creature"
 }
