@@ -1,5 +1,4 @@
 using Vintagestory.API.Client;
-using Vintagestory.API.Server;
 using Vintagestory.API.Common;
 using Vintagestory.API.MathTools;
 
@@ -14,13 +13,13 @@ namespace Butchering
             base.Initialize(api);
             if (api is ICoreClientAPI capi)
             {
-                capi.World.RegisterGameTickListener(dropBloodDroplets, 1000);
+                capi.World.RegisterGameTickListener(dropBloodDroplets, 300);
             }
         }
 
         private void dropBloodDroplets(float obj)
         {
-            if (!inventory.Empty)
+            if (!inventory.Empty && Api.World.Rand.NextDouble() < 0.3f)
             {
                 SimpleParticleProperties blood = new SimpleParticleProperties(
                         0, 3,
