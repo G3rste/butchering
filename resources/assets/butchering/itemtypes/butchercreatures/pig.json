@@ -80,6 +80,9 @@
 		},
 		"deadpig-baby-*": {
 			"size": 0.5,
+			"wearableAttachment": true,
+			"attachShape": { "base": "butchering:butchercreatures/pig/pig-wild-piglet-carried" },
+			"hangingShape": { "base": "butchering:butchercreatures/pig/pig-wild-piglet-hanging" },
 			"butcheringRewards": [
 				{
 					"Code": "game:redmeat-raw",
