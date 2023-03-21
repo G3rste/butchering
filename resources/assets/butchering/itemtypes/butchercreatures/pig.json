@@ -30,11 +30,6 @@
 					"MaxAmount": 12
 				},
 				{
-					"Code": "game:hide-raw-medium",
-					"MinAmount": 1,
-					"MaxAmount": 2
-				},
-				{
 					"Code": "game:fat",
 					"MinAmount": 2,
 					"MaxAmount": 4
@@ -43,6 +38,13 @@
 					"Code": "game:bone",
 					"MinAmount": 4,
 					"MaxAmount": 5
+				}
+			],
+			"skinningRewards": [
+				{
+					"Code": "game:hide-raw-medium",
+					"MinAmount": 1,
+					"MaxAmount": 2
 				}
 			]
 		},
@@ -58,11 +60,6 @@
 					"MaxAmount": 12
 				},
 				{
-					"Code": "game:hide-raw-medium",
-					"MinAmount": 1,
-					"MaxAmount": 2
-				},
-				{
 					"Code": "game:fat",
 					"MinAmount": 2,
 					"MaxAmount": 4
@@ -71,6 +68,13 @@
 					"Code": "game:bone",
 					"MinAmount": 4,
 					"MaxAmount": 5
+				}
+			],
+			"skinningRewards": [
+				{
+					"Code": "game:hide-raw-medium",
+					"MinAmount": 1,
+					"MaxAmount": 2
 				}
 			]
 		},
@@ -92,7 +96,8 @@
 					"MinAmount": 4,
 					"MaxAmount": 5
 				}
-			]
+			],
+			"skinningRewards": []
 		}
 	},
 	
