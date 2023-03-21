@@ -1,4 +1,5 @@
 using Vintagestory.API.Client;
+using Vintagestory.API.Server;
 using Vintagestory.API.Common;
 using Vintagestory.API.MathTools;
 
@@ -7,6 +8,38 @@ namespace Butchering
     public class BlockEntityButcherHook : BlockEntityButcherWorkstation
     {
         public override string processesState => "dead";
+
+        public override void Initialize(ICoreAPI api)
+        {
+            base.Initialize(api);
+            if (api is ICoreClientAPI capi)
+            {
+                capi.World.RegisterGameTickListener(dropBloodDroplets, 1000);
+            }
+        }
+
+        private void dropBloodDroplets(float obj)
+        {
+            if (!inventory.Empty)
+            {
+                SimpleParticleProperties blood = new SimpleParticleProperties(
+                        0, 3,
+                        ColorUtil.ToRgba(255, 75, 0, 0),
+                        new Vec3d(),
+                        new Vec3d(),
+                        new Vec3f(-0.25f, 0f, -0.25f),
+                        new Vec3f(0.25f, 0f, 0.25f),
+                        3f,
+                        1f,
+                        0.2f,
+                        0.4f,
+                        EnumParticleModel.Cube
+                    );
+
+                blood.MinPos = Pos.ToVec3d().AddCopy(0.5, 0.3, 0.5);
+                Api.World.SpawnParticles(blood);
+            }
+        }
 
         protected override string getMeshCacheKey(ItemStack stack)
         {
@@ -50,39 +83,39 @@ namespace Butchering
 
         protected override bool processItem(IPlayer byPlayer)
         {
-             var offset = new Vec3d(0, 1.5, 0);
-                    switch (Block.Variant["side"])
-                    {
-                        case "north":
-                            offset.Add(0.5, 0, 0.5);
-                            break;
-                        case "east":
-                            offset.Add(0.5, 0, 0.5);
-                            break;
-                        case "south":
-                            offset.Add(-0.5 + 1, 0, 0.5);
-                            break;
-                        case "west":
-                            offset.Add(0.5, 0, -0.5 + 1);
-                            break;
-                    }
-                    var item = inventory[0].Itemstack.Item as ItemButcherable;
-                    MarkDirty(true);
-                    float efficiency = (Block as BlockButcherHook).ButcheringEfficiency;
-                    foreach (var loot in item.SkinningRewards)
-                    {
-                        Api.World.PlaySoundAt(new AssetLocation("sounds/thud"), byPlayer.Entity, byPlayer, false);
-                        int lootAmount = (int)(Api.World.Rand.Next(loot.MinAmount, loot.MaxAmount + 1) * efficiency * inventory[0].Itemstack.Attributes.GetFloat("AnimalWeight", 1));
-                        if (lootAmount > 0)
-                        {
-                            Api.World.SpawnItemEntity(
-                                new ItemStack(Api.World.GetItem(new AssetLocation(loot.Code)), lootAmount),
-                                Pos.ToVec3d().Add(offset));
-                        }
-                    }
-                    inventory[0].Itemstack = new ItemStack(Api.World.GetItem(item.CodeWithVariant("state", "skinned")));
-                    updateMesh(0);
-                    return true;
+            var offset = new Vec3d(0, 1.5, 0);
+            switch (Block.Variant["side"])
+            {
+                case "north":
+                    offset.Add(0.5, 0, 0.5);
+                    break;
+                case "east":
+                    offset.Add(0.5, 0, 0.5);
+                    break;
+                case "south":
+                    offset.Add(-0.5 + 1, 0, 0.5);
+                    break;
+                case "west":
+                    offset.Add(0.5, 0, -0.5 + 1);
+                    break;
+            }
+            var item = inventory[0].Itemstack.Item as ItemButcherable;
+            MarkDirty(true);
+            float efficiency = (Block as BlockButcherHook).ButcheringEfficiency;
+            foreach (var loot in item.SkinningRewards)
+            {
+                Api.World.PlaySoundAt(new AssetLocation("sounds/thud"), byPlayer.Entity, byPlayer, false);
+                int lootAmount = (int)(Api.World.Rand.Next(loot.MinAmount, loot.MaxAmount + 1) * efficiency * inventory[0].Itemstack.Attributes.GetFloat("AnimalWeight", 1));
+                if (lootAmount > 0)
+                {
+                    Api.World.SpawnItemEntity(
+                        new ItemStack(Api.World.GetItem(new AssetLocation(loot.Code)), lootAmount),
+                        Pos.ToVec3d().Add(offset));
+                }
+            }
+            inventory[0].Itemstack = new ItemStack(Api.World.GetItem(item.CodeWithVariant("state", "skinned")));
+            updateMesh(0);
+            return true;
         }
     }
 }
