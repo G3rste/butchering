@@ -6,28 +6,38 @@ namespace Butchering
 {
     public class BlockEntityButcherHook : BlockEntityButcherWorkstation
     {
-        public override string processesState => "dead";
+        public override string processesState => "bledout";
+        public override string fitsState => "dead";
+        private long bleedingListenerId;
 
         public override void Initialize(ICoreAPI api)
         {
             base.Initialize(api);
-            if (api is ICoreClientAPI capi)
+            if (Api.Side == EnumAppSide.Client)
             {
-                capi.World.RegisterGameTickListener(dropBloodDroplets, 300);
+                bleedingListenerId = Api.World.RegisterGameTickListener(dropBloodDroplets, 50);
+            }
+        }
+
+        public override void OnBlockRemoved()
+        {
+            base.OnBlockRemoved();
+            if(Api.Side == EnumAppSide.Client){
+                Api.World.UnregisterGameTickListener(bleedingListenerId);
             }
         }
 
         private void dropBloodDroplets(float obj)
         {
-            if (!inventory.Empty && Api.World.Rand.NextDouble() < 0.3f)
+            if (inventory[0]?.Itemstack?.Item is ItemButcherable item && item.Variant["state"] == "dead" && Api.World.Rand.NextDouble() < 0.3f)
             {
                 SimpleParticleProperties blood = new SimpleParticleProperties(
-                        0, 3,
+                        0, 9,
                         ColorUtil.ToRgba(255, 75, 0, 0),
                         new Vec3d(),
                         new Vec3d(),
-                        new Vec3f(-0.25f, 0f, -0.25f),
-                        new Vec3f(0.25f, 0f, 0.25f),
+                        new Vec3f(-0.27f, 0f, -0.23f),
+                        new Vec3f(0.24f, 0f, 0.26f),
                         3f,
                         1f,
                         0.2f,
@@ -37,6 +47,25 @@ namespace Butchering
 
                 blood.MinPos = Pos.ToVec3d().AddCopy(0.5, 0.3, 0.5);
                 Api.World.SpawnParticles(blood);
+            }
+        }
+
+        protected override bool TryPut(IPlayer byPlayer, ItemSlot slot)
+        {
+            if (base.TryPut(byPlayer, slot))
+            {
+                Api.World.RegisterCallback(SwitchToBledOut, 15000);
+                return true;
+            }
+            else { return false; }
+        }
+
+        private void SwitchToBledOut(float t)
+        {
+            if (inventory[0]?.Itemstack?.Item is ItemButcherable item)
+            {
+                inventory[0].Itemstack = new ItemStack(Api.World.GetItem(item.CodeWithVariant("state", "bledout")));
+                MarkDirty(true);
             }
         }
 

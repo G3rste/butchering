@@ -12,6 +12,7 @@ namespace Butchering
         public List<ItemKnife> knifeList = new List<ItemKnife>();
 
         protected abstract string processesState { get; }
+        protected abstract string fitsState { get; }
         protected abstract string langCodePlace { get; }
         protected abstract string langCodeTake { get; }
         protected abstract string langCodeProcess { get; }
@@ -23,7 +24,7 @@ namespace Butchering
             base.OnLoaded(api);
             foreach (var item in api.World.Collectibles)
             {
-                if (item is ItemButcherable butcherable && butcherable.ProcessingState == processesState)
+                if (item is ItemButcherable butcherable && butcherable.ProcessingState == fitsState)
                 {
                     butcherableList.Add(butcherable);
                 }
@@ -66,7 +67,7 @@ namespace Butchering
         public override WorldInteraction[] GetPlacedBlockInteractionHelp(IWorldAccessor world, BlockSelection selection, IPlayer forPlayer)
         {
             var workstation = world.BlockAccessor.GetBlockEntity(selection.Position) as BlockEntityButcherWorkstation;
-            if (workstation?.Inventory[0].Empty == true)
+            if (workstation?.Inventory.Empty == true)
             {
                 return new WorldInteraction[]{
                     new WorldInteraction(){
@@ -76,21 +77,25 @@ namespace Butchering
                     }
                 };
             }
-            if (workstation?.Inventory[0].Empty == false)
+            if (workstation?.Inventory.Empty == false)
             {
-                return new WorldInteraction[]{
-                    new WorldInteraction(){
+                var interactions = new List<WorldInteraction>(){new WorldInteraction(){
                         ActionLangCode = langCodeTake,
                         MouseButton = EnumMouseButton.Right,
                         RequireFreeHand = true
-                    },
-                    new WorldInteraction(){
+                    }};
+                if (workstation?.Inventory[0]?.Itemstack?.Item is ItemButcherable item && item.ProcessingState == processesState)
+                {
+                    interactions.Add(new WorldInteraction()
+                    {
                         ActionLangCode = langCodeProcess,
-                        Itemstacks = knifeList.ConvertAll<ItemStack>(item => new ItemStack(item)).ToArray(),
+                        Itemstacks = knifeList.ConvertAll<ItemStack>(knife => new ItemStack(knife)).ToArray(),
                         MouseButton = EnumMouseButton.Right
-                    }
-                };
-            }
+                    });
+                }
+                return interactions.ToArray();
+            };
+
             return base.GetPlacedBlockInteractionHelp(world, selection, forPlayer);
         }
         public override ItemStack[] GetDrops(IWorldAccessor world, BlockPos pos, IPlayer byPlayer, float dropQuantityMultiplier = 1)

@@ -2,7 +2,8 @@ namespace Butchering
 {
     public class BlockButcherHook : BlockButcherWorkstation
     {
-        protected override string processesState => "dead";
+        protected override string processesState => "bledout";
+        protected override string fitsState => "dead";
 
         protected override string langCodePlace => "butchering:put-creature-on-hook";
 

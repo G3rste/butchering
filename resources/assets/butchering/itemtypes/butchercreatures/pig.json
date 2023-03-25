@@ -4,7 +4,7 @@
 	"variantgroups": [
 		{ "code": "type", "states": [ "male", "female", "baby"] },
 		{ "code": "texture", "states": [ "1", "2", "3", "4", "5" ] },
-		{ "code": "state", "states": [ "dead", "skinned" ] }
+		{ "code": "state", "states": [ "dead", "skinned", "bledout", "rotten" ] }
 	],
 	"allowedVariants": [ "deadpig-male-*", "deadpig-female-1-*", "deadpig-baby-1-*" ],
 	"maxstacksize": 1,
@@ -13,9 +13,15 @@
 		"deadpig-male-*-dead": { "boar": { "base": "game:entity/pig/pig-wild-male{texture}" } },
 		"deadpig-female-1-dead": { "sow": { "base": "game:entity/pig/pig-wild-female1" } },
 		"deadpig-baby-1-dead": { "piglet": { "base": "game:entity/pig/pig-wild-piglet" } },
-		"deadpig-male-*-skinned": { "boar": { "base": "butchering:item/skinnedcreatures/pig-wild-female" } },
-		"deadpig-female-1-skinned": { "sow": { "base": "butchering:item/skinnedcreatures/pig-wild-female" } },
-		"deadpig-baby-1-skinned": { "piglet": { "base": "butchering:item/skinnedcreatures/pig-wild-piglet" } }
+		"deadpig-male-*-skinned": { "boar": { "base": "butchering:item/butchercreatures/pig/skinned-female" } },
+		"deadpig-female-1-skinned": { "sow": { "base": "butchering:item/butchercreatures/pig/skinned-female" } },
+		"deadpig-baby-1-skinned": { "piglet": { "base": "butchering:item/butchercreatures/pig/skinned-piglet" } },
+		"deadpig-male-*-bledout": { "boar": { "base": "butchering:item/butchercreatures/pig/bledout-female" } },
+		"deadpig-female-1-bledout": { "sow": { "base": "butchering:item/butchercreatures/pig/bledout-female" } },
+		"deadpig-baby-1-bledout": { "piglet": { "base": "butchering:item/butchercreatures/pig/bledout-piglet" } },
+		"deadpig-male-*-rotten": { "boar": { "base": "butchering:item/butchercreatures/pig/rotten-female" } },
+		"deadpig-female-1-rotten": { "sow": { "base": "butchering:item/butchercreatures/pig/rotten-female" } },
+		"deadpig-baby-1-rotten": { "piglet": { "base": "butchering:item/butchercreatures/pig/rotten-piglet" } }
 	},
 	"attributesByType": {
 	    "deadpig-male-*": {
@@ -118,7 +124,7 @@
 			"type": "perish",
 			"freshHours": { "avg": 80 },
 			"transitionHours": { "avg": 24 },
-			"transitionedStack": { "type": "item", "code": "game:rot", "quantity": 8 },
+			"transitionedStack": { "type": "item", "code": "butchering:deadpig-{type}-{texture}-rotten" },
 			"transitionRatio": 1
 		}
     	],

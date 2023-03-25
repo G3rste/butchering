@@ -7,6 +7,7 @@ namespace Butchering
     public class BlockEntityButcherTable : BlockEntityButcherWorkstation
     {
         public override string processesState => "skinned";
+        public override string fitsState => "skinned";
 
         private float tableWidth => (Block as BlockButcherTable).TableWith;
 
