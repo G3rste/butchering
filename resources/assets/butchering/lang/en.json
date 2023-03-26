@@ -12,7 +12,7 @@
 
     "block-butchertable-*": "Butchering Table",
     "block-butchertableprimitive-*": "Primitive Butchering Table",
-    "block-butcherhook2-*": "Skinning Rack",
+    "block-butcherhook-*": "Skinning Rack",
     "block-meathook-*": "Smoking Rack",
 
     "right-click-pick-up-empty-slot": "Pick up into an empty slot",

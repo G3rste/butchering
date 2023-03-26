@@ -13,15 +13,16 @@
 		"deadpig-male-*-dead": { "boar": { "base": "game:entity/pig/pig-wild-male{texture}" } },
 		"deadpig-female-1-dead": { "sow": { "base": "game:entity/pig/pig-wild-female1" } },
 		"deadpig-baby-1-dead": { "piglet": { "base": "game:entity/pig/pig-wild-piglet" } },
-		"deadpig-male-*-skinned": { "boar": { "base": "butchering:item/butchercreatures/pig/skinned-female" } },
-		"deadpig-female-1-skinned": { "sow": { "base": "butchering:item/butchercreatures/pig/skinned-female" } },
-		"deadpig-baby-1-skinned": { "piglet": { "base": "butchering:item/butchercreatures/pig/skinned-piglet" } },
-		"deadpig-male-*-bledout": { "boar": { "base": "butchering:item/butchercreatures/pig/bledout-female" } },
-		"deadpig-female-1-bledout": { "sow": { "base": "butchering:item/butchercreatures/pig/bledout-female" } },
-		"deadpig-baby-1-bledout": { "piglet": { "base": "butchering:item/butchercreatures/pig/bledout-piglet" } },
-		"deadpig-male-*-rotten": { "boar": { "base": "butchering:item/butchercreatures/pig/rotten-female" } },
-		"deadpig-female-1-rotten": { "sow": { "base": "butchering:item/butchercreatures/pig/rotten-female" } },
-		"deadpig-baby-1-rotten": { "piglet": { "base": "butchering:item/butchercreatures/pig/rotten-piglet" } }
+		"deadpig-male-*-skinned": { "boar": { "base": "butchering:item/animalredmeatbloody" } },
+		"deadpig-female-1-skinned": { "sow": { "base": "butchering:item/animalredmeatbloody" } },
+		"deadpig-baby-1-skinned": { "piglet": { "base": "butchering:item/animalredmeatbloody" } },
+		"deadpig-male-*-bledout": { "boar": { "base": "butchering:item/animalredmeatdeblooded" } },
+		"deadpig-female-1-bledout": { "sow": { "base": "butchering:item/animalredmeatdeblooded" } },
+		"deadpig-baby-1-bledout": { "piglet": { "base": "butchering:item/animalredmeatdeblooded" } },
+		"deadpig-male-*-rotten": { "boar": { "base": "game:block/creature/rot/rot" } },
+		"deadpig-female-1-rotten": { "sow": { "base": "game:block/creature/rot/rot" } },
+		"deadpig-baby-1-rotten": { "piglet": { "base": "game:block/creature/rot/rot" } }
+
 	},
 	"attributesByType": {
 	    "deadpig-male-*": {
@@ -117,17 +118,28 @@
 	},
 	"storageFlagsbytype": {
 		"*-baby": 2049,
+		"*-rotten": 1,
 		"*": 2050
 	},
-    "transitionableProps": [
-        {
-			"type": "perish",
-			"freshHours": { "avg": 80 },
-			"transitionHours": { "avg": 24 },
-			"transitionedStack": { "type": "item", "code": "butchering:deadpig-{type}-{texture}-rotten" },
-			"transitionRatio": 1
-		}
-    	],
+    "transitionablePropsByType": {
+		"*-rotten": [],
+		"*": [
+			{
+				"type": "perish",
+				"freshHours": {
+					"avg": 80
+				},
+				"transitionHours": {
+					"avg": 24
+				},
+				"transitionedStack": {
+					"type": "item",
+					"code": "butchering:deadpig-{type}-{texture}-rotten"
+				},
+				"transitionRatio": 1
+			}
+		]
+	},
 	"creativeinventory": { "general": ["*"], "items": ["*"] },
 	"heldTpIdleAnimation": "holdunderarm",
 	"guiTransform": {
