@@ -31,14 +31,14 @@ namespace Butchering
                     }
                     foreach (var slot in inventory)
                     {
-                        if (slot.Itemstack?.Collectible is ItemButcherable butcherable && butcherable.ProcessingState == fitsState)
+                        if (slot.Itemstack?.Collectible is ItemButcherable butcherable && (butcherable.ProcessingState == fitsState || butcherable.ProcessingState == processesState))
                         {
                             return TryPut(byPlayer, slot);
                         }
                     }
                 }
             }
-            if (!inventory.Empty)
+            else
             {
                 if (activeSlot.Empty)
                 {

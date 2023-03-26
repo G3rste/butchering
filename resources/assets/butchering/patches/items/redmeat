@@ -1,0 +1,19 @@
+[
+    {
+        "op": "add",
+        "path": "/attributes/onHookTransform",
+        "value": {
+            "scale": 1,
+            "origin": { "x": 0, "y": 0, "z": 0 },
+            "translation": { "x": -0.3125, "y": 0.03125, "z": 0.84375 },
+            "rotation": { "x": 0, "y": 90, "z": 90 }
+        },
+        "file": "game:itemtypes/food/redmeat.json"
+    },
+    {
+        "op": "add",
+        "path": "/attributes/transformsWhenSmokedByType",
+        "value": { "*-raw": "game:redmeat-cured", "*": null },
+        "file": "game:itemtypes/food/redmeat.json"
+    }
+]

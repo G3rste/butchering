@@ -12,7 +12,8 @@
 
     "block-butchertable-*": "Butchering Table",
     "block-butchertableprimitive-*": "Primitive Butchering Table",
-    "block-butcherhook-*": "Skinning Rack",
+    "block-butcherhook2-*": "Skinning Rack",
+    "block-meathook-*": "Smoking Rack",
 
     "right-click-pick-up-empty-slot": "Pick up into an empty slot",
     "right-click-pick-up-empty-backpack-slot": "Pick up into an empty backpack slot",
@@ -21,5 +22,8 @@
     "butcher-creature": "Butcher creature",
     "put-creature-on-hook": "Put creature on hook",
     "take-creature-from-hook": "Take creature from hook",
-    "skin-creature": "Skin creature"
+    "skin-creature": "Skin creature",
+    "put-item-on-hook": "Put item on hook",
+    "take-item-from-hook": "Take item from hook",
+    "needs-to-be-smoke-for": "Needs to be smoked for another {0,2:D2}:{1,2:D2} hours."
 }
