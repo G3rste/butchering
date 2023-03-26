@@ -4,8 +4,7 @@ namespace Butchering
     {
         public float TableWith => Attributes["butcherTableWidth"].AsFloat(1f);
 
-        protected override string processesState => "skinned";
-        protected override string fitsState => "skinned";
+        public override string processesState => "bledout";
 
         protected override string langCodePlace => "butchering:put-creature-on-table";
 

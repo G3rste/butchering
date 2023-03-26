@@ -10,8 +10,7 @@ namespace Butchering
         public override InventoryBase Inventory => inventory;
 
         public override string InventoryClassName => "butcherstation";
-        public abstract string processesState { get; }
-        public abstract string fitsState { get; }
+        public string processesState => (Block as BlockButcherWorkstation).processesState;
 
         public BlockEntityButcherWorkstation()
         {
@@ -31,7 +30,7 @@ namespace Butchering
                     }
                     foreach (var slot in inventory)
                     {
-                        if (slot.Itemstack?.Collectible is ItemButcherable butcherable && (butcherable.ProcessingState == fitsState || butcherable.ProcessingState == processesState))
+                        if (slot.Itemstack?.Collectible is ItemButcherable butcherable && butcherable.ProcessingState == processesState)
                         {
                             return TryPut(byPlayer, slot);
                         }
@@ -76,7 +75,7 @@ namespace Butchering
             return false;
         }
 
-        private bool TryTake(IPlayer byPlayer)
+        protected virtual bool TryTake(IPlayer byPlayer)
         {
             int index = 0;
 

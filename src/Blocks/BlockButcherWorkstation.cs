@@ -11,8 +11,7 @@ namespace Butchering
         public List<ItemButcherable> butcherableList = new List<ItemButcherable>();
         public List<ItemKnife> knifeList = new List<ItemKnife>();
 
-        protected abstract string processesState { get; }
-        protected abstract string fitsState { get; }
+        public abstract string processesState { get; }
         protected abstract string langCodePlace { get; }
         protected abstract string langCodeTake { get; }
         protected abstract string langCodeProcess { get; }
@@ -24,7 +23,7 @@ namespace Butchering
             base.OnLoaded(api);
             foreach (var item in api.World.Collectibles)
             {
-                if (item is ItemButcherable butcherable && butcherable.ProcessingState == fitsState)
+                if (item is ItemButcherable butcherable && butcherable.ProcessingState == processesState)
                 {
                     butcherableList.Add(butcherable);
                 }

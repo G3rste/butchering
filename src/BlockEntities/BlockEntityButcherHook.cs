@@ -6,13 +6,13 @@ namespace Butchering
 {
     public class BlockEntityButcherHook : BlockEntityButcherWorkstation
     {
-        public override string processesState => "bledout";
-        public override string fitsState => "dead";
         private long bleedingListenerId;
 
         public override void Initialize(ICoreAPI api)
         {
             base.Initialize(api);
+            // small little backdoor if the server gets shutdown before the entity is bled out
+            SwitchToBledOut(0);
             if (Api.Side == EnumAppSide.Client)
             {
                 bleedingListenerId = Api.World.RegisterGameTickListener(dropBloodDroplets, 50);
@@ -22,14 +22,15 @@ namespace Butchering
         public override void OnBlockRemoved()
         {
             base.OnBlockRemoved();
-            if(Api.Side == EnumAppSide.Client){
+            if (Api.Side == EnumAppSide.Client)
+            {
                 Api.World.UnregisterGameTickListener(bleedingListenerId);
             }
         }
 
         private void dropBloodDroplets(float obj)
         {
-            if (inventory[0]?.Itemstack?.Item is ItemButcherable item && item.Variant["state"] == "dead" && Api.World.Rand.NextDouble() < 0.3f)
+            if (inventory[0]?.Itemstack?.Item is ItemButcherable item && item.Variant["state"] == "skinned" && Api.World.Rand.NextDouble() < 0.3f)
             {
                 SimpleParticleProperties blood = new SimpleParticleProperties(
                         0, 9,
@@ -50,19 +51,21 @@ namespace Butchering
             }
         }
 
-        protected override bool TryPut(IPlayer byPlayer, ItemSlot slot)
+        protected override bool TryTake(IPlayer byPlayer)
         {
-            if (base.TryPut(byPlayer, slot))
+            if (inventory[0]?.Itemstack?.Item is ItemButcherable item && item.Variant["state"] == "skinned")
             {
-                Api.World.RegisterCallback(SwitchToBledOut, 15000);
-                return true;
+                return false;
             }
-            else { return false; }
+            else
+            {
+                return base.TryTake(byPlayer);
+            }
         }
 
         private void SwitchToBledOut(float t)
         {
-            if (inventory[0]?.Itemstack?.Item is ItemButcherable item)
+            if (inventory[0]?.Itemstack?.Item is ItemButcherable item && item.Variant["state"] == "skinned")
             {
                 inventory[0].Itemstack = new ItemStack(Api.World.GetItem(item.CodeWithVariant("state", "bledout")));
                 MarkDirty(true);
@@ -142,6 +145,7 @@ namespace Butchering
                 }
             }
             inventory[0].Itemstack = new ItemStack(Api.World.GetItem(item.CodeWithVariant("state", "skinned")));
+            Api.World.RegisterCallback(SwitchToBledOut, 15000);
             updateMesh(0);
             return true;
         }
