@@ -5,8 +5,8 @@
         "value": {
             "scale": 1,
             "origin": { "x": 0, "y": 0, "z": 0 },
-            "translation": { "x": -0.3125, "y": 0.03125, "z": 0.84375 },
-            "rotation": { "x": 0, "y": 90, "z": 90 }
+            "translation": { "x": -0.26875, "y": 0.03125, "z": 1.025 },
+            "rotation": { "x": 0, "y": 112.5, "z": 90 }
         },
         "file": "game:itemtypes/food/redmeat.json"
     },

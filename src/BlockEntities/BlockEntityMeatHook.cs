@@ -139,13 +139,13 @@ namespace Butchering
                     switch (Block.Variant["side"])
                     {
                         case "north":
-                            list.Add(new Matrixf().Translate(-4f * i / 16, (k == 1 || k == 2 ? 1f : 0f) / 16, -4f * k / 16).Translate(0, 0, 1).RotateYDeg(90));
+                            list.Add(new Matrixf().Translate(-4f * i / 16, (i == 1 || i == 2 ? 1f : 0f) / 16, -4f * k / 16).Translate(0, 0, 1).RotateYDeg(90));
                             break;
                         case "east":
                             list.Add(new Matrixf().Translate(4f * k / 16, (i == 1 || i == 2 ? 1f : 0f) / 16, -4f * i / 16));
                             break;
                         case "south":
-                            list.Add(new Matrixf().Translate(4f * i / 16, (k == 1 || k == 2 ? 1f : 0f) / 16, 4f * k / 16).Translate(1, 0, 0).RotateYDeg(270));
+                            list.Add(new Matrixf().Translate(4f * i / 16, (i == 1 || i == 2 ? 1f : 0f) / 16, 4f * k / 16).Translate(1, 0, 0).RotateYDeg(270));
                             break;
                         case "west":
                             list.Add(new Matrixf().Translate(-4f * k / 16, (i == 1 || i == 2 ? 1f : 0f) / 16, 4f * i / 16).Translate(1, 0, 1).RotateYDeg(180));
