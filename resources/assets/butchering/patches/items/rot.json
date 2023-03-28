@@ -1,0 +1,13 @@
+[
+    {
+        "op": "add",
+        "path": "/attributes/onHookTransform",
+        "value": {
+            "scale": 1,
+            "origin": { "x": 0, "y": 0, "z": 0 },
+            "translation": { "x": -0.3125, "y": 0.9375, "z": 1.0625 },
+            "rotation": { "x": 90, "y": 0, "z": -22.5 }
+        },
+        "file": "game:itemtypes/resource/rot.json"
+    }
+]
