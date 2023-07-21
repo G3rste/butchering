@@ -1,4 +1,5 @@
 using System;
+using System.Reflection;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;
@@ -45,6 +46,15 @@ namespace Butchering
                 if (entity.HasBehavior<EntityBehaviorHarvestable>())
                 {
                     stack.Attributes.SetFloat("AnimalWeight", entity.GetBehavior<EntityBehaviorHarvestable>().AnimalWeight);
+                }
+                if (entity.HasBehavior<EntityBehaviorDeadDecay>())
+                {
+                    var decay = entity.GetBehavior<EntityBehaviorDeadDecay>();
+                    var json = (JsonObject)decay.GetType().GetField("typeAttributes", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(decay);
+                    if (json["decayedBlock"].Exists)
+                    {
+                        stack.Attributes.SetString("AnimalCarcass", json["decayedBlock"].AsString());
+                    }
                 }
                 if (player.Player.InventoryManager.TryGiveItemstack(stack))
                 {

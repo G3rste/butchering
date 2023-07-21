@@ -67,7 +67,7 @@ namespace Butchering
         {
             if (inventory[0]?.Itemstack?.Item is ItemButcherable item && item.Variant["state"] == "skinned")
             {
-                inventory[0].Itemstack = new ItemStack(Api.World.GetItem(item.CodeWithVariant("state", "bledout")));
+                inventory[0].Itemstack = cloneStack(inventory[0].Itemstack, Api.World.GetItem(item.CodeWithVariant("state", "bledout")));
                 MarkDirty(true);
             }
         }
@@ -144,10 +144,24 @@ namespace Butchering
                         Pos.ToVec3d().Add(offset));
                 }
             }
-            inventory[0].Itemstack = new ItemStack(Api.World.GetItem(item.CodeWithVariant("state", "skinned")));
+            inventory[0].Itemstack = cloneStack(inventory[0].Itemstack, Api.World.GetItem(item.CodeWithVariant("state", "skinned")));
             Api.World.RegisterCallback(SwitchToBledOut, 15000);
             updateMesh(0);
             return true;
+        }
+
+        private ItemStack cloneStack(ItemStack oldStack, CollectibleObject item)
+        {
+            var newStack = new ItemStack(item);
+            if (oldStack.Attributes.HasAttribute("AnimalWeight"))
+            {
+                newStack.Attributes.SetFloat("AnimalWeight", oldStack.Attributes.GetFloat("AnimalWeight"));
+            }
+            if (oldStack.Attributes.HasAttribute("AnimalCarcass"))
+            {
+                newStack.Attributes.SetString("AnimalCarcass", oldStack.Attributes.GetString("AnimalCarcass"));
+            }
+            return newStack;
         }
     }
 }

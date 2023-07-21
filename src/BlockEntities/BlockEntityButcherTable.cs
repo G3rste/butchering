@@ -56,13 +56,18 @@ namespace Butchering
             foreach (var loot in item.ButcheringRewards)
             {
                 Api.World.PlaySoundAt(new AssetLocation("sounds/thud"), byPlayer.Entity, byPlayer, false);
-                int lootAmount = (int)(getNextRandomDoubleBetween(Api.World.Rand,loot.MinAmount, loot.MaxAmount + 1) * efficiency * inventory[0].Itemstack.Attributes.GetFloat("AnimalWeight", 1));
+                int lootAmount = (int)(getNextRandomDoubleBetween(Api.World.Rand, loot.MinAmount, loot.MaxAmount + 1) * efficiency * inventory[0].Itemstack.Attributes.GetFloat("AnimalWeight", 1));
                 if (lootAmount > 0)
                 {
                     Api.World.SpawnItemEntity(
                         new ItemStack(Api.World.GetItem(new AssetLocation(loot.Code)), lootAmount),
                         Pos.ToVec3d().Add(offset));
                 }
+            }
+            if (inventory[0].Itemstack.Attributes.HasAttribute("AnimalCarcass"))
+            {
+                Block carcass = Api.World.GetBlock(new AssetLocation(inventory[0].Itemstack.Attributes.GetString("AnimalCarcass")));
+                Api.World.BlockAccessor.SetBlock(carcass.Id, Pos.ToVec3d().Add(offset).AsBlockPos);
             }
             inventory[0].TakeOutWhole();
             updateMesh(0);
