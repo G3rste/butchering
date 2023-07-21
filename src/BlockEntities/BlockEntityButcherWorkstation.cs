@@ -1,3 +1,4 @@
+using System;
 using Vintagestory.API.Common;
 using Vintagestory.API.Config;
 using Vintagestory.GameContent;
@@ -98,6 +99,10 @@ namespace Butchering
             }
 
             return false;
+        }        
+
+        public static double getNextRandomDoubleBetween(Random random, double minAmount, double maxAmount){
+            return (random.NextDouble() * (maxAmount - minAmount)) + minAmount;
         }
     }
 }
