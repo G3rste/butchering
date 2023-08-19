@@ -71,7 +71,7 @@ namespace Butchering
             }
             inventory[0].TakeOutWhole();
             updateMesh(0);
-            return true;
+            return base.processItem(byPlayer);
         }
     }
 }

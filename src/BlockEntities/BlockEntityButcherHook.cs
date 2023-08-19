@@ -147,7 +147,7 @@ namespace Butchering
             inventory[0].Itemstack = cloneStack(inventory[0].Itemstack, Api.World.GetItem(item.CodeWithVariant("state", "skinned")));
             Api.World.RegisterCallback(SwitchToBledOut, 15000);
             updateMesh(0);
-            return true;
+            return base.processItem(byPlayer);
         }
 
         private ItemStack cloneStack(ItemStack oldStack, CollectibleObject item)

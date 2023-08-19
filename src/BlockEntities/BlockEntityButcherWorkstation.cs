@@ -52,7 +52,10 @@ namespace Butchering
             return false;
         }
 
-        protected abstract bool processItem(IPlayer byPlayer);
+        protected virtual bool processItem(IPlayer byPlayer){
+            byPlayer.InventoryManager.ActiveHotbarSlot?.Itemstack?.Collectible?.DamageItem(byPlayer.Entity.World, byPlayer.Entity, byPlayer.InventoryManager.ActiveHotbarSlot, 10);
+            return true;
+        }
 
         protected virtual bool TryPut(IPlayer byPlayer, ItemSlot slot)
         {
