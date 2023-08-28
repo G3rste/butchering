@@ -17,7 +17,7 @@ namespace Butchering
         {
             var workstation = world.BlockAccessor.GetBlockEntity(selection.Position) as BlockEntityButcherWorkstation;
 
-            if (workstation.Inventory[0]?.Itemstack?.Collectible.Variant["state"] == "skinned")
+            if (workstation == null || workstation.Inventory[0]?.Itemstack?.Collectible.Variant["state"] == "skinned")
             {
                 return new WorldInteraction[0];
             }
