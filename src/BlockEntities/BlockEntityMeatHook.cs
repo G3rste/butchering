@@ -20,6 +20,8 @@ namespace Butchering
         const int rows = 4;
         const int cols = 4;
 
+        const int smokingTimeHours = 24;
+
         private double lastCheck;
         private long listenerId;
         public BlockEntityMeatHook()
@@ -50,7 +52,7 @@ namespace Butchering
                     double deltaHours = slot.Itemstack.Attributes.GetDouble("smokingTime", 0);
                     deltaHours += newCheck - lastCheck;
                     slot.Itemstack.Attributes.SetDouble("smokingTime", deltaHours);
-                    if (deltaHours > 2)
+                    if (deltaHours > smokingTimeHours)
                     {
                         slot.Itemstack = new ItemStack(Api.World.GetItem(new AssetLocation(slot.Itemstack.Item.Attributes["transformsWhenSmoked"].AsString())));
                         MarkDirty(true);
@@ -165,7 +167,7 @@ namespace Butchering
                 minDuration = Math.Max(minDuration, slot.Itemstack.Attributes.GetDouble("smokingTime", 0));
             }
             if(minDuration > 0){
-                double timeLeft = 2 - minDuration;
+                double timeLeft = smokingTimeHours - minDuration;
                 int hoursLeft = (int)timeLeft;
                 int minutesLeft = (int)((timeLeft - hoursLeft) * 60);
                 dsc.AppendLine(Lang.Get("butchering:needs-to-be-smoke-for", hoursLeft, minutesLeft));

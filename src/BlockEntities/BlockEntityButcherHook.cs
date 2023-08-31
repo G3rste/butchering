@@ -1,5 +1,9 @@
+using System;
+using System.Text;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
+using Vintagestory.API.Config;
+using Vintagestory.API.Datastructures;
 using Vintagestory.API.MathTools;
 
 namespace Butchering
@@ -8,29 +12,29 @@ namespace Butchering
     {
         private long bleedingListenerId;
 
+        public double skinnedAt;
+
+        const double hoursToBleedOut = 2;
+
         public override void Initialize(ICoreAPI api)
         {
             base.Initialize(api);
-            // small little backdoor if the server gets shutdown before the entity is bled out
-            SwitchToBledOut(0);
-            if (Api.Side == EnumAppSide.Client)
-            {
-                bleedingListenerId = Api.World.RegisterGameTickListener(dropBloodDroplets, 50);
-            }
+            bleedingListenerId = Api.World.RegisterGameTickListener(dropBloodDroplets, 1200);
         }
 
         public override void OnBlockRemoved()
         {
             base.OnBlockRemoved();
-            if (Api.Side == EnumAppSide.Client)
-            {
-                Api.World.UnregisterGameTickListener(bleedingListenerId);
-            }
+            Api.World.UnregisterGameTickListener(bleedingListenerId);
         }
 
         private void dropBloodDroplets(float obj)
         {
-            if (inventory[0]?.Itemstack?.Item is ItemButcherable item && item.Variant["state"] == "skinned" && Api.World.Rand.NextDouble() < 0.3f)
+            if (skinnedAt != 0 && Api.World.Calendar.ElapsedHours - skinnedAt > hoursToBleedOut && Api.Side == EnumAppSide.Server)
+            {
+                SwitchToBledOut();
+            }
+            if (Api.Side == EnumAppSide.Client && inventory[0]?.Itemstack?.Item is ItemButcherable item && item.Variant["state"] == "skinned" && Api.World.Rand.NextDouble() < 0.3f)
             {
                 SimpleParticleProperties blood = new SimpleParticleProperties(
                         0, 9,
@@ -63,7 +67,7 @@ namespace Butchering
             }
         }
 
-        private void SwitchToBledOut(float t)
+        private void SwitchToBledOut()
         {
             if (inventory[0]?.Itemstack?.Item is ItemButcherable item && item.Variant["state"] == "skinned")
             {
@@ -145,7 +149,7 @@ namespace Butchering
                 }
             }
             inventory[0].Itemstack = cloneStack(inventory[0].Itemstack, Api.World.GetItem(item.CodeWithVariant("state", "skinned")));
-            Api.World.RegisterCallback(SwitchToBledOut, 15000);
+            skinnedAt = Api.World.Calendar.ElapsedHours;
             updateMesh(0);
             return base.processItem(byPlayer);
         }
@@ -162,6 +166,29 @@ namespace Butchering
                 newStack.Attributes.SetString("AnimalCarcass", oldStack.Attributes.GetString("AnimalCarcass"));
             }
             return newStack;
+        }
+
+        public override void FromTreeAttributes(ITreeAttribute tree, IWorldAccessor worldForResolving)
+        {
+            base.FromTreeAttributes(tree, worldForResolving);
+            skinnedAt = tree.GetDouble("skinnedat");
+        }
+
+        public override void ToTreeAttributes(ITreeAttribute tree)
+        {
+            base.ToTreeAttributes(tree);
+            tree.SetDouble("skinnedat", skinnedAt);
+        }
+
+        public override void GetBlockInfo(IPlayer forPlayer, StringBuilder dsc)
+        {
+            if (skinnedAt > 0)
+            {
+                double timeLeft = Math.Max(hoursToBleedOut - (Api.World.Calendar.ElapsedHours - skinnedAt), 0);
+                int hoursLeft = (int)timeLeft;
+                int minutesLeft = (int)((timeLeft - hoursLeft) * 60);
+                dsc.AppendLine(Lang.Get("butchering:needs-to-be-hanging-for", hoursLeft, minutesLeft));
+            }
         }
     }
 }

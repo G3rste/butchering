@@ -25,5 +25,6 @@
     "skin-creature": "Skin creature",
     "put-item-on-hook": "Put item on hook",
     "take-item-from-hook": "Take item from hook",
-    "needs-to-be-smoke-for": "Needs to be smoked for another {0,2:D2}:{1,2:D2} hours."
+    "needs-to-be-smoke-for": "Needs to be smoked for another {0,2:D2}:{1,2:D2} hours.",
+    "needs-to-be-hanging-for": "Needs to be hanging for another {0,2:D2}:{1,2:D2} hours."
 }
