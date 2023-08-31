@@ -35,7 +35,7 @@
 			"slotBgColor": "#75251e"
 		},
 		"wearableAttachment": true,
-		"attachShape": { "base": "butcherybags/butcherybagprimitiveworn" },
+		"attachShape": { "base": "butcherybags/butcherybagprimitive" },
 		"groundStorageTransform": {
 			"rotation": { "x": 0, "y": 10, "z": 0 },
 			"origin": { "x": 0.6, "y": -0.2, "z": -0.1 },

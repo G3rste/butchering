@@ -98,14 +98,6 @@
 		"all": false
 	},
 	"drops": [
-		{
-			"type": "item",
-			"code": "game:plank-aged",
-			"quantity": {
-				"avg": 4,
-				"var": 1
-			}
-		}
 	],
 	"tpHandTransform": {
 		"translation": { "x": 0, "y": -0.5, "z": -0.7 },

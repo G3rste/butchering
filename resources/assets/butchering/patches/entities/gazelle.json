@@ -4,113 +4,35 @@
         "path": "/server/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:deadsheep-female"
+            "item": "butchering:deadgazelle-{type}-dead"
         },
-        "file": "game:entities/land/sheep-bighorn-female.json"
+        "file": "game:entities/land/gazelle.json"
     },
     {
         "op": "add",
         "path": "/client/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:deadsheep-female"
+            "item": "butchering:deadgazelle-{type}-dead"
         },
-        "file": "game:entities/land/sheep-bighorn-female.json"
-    },
-    {
-        "op": "add",
-        "path": "/server/behaviors/-",
-        "value": {
-            "code": "butcherable",
-            "item": "butchering:deadsheep-male"
-        },
-        "file": "game:entities/land/sheep-bighorn-male.json"
-    },
-    {
-        "op": "add",
-        "path": "/client/behaviors/-",
-        "value": {
-            "code": "butcherable",
-            "item": "butchering:deadsheep-male"
-        },
-        "file": "game:entities/land/sheep-bighorn-male.json"
-    },
-    {
-        "op": "add",
-        "path": "/server/behaviors/-",
-        "value": {
-            "code": "butcherable",
-            "item": "butchering:deadsheep-baby"
-        },
-        "file": "game:entities/land/sheep-bighorn-lamb.json"
-    },
-    {
-        "op": "add",
-        "path": "/client/behaviors/-",
-        "value": {
-            "code": "butcherable",
-            "item": "butchering:deadsheep-baby"
-        },
-        "file": "game:entities/land/sheep-bighorn-lamb.json"
+        "file": "game:entities/land/gazelle.json"
     },
     {
         "op": "replace",
         "path": "/server/behaviors/6/drops/0/quantity/avg",
         "value": 4.5,
-        "file": "game:entities/land/sheep-bighorn-male.json"
-    },
-    {
-        "op": "replace",
-        "path": "/server/behaviors/6/drops/1/quantity/avg",
-        "value": 0.5,
-        "file": "game:entities/land/sheep-bighorn-male.json"
-    },
-    {
-        "op": "replace",
-        "path": "/server/behaviors/6/drops/2/quantity/avg",
-        "value": 1,
-        "file": "game:entities/land/sheep-bighorn-male.json"
-    },
-    {
-        "op": "replace",
-        "path": "/server/behaviors/6/drops/3/quantity/avg",
-        "value": 1.7,
-        "file": "game:entities/land/sheep-bighorn-male.json"
-    },
-    {
-        "op": "replace",
-        "path": "/server/behaviors/6/drops/0/quantity/avg",
-        "value": 8,
-        "file": "game:entities/land/sheep-bighorn-female.json"
+        "file": "game:entities/land/gazelle.json"
     },
     {
         "op": "replace",
         "path": "/server/behaviors/6/drops/1/quantity/avg",
         "value": 0,
-        "file": "game:entities/land/sheep-bighorn-female.json"
+        "file": "game:entities/land/gazelle.json"
     },
     {
         "op": "replace",
         "path": "/server/behaviors/6/drops/2/quantity/avg",
         "value": 0,
-        "file": "game:entities/land/sheep-bighorn-female.json"
-    },
-    {
-        "op": "replace",
-        "path": "/server/behaviors/6/drops/3/quantity/avg",
-        "value": 2.5,
-        "file": "game:entities/land/sheep-bighorn-female.json"
-    },
-    {
-        "op": "replace",
-        "path": "/server/behaviors/6/drops/0/quantity/avg",
-        "value": 0,
-        "file": "game:entities/land/sheep-bighorn-lamb.json"
-    },
-    {
-        "op": "replace",
-        "path": "/server/behaviors/6/drops/1/quantity/avg",
-        "value": 0,
-        "file": "game:entities/land/sheep-bighorn-lamb.json"
+        "file": "game:entities/land/gazelle.json"
     }
 ]

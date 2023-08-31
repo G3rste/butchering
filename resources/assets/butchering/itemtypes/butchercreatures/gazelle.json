@@ -2,102 +2,136 @@
 	"code": "deadgazelle",
 	"class": "butcherable",
 	"variantgroups": [
-		{ "code": "type", "states": [ "male", "female", "baby"] }
+		{ "code": "type", "states": [ "male", "female", "baby"] },
+		{ "code": "state", "states": [ "dead", "skinned", "bledout", "rotten" ] }
 	],
 	"maxstacksize": 1,
 	"behaviors": [{ "name": "GroundStorable", "properties": { "layout": "SingleCenter", "collisionBox": { "x1": 0.2, "y1": 0, "z1": 0.2, "x2": 0.8, "y2": 0.5, "z2": 0.8 }}}],
+	"texturesByType": { 
+		"deadgazelle-male-dead": { "skin": { "base": "game:entity/gazelle/adult-male" } },
+		"deadgazelle-female-dead": { "skin": { "base": "game:entity/gazelle/adult-female" } },
+		"deadgazelle-baby-dead": { "calf": { "base": "game:entity/gazelle/calf" } },
+		"deadgazelle-male-skinned": { "skin": { "base": "butchering:item/butchercreatures/animalredmeatbloody" } },
+		"deadgazelle-female-skinned": { "skin": { "base": "butchering:item/butchercreatures/animalredmeatbloody" } },
+		"deadgazelle-baby-skinned": { "calf": { "base": "butchering:item/butchercreatures/animalredmeatbloody" } },
+		"deadgazelle-male-bledout": { "skin": { "base": "butchering:item/butchercreatures/animalredmeatbledout" } },
+		"deadgazelle-female-bledout": { "skin": { "base": "butchering:item/butchercreatures/animalredmeatbledout" } },
+		"deadgazelle-baby-bledout": { "calf": { "base": "butchering:item/butchercreatures/animalredmeatbledout" } },
+		"deadgazelle-male-rotten": { "skin": { "base": "game:block/creature/rot/rot" } },
+		"deadgazelle-female-rotten": { "skin": { "base": "game:block/creature/rot/rot" } },
+		"deadgazelle-baby-rotten": { "calf": { "base": "game:block/creature/rot/rot" } }
+	},
 	"attributesByType": {
-	    "deadgazelle-male": {
+	    "deadgazelle-male-*": {
 			"size": 0.5,
+			"handbook": {
+				"exclude": true
+			},
+			"hangingShape": { "base": "butchering:butchercreatures/gazelle/gazelle-male-hanging" },
 			"butcheringRewards": [
 				{
 					"Code": "game:redmeat-raw",
 					"MinAmount": 10,
-					"MaxAmount": 12
-				},
-				{
-					"Code": "game:hide-raw-medium",
-					"MinAmount": 1,
-					"MaxAmount": 2
+					"MaxAmount": 16
 				},
 				{
 					"Code": "game:fat",
-					"MinAmount": 2,
-					"MaxAmount": 4
-				},
+					"MinAmount": 0.75,
+					"MaxAmount": 1.50
+				}
+			],
+			"skinningRewards": [
 				{
-					"Code": "game:bone",
-					"MinAmount": 4,
-					"MaxAmount": 5
+					"Code": "game:hide-raw-large",
+					"MinAmount": 1,
+					"MaxAmount": 1.4
 				}
 			]
 		},
-		"deadgazelle-female": {
+		"deadgazelle-female-*": {
 			"size": 0.5,
+			"handbook": {
+				"exclude": true
+			},
+			"hangingShape": { "base": "butchering:butchercreatures/gazelle/gazelle-female-hanging" },
 			"butcheringRewards": [
 				{
 					"Code": "game:redmeat-raw",
 					"MinAmount": 10,
-					"MaxAmount": 12
-				},
-				{
-					"Code": "game:hide-raw-medium",
-					"MinAmount": 1,
-					"MaxAmount": 2
+					"MaxAmount": 16
 				},
 				{
 					"Code": "game:fat",
-					"MinAmount": 2,
-					"MaxAmount": 4
-				},
+					"MinAmount": 0.75,
+					"MaxAmount": 1.50
+				}
+			],
+			"skinningRewards": [
 				{
-					"Code": "game:bone",
-					"MinAmount": 4,
-					"MaxAmount": 5
+					"Code": "game:hide-raw-large",
+					"MinAmount": 1,
+					"MaxAmount": 1.4
 				}
 			]
 		},
-		"deadgazelle-baby": {
+		"deadgazelle-baby-*": {
 			"size": 0.5,
+			"handbook": {
+				"exclude": true
+			},
+			"hangingShape": { "base": "butchering:butchercreatures/gazelle/gazelle-calf-hanging" },
 			"butcheringRewards": [
 				{
 					"Code": "game:redmeat-raw",
-					"MinAmount": 1,
-					"MaxAmount": 2
-				},
-				{
-					"Code": "game:fat",
-					"MinAmount": 2,
+					"MinAmount": 3,
 					"MaxAmount": 4
 				},
 				{
-					"Code": "game:bone",
-					"MinAmount": 4,
-					"MaxAmount": 5
+					"Code": "game:fat",
+					"MinAmount": 0.50,
+					"MaxAmount": 0.75
+				}
+			],
+			"skinningRewards": [
+				{
+					"Code": "game:hide-raw-small",
+					"MinAmount": 1,
+					"MaxAmount": 1
 				}
 			]
 		}
 	},
 	
 	"shapeByType": {
-		 "deadgazelle-male": { "base": "butchercreatures/gazelle/gazelle-male-dead" },
-		 "deadgazelle-female": { "base": "butchercreatures/gazelle/gazelle-female-dead" },
-		 "deadgazelle-baby": { "base": "butchercreatures/gazelle/gazelle-calf-dead" }
+		 "deadgazelle-male-*": { "base": "butchercreatures/gazelle/gazelle-male-dead" },
+		 "deadgazelle-female-*": { "base": "butchercreatures/gazelle/gazelle-female-dead" },
+		 "deadgazelle-baby-*": { "base": "butchercreatures/gazelle/gazelle-calf-dead" }
 
 	},
 	"storageFlagsbytype": {
 		"*-baby": 2049,
+		"*-rotten": 1,
 		"*": 2050
 	},
-    "transitionableProps": [
-        {
-			"type": "perish",
-			"freshHours": { "avg": 80 },
-			"transitionHours": { "avg": 24 },
-			"transitionedStack": { "type": "item", "code": "game:rot", "quantity": 8 },
-			"transitionRatio": 1
-		}
-    	],
+    "transitionablePropsByType": {
+		"*-rotten": [],
+		"*": [
+			{
+				"type": "perish",
+				"freshHours": {
+					"avg": 80
+				},
+				"transitionHours": {
+					"avg": 24
+				},
+				"transitionedStack": {
+					"type": "item",
+					"code": "butchering:deadgazelle-{type}-rotten"
+				},
+				"transitionRatio": 1
+			}
+		]
+	},
 	"creativeinventory": { "general": ["*"], "items": ["*"] },
 	"heldTpIdleAnimation": "holdunderarm",
 	"guiTransform": {

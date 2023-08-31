@@ -3,7 +3,7 @@
 	"class": "butcherable",
 	"variantgroups": [
 		{ "code": "type", "states": [ "male", "female", "baby"] },
-		{ "code": "state", "states": [ "dead", "skinned" ] }
+		{ "code": "state", "states": [ "dead", "skinned", "bledout", "rotten" ] }
 	],
 	"maxstacksize": 1,
 	"behaviors": [{ "name": "GroundStorable", "properties": { "layout": "SingleCenter", "collisionBox": { "x1": 0.2, "y1": 0, "z1": 0.2, "x2": 0.8, "y2": 0.5, "z2": 0.8 }}}],
@@ -11,9 +11,15 @@
 		"deadsheep-male-dead": { "ram": { "base": "game:entity/sheep/sheep-bighorn-male" } },
 		"deadsheep-female-dead": { "ewe": { "base": "game:entity/sheep/sheep-bighorn-female" } },
 		"deadsheep-baby-dead": { "lamb": { "base": "game:entity/sheep/sheep-bighorn-lamb" } },
-		"deadsheep-male-skinned": { "ram": { "base": "butchering:item/skinnedcreatures/animalbloody" } },
-		"deadsheep-female-skinned": { "ewe": { "base": "butchering:item/skinnedcreatures/animalbloody" } },
-		"deadsheep-baby-skinned": { "lamb": { "base": "butchering:item/skinnedcreatures/animalbloody" } }
+		"deadsheep-male-skinned": { "ram": { "base": "butchering:item/butchercreatures/animalredmeatbloody" } },
+		"deadsheep-female-skinned": { "ewe": { "base": "butchering:item/butchercreatures/animalredmeatbloody" } },
+		"deadsheep-baby-skinned": { "lamb": { "base": "butchering:item/butchercreatures/animalredmeatbloody" } },
+		"deadsheep-male-bledout": { "ram": { "base": "butchering:item/butchercreatures/animalredmeatbledout" } },
+		"deadsheep-female-bledout": { "ewe": { "base": "butchering:item/butchercreatures/animalredmeatbledout" } },
+		"deadsheep-baby-bledout": { "lamb": { "base": "butchering:item/butchercreatures/animalredmeatbledout" } },
+		"deadsheep-male-rotten": { "ram": { "base": "game:block/creature/rot/rot" } },
+		"deadsheep-female-rotten": { "ewe": { "base": "game:block/creature/rot/rot" } },
+		"deadsheep-baby-rotten": { "lamb": { "base": "game:block/creature/rot/rot" } }
 	},
 	"attributesByType": {
 	    "deadsheep-male-*": {
@@ -23,24 +29,19 @@
 				{
 					"Code": "game:redmeat-raw",
 					"MinAmount": 10,
-					"MaxAmount": 12
+					"MaxAmount": 16
 				},
 				{
 					"Code": "game:fat",
-					"MinAmount": 2,
-					"MaxAmount": 4
-				},
-				{
-					"Code": "game:bone",
-					"MinAmount": 4,
-					"MaxAmount": 5
+					"MinAmount": 0.7,
+					"MaxAmount": 1.3
 				}
 			],
 			"skinningRewards": [
 				{
-					"Code": "game:hide-raw-medium",
+					"Code": "game:hide-raw-large",
 					"MinAmount": 1,
-					"MaxAmount": 2
+					"MaxAmount": 1.4
 				}
 			]
 		},
@@ -50,25 +51,20 @@
 			"butcheringRewards": [
 				{
 					"Code": "game:redmeat-raw",
-					"MinAmount": 10,
-					"MaxAmount": 12
+					"MinAmount": 13,
+					"MaxAmount": 19
 				},
 				{
 					"Code": "game:fat",
-					"MinAmount": 2,
-					"MaxAmount": 4
-				},
-				{
-					"Code": "game:bone",
-					"MinAmount": 4,
-					"MaxAmount": 5
+					"MinAmount": 0.7,
+					"MaxAmount": 1.3
 				}
 			],
 			"skinningRewards": [
 				{
-					"Code": "game:hide-raw-medium",
+					"Code": "game:hide-raw-large",
 					"MinAmount": 1,
-					"MaxAmount": 2
+					"MaxAmount": 1.4
 				}
 			]
 		},
@@ -80,19 +76,15 @@
 					"Code": "game:redmeat-raw",
 					"MinAmount": 1,
 					"MaxAmount": 2
-				},
-				{
-					"Code": "game:fat",
-					"MinAmount": 2,
-					"MaxAmount": 4
-				},
-				{
-					"Code": "game:bone",
-					"MinAmount": 4,
-					"MaxAmount": 5
 				}
 			],
-			"skinningRewards": []
+			"skinningRewards": [
+				{
+					"Code": "game:hide-raw-small",
+					"MinAmount": 0.5,
+					"MaxAmount": 1.5
+				}
+			]
 		}
 	},
 	
@@ -103,17 +95,28 @@
 	},
 	"storageFlagsbytype": {
 		"*-baby": 2049,
+		"*-rotten": 1,
 		"*": 2050
 	},
-    	"transitionableProps": [
-        {
-			"type": "perish",
-			"freshHours": { "avg": 80 },
-			"transitionHours": { "avg": 24 },
-			"transitionedStack": { "type": "item", "code": "game:rot", "quantity": 8 },
-			"transitionRatio": 1
-		}
-    	],
+    "transitionablePropsByType": {
+		"*-rotten": [],
+		"*": [
+			{
+				"type": "perish",
+				"freshHours": {
+					"avg": 80
+				},
+				"transitionHours": {
+					"avg": 24
+				},
+				"transitionedStack": {
+					"type": "item",
+					"code": "butchering:deadsheep-{type}-rotten"
+				},
+				"transitionRatio": 1
+			}
+		]
+	},
 	"creativeinventory": { "general": ["*"], "items": ["*"] },
 	"heldTpIdleAnimation": "holdunderarm",
 	"guiTransform": {

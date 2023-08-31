@@ -4,7 +4,7 @@
         "path": "/server/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:deadraccoon-female"
+            "item": "butchering:deadraccoon-female-dead"
         },
         "file": "game:entities/land/raccoon-female.json"
     },
@@ -13,7 +13,7 @@
         "path": "/client/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:deadraccoon-female"
+            "item": "butchering:deadraccoon-female-dead"
         },
         "file": "game:entities/land/raccoon-female.json"
     },
@@ -22,7 +22,7 @@
         "path": "/server/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:deadraccoon-male"
+            "item": "butchering:deadraccoon-male-dead"
         },
         "file": "game:entities/land/raccoon-male.json"
     },
@@ -31,7 +31,7 @@
         "path": "/client/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:deadraccoon-male"
+            "item": "butchering:deadraccoon-male-dead"
         },
         "file": "game:entities/land/raccoon-male.json"
     },
@@ -40,7 +40,7 @@
         "path": "/server/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:deadraccoon-baby"
+            "item": "butchering:deadraccoon-baby-dead"
         },
         "file": "game:entities/land/raccoon-pup.json"
     },
@@ -49,7 +49,7 @@
         "path": "/client/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:deadraccoon-baby"
+            "item": "butchering:deadraccoon-baby-dead"
         },
         "file": "game:entities/land/raccoon-pup.json"
     },
@@ -73,12 +73,6 @@
     },
     {
         "op": "replace",
-        "path": "/server/behaviors/6/drops/3/quantity/avg",
-        "value": 0.35,
-        "file": "game:entities/land/raccoon-male.json"
-    },
-    {
-        "op": "replace",
         "path": "/server/behaviors/6/drops/0/quantity/avg",
         "value": 1,
         "file": "game:entities/land/raccoon-female.json"
@@ -93,12 +87,6 @@
         "op": "replace",
         "path": "/server/behaviors/6/drops/2/quantity/avg",
         "value": 0,
-        "file": "game:entities/land/raccoon-female.json"
-    },
-    {
-        "op": "replace",
-        "path": "/server/behaviors/6/drops/3/quantity/avg",
-        "value": 0.35,
         "file": "game:entities/land/raccoon-female.json"
     }
 ]

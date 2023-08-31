@@ -2,102 +2,115 @@
 	"code": "deadraccoon",
 	"class": "butcherable",
 	"variantgroups": [
-		{ "code": "type", "states": [ "male", "female", "baby"] }
+		{ "code": "type", "states": [ "male", "female", "baby"] },
+		{ "code": "state", "states": [ "dead", "skinned", "bledout", "rotten" ] }
 	],
 	"maxstacksize": 1,
 	"behaviors": [{ "name": "GroundStorable", "properties": { "layout": "SingleCenter", "collisionBox": { "x1": 0.2, "y1": 0, "z1": 0.2, "x2": 0.8, "y2": 0.5, "z2": 0.8 }}}],
+	"texturesByType": { 
+		"deadraccoon-male-dead": { "raccoon": { "base": "game:entity/raccoon/raccoon-male1" } },
+		"deadraccoon-female-dead": { "raccoon": { "base": "game:entity/raccoon/raccoon-female1" } },
+		"deadraccoon-baby-dead": { "pup": { "base": "game:entity/raccoon/raccoon-pup1" } },
+		"deadraccoon-male-skinned": { "raccoon": { "base": "butchering:item/butchercreatures/animalbushmeatbloody" } },
+		"deadraccoon-female-skinned": { "raccoon": { "base": "butchering:item/butchercreatures/animalbushmeatbloody" } },
+		"deadraccoon-baby-skinned": { "pup": { "base": "butchering:item/butchercreatures/animalbushmeatbloody" } },
+		"deadraccoon-male-bledout": { "raccoon": { "base": "butchering:item/butchercreatures/animalbushmeatbledout" } },
+		"deadraccoon-female-bledout": { "raccoon": { "base": "butchering:item/butchercreatures/animalbushmeatbledout" } },
+		"deadraccoon-baby-bledout": { "pup": { "base": "butchering:item/butchercreatures/animalbushmeatbledout" } },
+		"deadraccoon-male-rotten": { "raccoon": { "base": "game:block/creature/rot/rot" } },
+		"deadraccoon-female-rotten": { "raccoon": { "base": "game:block/creature/rot/rot" } },
+		"deadraccoon-baby-rotten": { "pup": { "base": "game:block/creature/rot/rot" } }
+	},
 	"attributesByType": {
 	    "deadraccoon-male": {
 			"size": 0.5,
+			"handbook": {
+				"exclude": true
+			},
+			"hangingShape": { "base": "butchering:butchercreatures/raccoon/raccoon-male-hanging" },
 			"butcheringRewards": [
 				{
-					"Code": "game:redmeat-raw",
-					"MinAmount": 10,
-					"MaxAmount": 12
-				},
-				{
-					"Code": "game:hide-raw-medium",
+					"Code": "game:bushmeat-raw",
 					"MinAmount": 1,
-					"MaxAmount": 2
+					"MaxAmount": 3
 				},
 				{
 					"Code": "game:fat",
-					"MinAmount": 2,
-					"MaxAmount": 4
-				},
+					"MinAmount": 0.2,
+					"MaxAmount": 0.3
+				}
+			],
+			"skinningRewards": [
 				{
-					"Code": "game:bone",
-					"MinAmount": 4,
-					"MaxAmount": 5
+					"Code": "game:hide-raw-small",
+					"MinAmount": 1,
+					"MaxAmount": 1.5
 				}
 			]
 		},
 		"deadraccoon-female": {
 			"size": 0.5,
+			"hangingShape": { "base": "butchering:butchercreatures/raccoon/raccoon-female-hanging" },
 			"butcheringRewards": [
 				{
-					"Code": "game:redmeat-raw",
-					"MinAmount": 10,
-					"MaxAmount": 12
-				},
-				{
-					"Code": "game:hide-raw-medium",
+					"Code": "game:bushmeat-raw",
 					"MinAmount": 1,
-					"MaxAmount": 2
+					"MaxAmount": 3
 				},
 				{
 					"Code": "game:fat",
-					"MinAmount": 2,
-					"MaxAmount": 4
-				},
+					"MinAmount": 0.2,
+					"MaxAmount": 0.3
+				}
+			],
+			"skinningRewards": [
 				{
-					"Code": "game:bone",
-					"MinAmount": 4,
-					"MaxAmount": 5
+					"Code": "game:hide-raw-small",
+					"MinAmount": 1,
+					"MaxAmount": 1.5
 				}
 			]
 		},
 		"deadraccoon-baby": {
 			"size": 0.5,
+			"hangingShape": { "base": "butchering:butchercreatures/raccoon/raccoon-pup-hanging" },
 			"butcheringRewards": [
-				{
-					"Code": "game:redmeat-raw",
-					"MinAmount": 1,
-					"MaxAmount": 2
-				},
-				{
-					"Code": "game:fat",
-					"MinAmount": 2,
-					"MaxAmount": 4
-				},
-				{
-					"Code": "game:bone",
-					"MinAmount": 4,
-					"MaxAmount": 5
-				}
+			],
+			"skinningRewards": [
 			]
 		}
 	},
 	
 	"shapeByType": {
-		 "deadraccoon-male": { "base": "butchercreatures/raccoon/raccoon-male-dead" },
-		 "deadraccoon-female": { "base": "butchercreatures/raccoon/raccoon-female-dead" },
-		 "deadraccoon-baby": { "base": "butchercreatures/raccoon/raccoon-pup-dead" }
+		 "deadraccoon-male-*": { "base": "butchercreatures/raccoon/raccoon-male-dead" },
+		 "deadraccoon-female-*": { "base": "butchercreatures/raccoon/raccoon-female-dead" },
+		 "deadraccoon-baby-*": { "base": "butchercreatures/raccoon/raccoon-pup-dead" }
 
 	},
 	"storageFlagsbytype": {
 		"*-baby": 2049,
-		"*": 2050
+		"*-rotten": 1,
+		"*": 2049
 	},
-    "transitionableProps": [
-        {
-			"type": "perish",
-			"freshHours": { "avg": 80 },
-			"transitionHours": { "avg": 24 },
-			"transitionedStack": { "type": "item", "code": "game:rot", "quantity": 8 },
-			"transitionRatio": 1
-		}
-    	],
+    "transitionablePropsByType": {
+		"*-rotten": [],
+		"*": [
+			{
+				"type": "perish",
+				"freshHours": {
+					"avg": 80
+				},
+				"transitionHours": {
+					"avg": 24
+				},
+				"transitionedStack": {
+					"type": "item",
+					"code": "butchering:deadraccoon-{type}-rotten"
+				},
+				"transitionRatio": 1
+			}
+		]
+	},
 	"creativeinventory": { "general": ["*"], "items": ["*"] },
 	"heldTpIdleAnimation": "holdunderarm",
 	"guiTransform": {

@@ -4,62 +4,146 @@
 	"variantgroups": [
 		{ "code": "type", "states": [ "male", "female" ] },
 		{ "code": "skin", "states": [ "black", "brown", "panda", "polar", "sun"] },
-		{ "code": "texture", "states": [ "1", "2" ] }
+		{ "code": "texture", "states": [ "1", "2" ] },
+		{ "code": "state", "states": [ "dead", "skinned", "bledout", "rotten" ] }
 	],
-	"allowedVariants": [ "*-1", "*-brown-2" ],
+	"allowedVariants": [ "*-1-*", "*-brown-2-*" ],
 	"maxstacksize": 1,
 	"behaviors": [{ "name": "GroundStorable", "properties": { "layout": "SingleCenter", "collisionBox": { "x1": 0.2, "y1": 0, "z1": 0.2, "x2": 0.8, "y2": 0.5, "z2": 0.8 }}}],
-	"textures": {
-		"fur": { "base": "game:entity/bear/{skin}{texture}" }
+	"texturesByType": {
+		"deadbear-*-dead": { "fur": { "base": "game:entity/bear/{skin}{texture}" } },
+		"deadbear-*-skinned": { "fur": { "base": "butchering:item/butchercreatures/animalbushmeatbloody" } },
+		"deadbear-*-bledout": { "fur": { "base": "butchering:item/butchercreatures/animalbushmeatbledout" } },
+		"deadbear-*-rotten": { "fur": { "base": "game:block/creature/rot/rot" } }
 	},
 	"attributesByType": {
-	    "deadbear-male-*": {
+	    "deadbear-*-black-*": {
 			"size": 0.5,
+			"handbook": {
+				"exclude": true
+			},
+			"hangingShape": { "base": "butchering:butchercreatures/bear/bear-hanging" },
 			"butcheringRewards": [
 				{
-					"Code": "game:redmeat-raw",
+					"Code": "game:bushmeat-raw",
 					"MinAmount": 10,
-					"MaxAmount": 12
-				},
-				{
-					"Code": "game:hide-raw-medium",
-					"MinAmount": 1,
-					"MaxAmount": 2
+					"MaxAmount": 14
 				},
 				{
 					"Code": "game:fat",
-					"MinAmount": 2,
-					"MaxAmount": 4
-				},
+					"MinAmount": 1,
+					"MaxAmount": 3
+				}
+			],
+			"skinningRewards": [
 				{
-					"Code": "game:bone",
-					"MinAmount": 4,
-					"MaxAmount": 5
+					"Code": "game:hide-raw-huge",
+					"MinAmount": 1.5,
+					"MaxAmount": 2
 				}
 			]
 		},
-		"deadbear-female-*": {
+	    "deadbear-*-brown-*": {
 			"size": 0.5,
+			"handbook": {
+				"exclude": true
+			},
+			"hangingShape": { "base": "butchering:butchercreatures/bear/bear-hanging" },
 			"butcheringRewards": [
 				{
-					"Code": "game:redmeat-raw",
-					"MinAmount": 10,
-					"MaxAmount": 12
-				},
-				{
-					"Code": "game:hide-raw-medium",
-					"MinAmount": 1,
-					"MaxAmount": 2
+					"Code": "game:bushmeat-raw",
+					"MinAmount": 14,
+					"MaxAmount": 18
 				},
 				{
 					"Code": "game:fat",
+					"MinAmount": 1,
+					"MaxAmount": 3
+				}
+			],
+			"skinningRewards": [
+				{
+					"Code": "game:hide-raw-huge",
 					"MinAmount": 2,
-					"MaxAmount": 4
+					"MaxAmount": 3
+				}
+			]
+		},
+		"deadbear-*-panda-*": {
+			"size": 0.5,
+			"handbook": {
+				"exclude": true
+			},
+			"hangingShape": { "base": "butchering:butchercreatures/bear/bear-hanging" },
+			"butcheringRewards": [
+				{
+					"Code": "game:bushmeat-raw",
+					"MinAmount": 8,
+					"MaxAmount": 12
 				},
 				{
-					"Code": "game:bone",
-					"MinAmount": 4,
+					"Code": "game:fat",
+					"MinAmount": 1,
+					"MaxAmount": 3
+				}
+			],
+			"skinningRewards": [
+				{
+					"Code": "game:hide-raw-huge",
+					"MinAmount": 1.5,
+					"MaxAmount": 2
+				}
+			]
+		},
+		"deadbear-*-polar-*": {
+			"size": 0.5,
+			"handbook": {
+				"exclude": true
+			},
+			"hangingShape": { "base": "butchering:butchercreatures/bear/bear-hanging" },
+			"butcheringRewards": [
+				{
+					"Code": "game:bushmeat-raw",
+					"MinAmount": 20,
+					"MaxAmount": 24
+				},
+				{
+					"Code": "game:fat",
+					"MinAmount": 3,
 					"MaxAmount": 5
+				}
+			],
+			"skinningRewards": [
+				{
+					"Code": "game:hide-raw-huge",
+					"MinAmount": 2.5,
+					"MaxAmount": 3
+				}
+			]
+		},
+		"deadbear-*-sun-*": {
+			"size": 0.5,
+			"handbook": {
+				"exclude": true
+			},
+			"hangingShape": { "base": "butchering:butchercreatures/bear/bear-hanging" },
+			"butcheringRewards": [
+				{
+					"Code": "game:bushmeat-raw",
+					"MinAmount": 7,
+					"MaxAmount": 11
+				},
+				{
+					"Code": "game:fat",
+					"MinAmount": 0.5,
+					"MaxAmount": 2
+				}
+			],
+			"skinningRewards": [
+				{
+					"Code": "game:hide-raw-huge",
+					"MinAmount": 1.5,
+					"MaxAmount": 2
 				}
 			]
 		}
@@ -70,17 +154,28 @@
 		 "deadbear-female-*": { "base": "butchercreatures/bear/bear-dead" }
 	},
 	"storageFlagsbytype": {
+		"*-rotten": 1,
 		"*": 2050
 	},
-    "transitionableProps": [
-        {
-			"type": "perish",
-			"freshHours": { "avg": 80 },
-			"transitionHours": { "avg": 24 },
-			"transitionedStack": { "type": "item", "code": "game:rot", "quantity": 8 },
-			"transitionRatio": 1
-		}
-    	],
+    "transitionablePropsByType": {
+		"*-rotten": [],
+		"*": [
+			{
+				"type": "perish",
+				"freshHours": {
+					"avg": 80
+				},
+				"transitionHours": {
+					"avg": 24
+				},
+				"transitionedStack": {
+					"type": "item",
+					"code": "butchering:deadbear-{type}-{skin}-{texture}-rotten"
+				},
+				"transitionRatio": 1
+			}
+		]
+	},
 	"creativeinventory": { "general": ["*"], "items": ["*"] },
 	"heldTpIdleAnimation": "holdunderarm",
 	"guiTransform": {

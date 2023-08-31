@@ -7,6 +7,9 @@
 	},
 	"variantGroups": [
 		{
+			"code": "material", "states": ["copper", "flint"]
+		},
+		{
 			"code": "side",
 			"loadFromProperties": "abstract/horizontalorientation"
 		}
@@ -38,6 +41,10 @@
 			"*-west": 180
 		}
 	},
+	"texturesByType": {
+		"butcherhook-copper-*": { "hook": { "base": "game:block/metal/plate/copper"} },
+		"butcherhook-flint-*": { "hook": { "base": "game:block/stone/flint"} }
+	},
 	"drawtype": "json",
 	"blockmaterial": "Wood",
 	"replaceable": 600,
@@ -61,14 +68,6 @@
 	},
 	"collisionBoxes": [],
 	"drops": [
-		{
-			"type": "item",
-			"code": "game:plank-aged",
-			"quantity": {
-				"avg": 4,
-				"var": 1
-			}
-		}
 	],
 	"tpHandTransform": {
 		"translation": { "x": 0, "y": -0.5, "z": -0.7 },
@@ -76,7 +75,9 @@
 		"scale": 0.48
 	},
 	"guiTransform": {
-		"translation": { "x": -10, "y": 5, "z": 0 },
-		"scale": 0.56
+		"translation": { "x": -14, "y": 10, "z": 30 },
+		"rotation": { "x": -10, "y": -129, "z": 0 },
+		"origin": { "x": 0.4, "y": 0.5, "z": 0.6 },
+		"scale": 1.92
 	}
 }

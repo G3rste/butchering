@@ -1,0 +1,90 @@
+{
+	"code": "smoked",
+	"maxstacksize": 64,
+	"attributes": {
+		"onHookTransformByType": {
+			"*-redmeat": {
+				"scale": 1,
+				"origin": { "x": 0, "y": 0, "z": 0 },
+				"translation": { "x": -0.24875, "y": 0.03625, "z": 0.725 },
+				"rotation": { "x": 0, "y": 70, "z": 90 }
+			},
+			"*-bushmeat": {
+				"scale": 1,
+				"origin": { "x": 0, "y": 0, "z": 0 },
+				"translation": { "x": -0.32875, "y": 0.00225, "z": 0.675 },
+				"rotation": { "x": 0, "y": 70, "z": 90 }
+			}
+		}
+	},
+	"variantgroups": [
+		{ "code": "type", "states": ["redmeat", "bushmeat" ] }
+	],
+	"shapebytype": { 
+		"smoked-redmeat": { "base": "game:item/food/meat/red" },
+		"smoked-bushmeat": { "base": "game:item/food/meat/bushmeat" }
+	},
+	"texturesbytype": {
+		"smoked-redmeat":  { 
+			"meat": {"base": "item/food/smoked/smoked" }
+		},
+		"smoked-bushmeat":  { 
+			"meat": {"base": "item/food/smoked/smoked" }
+		}
+	},
+	"creativeinventory": { "general": ["*"], "items": ["*"] },
+	"nutritionPropsByType": {
+		"smoked-redmeat": { "satiety": 220, "health": 0, "foodcategory": "Protein" },
+		"smoked-bushmeat": { "satiety": 100, "health": 0, "foodcategory": "Protein" }
+	},
+	"transitionablePropsByType": {
+		"*": [{
+			"type": "Perish",
+			"freshHours": { "avg": 3760 },
+			"spoilHours": { "avg": 1380 },
+			"transitionedStack": { "type": "item", "code": "rot" },
+			"transitionRatio": 1
+		}]
+	},
+	"materialDensity": 600,
+	"guiTransformByType": {	
+		"smoked-redmeat": {
+			"rotate": false,
+			"translation": { "x": 0.5, "y": 0, "z": 0 },
+			"rotation": { "x": 171, "y": -122, "z": 33 },
+			"origin": { "x": 0.4, "y": 0.08, "z": 0.5 },
+			"scale": 4.72
+		},
+		"smoked-bushmeat": {
+			"rotate": false,
+			"translation": { "x": 0, "y": 0, "z": 0 },
+			"rotation": { "x": 171, "y": -122, "z": 33 },
+			"origin": { "x": 0.5, "y": 0.04, "z": 0.53 },
+			"scale": 4.7199
+		}
+	},
+	"tpHandTransformByType": {
+		"*": {
+			"translation": { "x": 0, "y": 0, "z": 0 },
+			"rotation": { "x": 5, "y": 41, "z": -31 },
+			"origin": { "x": 0.23, "y": 0, "z": 0.13 },
+			"scale": 0.75
+		}
+	},
+	"groundTransformByType": {
+		"*": {
+			"translation": { "x": 0, "y": 0, "z": 0 },
+			"rotation": { "x": 180, "y": 33, "z": -180 },
+			"origin": { "x": 0.5, "y": 0, "z": 0.5 },
+			"scale": 5
+		}
+	},
+	"fpHandTransformByType": {
+		"*": {
+			"translation": { "x": -0.06, "y": 0.36, "z": 0.23 },
+			"rotation": { "x": 40, "y": 91, "z": 15 },
+			"origin": { "x": 0.5, "y": 0.1, "z": 0.5 },
+			"scale": 2.5
+		}
+	}
+}

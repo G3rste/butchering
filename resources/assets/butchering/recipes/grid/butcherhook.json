@@ -1,0 +1,15 @@
+[
+	{
+		"ingredientPattern": "SLS,RHF",
+		"ingredients": {
+			"L": { "type": "block", "code": "game:log-*", "quantity": 2, "allowedVariants": ["placed-birch-ud", "placed-oak-ud", "placed-maple-ud", "placed-pine-ud", "placed-acacia-ud", "placed-kapok-ud", "placed-redwood-ud", "placed-larch-ud", "placed-baldcypress-ud", "placed-walnut-ud", "placed-purpleheart-ud", "placed-ebony-ud"] },
+			"H": { "type": "item", "code": "hook-*", "quantity": 2, "name": "material" },
+			"R": { "type": "item", "code": "game:resin", "quantity": 1 },
+			"F": { "type": "item", "code": "game:flint", "quantity": 1 },
+			"S": { "type": "item", "code": "game:stick", "quantity": 4 }
+		},
+		"width": 3,
+		"height": 2,
+		"output": { "type": "block", "code": "butcherhook-{material}-north", "quantity": 1  }
+	}
+]

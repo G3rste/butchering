@@ -106,11 +106,5 @@
         "path": "/server/behaviors/6/drops/2/quantityByType/*-polar/avg",
         "value": 0,
         "file": "game:entities/land/bear.json"
-    },
-    {
-        "op": "replace",
-        "path": "/server/behaviors/6/drops/3/quantity/avg",
-        "value": 2,
-        "file": "game:entities/land/bear.json"
     }
 ]

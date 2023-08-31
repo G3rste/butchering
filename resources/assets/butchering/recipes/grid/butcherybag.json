@@ -1,0 +1,14 @@
+[
+	{
+		"ingredientPattern": "RTR,KTS",
+		"ingredients": {
+			"T": { "type": "item", "code": "game:cattailtops", "quantity": 24 },
+			"R": { "type": "item", "code": "game:rope", "quantity": 2 },
+			"K": { "type": "item", "code": "game:knife-generic-*", "Istool": true },
+			"S": { "type": "item", "code": "game:stick", "quantity": 6 }
+		},
+		"width": 3,
+		"height": 2,
+		"output": { "type": "item", "code": "butcherybag", "quantity": 1  }
+	}
+]

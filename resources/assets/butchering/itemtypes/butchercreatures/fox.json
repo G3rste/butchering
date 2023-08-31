@@ -3,85 +3,87 @@
 	"class": "butcherable",
 	"variantgroups": [
 		{ "code": "type", "states": [ "male", "female", "baby"] },
-		{ "code": "skin", "states": [ "arctic", "forest" ] }
+		{ "code": "skin", "states": [ "arctic", "forest" ] },
+		{ "code": "state", "states": [ "dead", "skinned", "bledout", "rotten" ] }
 	],
 	"maxstacksize": 1,
 	"behaviors": [{ "name": "GroundStorable", "properties": { "layout": "SingleCenter", "collisionBox": { "x1": 0.2, "y1": 0, "z1": 0.2, "x2": 0.8, "y2": 0.5, "z2": 0.8 }}}],
 	"texturesByType": { 
-		"deadfox-baby-arctic": { "skin": { "base": "game:entity/fox/arctic-pup" } },
-		"deadfox-baby-forest": { "skin": { "base": "game:entity/fox/forest-pup" } },
-		"deadfox-*-arctic": { "skin": { "base": "game:entity/fox/arctic-{type}" } },
-		"deadfox-*-forest": { "skin": { "base": "game:entity/fox/forest-{type}" } }
+		"deadfox-male-*-dead": { "skin": { "base": "game:entity/fox/{skin}-male" } },
+		"deadfox-female-*-dead": { "skin": { "base": "game:entity/fox/{skin}-female" } },
+		"deadfox-baby-*-dead": { "skin": { "base": "game:entity/fox/{skin}-pup" } },
+		"deadfox-male-*-skinned": { "skin": { "base": "butchering:item/butchercreatures/animalbushmeatbloody" } },
+		"deadfox-female-*-skinned": { "skin": { "base": "butchering:item/butchercreatures/animalbushmeatbloody" } },
+		"deadfox-baby-*-skinned": { "skin": { "base": "butchering:item/butchercreatures/animalbushmeatbloody" } },
+		"deadfox-male-*-bledout": { "skin": { "base": "butchering:item/butchercreatures/animalbushmeatbledout" } },
+		"deadfox-female-*-bledout": { "skin": { "base": "butchering:item/butchercreatures/animalbushmeatbledout" } },
+		"deadfox-baby-*-bledout": { "skin": { "base": "butchering:item/butchercreatures/animalbushmeatbledout" } },
+		"deadfox-male-*-rotten": { "skin": { "base": "game:block/creature/rot/rot" } },
+		"deadfox-female-*-rotten": { "skin": { "base": "game:block/creature/rot/rot" } },
+		"deadfox-baby-*-rotten": { "skin": { "base": "game:block/creature/rot/rot" } }
 	},
 	"attributesByType": {
 	    "deadfox-male-*": {
 			"size": 0.5,
+			"handbook": {
+				"exclude": true
+			},
+			"hangingShape": { "base": "butchering:butchercreatures/fox/fox-male-hanging" },
 			"butcheringRewards": [
 				{
-					"Code": "game:redmeat-raw",
-					"MinAmount": 10,
-					"MaxAmount": 12
-				},
-				{
-					"Code": "game:hide-raw-medium",
+					"Code": "game:bushmeat-raw",
 					"MinAmount": 1,
-					"MaxAmount": 2
+					"MaxAmount": 3
 				},
 				{
 					"Code": "game:fat",
-					"MinAmount": 2,
-					"MaxAmount": 4
-				},
+					"MinAmount": 0.25,
+					"MaxAmount": 0.50
+				}
+			],
+			"skinningRewards": [
 				{
-					"Code": "game:bone",
-					"MinAmount": 4,
-					"MaxAmount": 5
+					"Code": "game:hide-raw-small",
+					"MinAmount": 1,
+					"MaxAmount": 1
 				}
 			]
 		},
 		"deadfox-female-*": {
 			"size": 0.5,
+			"handbook": {
+				"exclude": true
+			},
+			"hangingShape": { "base": "butchering:butchercreatures/fox/fox-female-hanging" },
 			"butcheringRewards": [
 				{
-					"Code": "game:redmeat-raw",
-					"MinAmount": 10,
-					"MaxAmount": 12
-				},
-				{
-					"Code": "game:hide-raw-medium",
+					"Code": "game:bushmeat-raw",
 					"MinAmount": 1,
-					"MaxAmount": 2
+					"MaxAmount": 3
 				},
 				{
 					"Code": "game:fat",
-					"MinAmount": 2,
-					"MaxAmount": 4
-				},
+					"MinAmount": 0.25,
+					"MaxAmount": 0.50
+				}
+			],
+			"skinningRewards": [
 				{
-					"Code": "game:bone",
-					"MinAmount": 4,
-					"MaxAmount": 5
+					"Code": "game:hide-raw-small",
+					"MinAmount": 1,
+					"MaxAmount": 1
 				}
 			]
 		},
 		"deadfox-baby-*": {
 			"size": 0.5,
+			"handbook": {
+				"exclude": true
+			},
+			"hangingShape": { "base": "butchering:butchercreatures/fox/fox-pup-hanging" },
 			"butcheringRewards": [
-				{
-					"Code": "game:redmeat-raw",
-					"MinAmount": 1,
-					"MaxAmount": 2
-				},
-				{
-					"Code": "game:fat",
-					"MinAmount": 2,
-					"MaxAmount": 4
-				},
-				{
-					"Code": "game:bone",
-					"MinAmount": 4,
-					"MaxAmount": 5
-				}
+			],
+			"skinningRewards": [
 			]
 		}
 	},
@@ -94,17 +96,28 @@
 	},
 	"storageFlagsbytype": {
 		"*-baby": 2049,
-		"*": 2050
+		"*-rotten": 1,
+		"*": 2049
 	},
-    "transitionableProps": [
-        {
-			"type": "perish",
-			"freshHours": { "avg": 80 },
-			"transitionHours": { "avg": 24 },
-			"transitionedStack": { "type": "item", "code": "game:rot", "quantity": 8 },
-			"transitionRatio": 1
-		}
-    	],
+    "transitionablePropsByType": {
+		"*-rotten": [],
+		"*": [
+			{
+				"type": "perish",
+				"freshHours": {
+					"avg": 80
+				},
+				"transitionHours": {
+					"avg": 24
+				},
+				"transitionedStack": {
+					"type": "item",
+					"code": "butchering:deadfox-{type}-{skin}-rotten"
+				},
+				"transitionRatio": 1
+			}
+		]
+	},
 	"creativeinventory": { "general": ["*"], "items": ["*"] },
 	"heldTpIdleAnimation": "holdunderarm",
 	"guiTransform": {

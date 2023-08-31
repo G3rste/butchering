@@ -3,83 +3,88 @@
 	"class": "butcherable",
 	"variantgroups": [
 		{ "code": "type", "states": [ "male", "female", "baby"] },
-		{ "code": "texture", "states": [ "1", "2", "3", "4", "5", "6", "7", "8", "9" ] }
+		{ "code": "texture", "states": [ "1", "2", "3", "4", "5", "6", "7", "8", "9" ] },
+		{ "code": "state", "states": [ "dead", "skinned", "bledout", "rotten" ] }
 	],
-	"allowedVariants": [ "deadwolf-male-*", "deadwolf-female-*", "deadwolf-baby-1", "deadwolf-baby-2" ],
+	"allowedVariants": [ "deadwolf-male-*", "deadwolf-female-*", "deadwolf-baby-1-*", "deadwolf-baby-2-*" ],
 	"maxstacksize": 1,
 	"behaviors": [{ "name": "GroundStorable", "properties": { "layout": "SingleCenter", "collisionBox": { "x1": 0.2, "y1": 0, "z1": 0.2, "x2": 0.8, "y2": 0.5, "z2": 0.8 }}}],
 	"texturesByType": { 
-		"deadwolf-baby-*": { "skin": { "base": "game:entity/wolf/wolf-pup{texture}" } },
-		"*": { "skin": { "base": "game:entity/wolf/wolf{texture}" } } 
+		"deadwolf-male-*-dead": { "skin": { "base": "game:entity/wolf/wolf{texture}" } },
+		"deadwolf-female-*-dead": { "skin": { "base": "game:entity/wolf/wolf{texture}" } },
+		"deadwolf-baby-*-dead": { "skin": { "base": "game:entity/wolf/wolf-pup{texture}" } },
+		"deadwolf-male-*-skinned": { "skin": { "base": "butchering:item/butchercreatures/animalbushmeatbloody" } },
+		"deadwolf-female-*-skinned": { "skin": { "base": "butchering:item/butchercreatures/animalbushmeatbloody" } },
+		"deadwolf-baby-*-skinned": { "skin": { "base": "butchering:item/butchercreatures/animalbushmeatbloody" } },
+		"deadwolf-male-*-bledout": { "skin": { "base": "butchering:item/butchercreatures/animalbushmeatbledout" } },
+		"deadwolf-female-*-bledout": { "skin": { "base": "butchering:item/butchercreatures/animalbushmeatbledout" } },
+		"deadwolf-baby-*-bledout": { "skin": { "base": "butchering:item/butchercreatures/animalbushmeatbledout" } },
+		"deadwolf-male-*-rotten": { "skin": { "base": "game:block/creature/rot/rot" } },
+		"deadwolf-female-*-rotten": { "skin": { "base": "game:block/creature/rot/rot" } },
+		"deadwolf-baby-*-rotten": { "skin": { "base": "game:block/creature/rot/rot" } }
 	},
 	"attributesByType": {
 	    "deadwolf-male-*": {
 			"size": 0.5,
+			"hangingShape": { "base": "butchering:butchercreatures/wolf/wolf-male-hanging" },
 			"butcheringRewards": [
 				{
-					"Code": "game:redmeat-raw",
-					"MinAmount": 10,
-					"MaxAmount": 12
+					"Code": "game:bushmeat-raw",
+					"MinAmount": 6,
+					"MaxAmount": 8
 				},
+				{
+					"Code": "game:fat",
+					"MinAmount": 1,
+					"MaxAmount": 1.5
+				}
+			],
+			"skinningRewards": [
 				{
 					"Code": "game:hide-raw-medium",
 					"MinAmount": 1,
 					"MaxAmount": 2
-				},
-				{
-					"Code": "game:fat",
-					"MinAmount": 2,
-					"MaxAmount": 4
-				},
-				{
-					"Code": "game:bone",
-					"MinAmount": 4,
-					"MaxAmount": 5
 				}
 			]
 		},
 		"deadwolf-female-*": {
 			"size": 0.5,
+			"hangingShape": { "base": "butchering:butchercreatures/wolf/wolf-female-hanging" },
 			"butcheringRewards": [
 				{
-					"Code": "game:redmeat-raw",
-					"MinAmount": 10,
-					"MaxAmount": 12
+					"Code": "game:bushmeat-raw",
+					"MinAmount": 6,
+					"MaxAmount": 8
 				},
+				{
+					"Code": "game:fat",
+					"MinAmount": 1,
+					"MaxAmount": 1.5
+				}
+			],
+			"skinningRewards": [
 				{
 					"Code": "game:hide-raw-medium",
 					"MinAmount": 1,
 					"MaxAmount": 2
-				},
-				{
-					"Code": "game:fat",
-					"MinAmount": 2,
-					"MaxAmount": 4
-				},
-				{
-					"Code": "game:bone",
-					"MinAmount": 4,
-					"MaxAmount": 5
 				}
 			]
 		},
 		"deadwolf-baby-*": {
 			"size": 0.5,
+			"hangingShape": { "base": "butchering:butchercreatures/wolf/wolf-pup-hanging" },
 			"butcheringRewards": [
 				{
-					"Code": "game:redmeat-raw",
+					"Code": "game:bushmeat-raw",
 					"MinAmount": 1,
-					"MaxAmount": 2
-				},
+					"MaxAmount": 3
+				}
+			],
+			"skinningRewards": [
 				{
-					"Code": "game:fat",
-					"MinAmount": 2,
-					"MaxAmount": 4
-				},
-				{
-					"Code": "game:bone",
-					"MinAmount": 4,
-					"MaxAmount": 5
+					"Code": "game:hide-raw-small",
+					"MinAmount": 0.8,
+					"MaxAmount": 1.2
 				}
 			]
 		}
@@ -93,17 +98,28 @@
 	},
 	"storageFlagsbytype": {
 		"deadwolf-baby-*": 2049,
+		"*-rotten": 1,
 		"*": 2050
 	},
-    "transitionableProps": [
-        {
-			"type": "perish",
-			"freshHours": { "avg": 80 },
-			"transitionHours": { "avg": 24 },
-			"transitionedStack": { "type": "item", "code": "game:rot", "quantity": 8 },
-			"transitionRatio": 1
-		}
-    	],
+    "transitionablePropsByType": {
+		"*-rotten": [],
+		"*": [
+			{
+				"type": "perish",
+				"freshHours": {
+					"avg": 80
+				},
+				"transitionHours": {
+					"avg": 24
+				},
+				"transitionedStack": {
+					"type": "item",
+					"code": "butchering:deadwolf-{type}-{texture}-rotten"
+				},
+				"transitionRatio": 1
+			}
+		]
+	},
 	"creativeinventory": { "general": ["*"], "items": ["*"] },
 	"heldTpIdleAnimation": "holdunderarm",
 	"guiTransform": {

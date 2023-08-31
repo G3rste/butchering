@@ -4,7 +4,7 @@
         "path": "/server/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:deadwolf-female-1"
+            "item": "butchering:deadwolf-female-1-dead"
         },
         "file": "game:entities/land/wolf-female.json"
     },
@@ -13,7 +13,7 @@
         "path": "/client/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:deadwolf-female-1"
+            "item": "butchering:deadwolf-female-1-dead"
         },
         "file": "game:entities/land/wolf-female.json"
     },
@@ -22,7 +22,7 @@
         "path": "/server/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:deadwolf-male-1"
+            "item": "butchering:deadwolf-male-1-dead"
         },
         "file": "game:entities/land/wolf-male.json"
     },
@@ -31,7 +31,7 @@
         "path": "/client/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:deadwolf-male-1"
+            "item": "butchering:deadwolf-male-1-dead"
         },
         "file": "game:entities/land/wolf-male.json"
     },
@@ -40,7 +40,7 @@
         "path": "/server/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:deadwolf-baby-1"
+            "item": "butchering:deadwolf-baby-1-dead"
         },
         "file": "game:entities/land/wolf-pup.json"
     },
@@ -49,7 +49,7 @@
         "path": "/client/behaviors/-",
         "value": {
             "code": "butcherable",
-            "item": "butchering:deadwolf-baby-1"
+            "item": "butchering:deadwolf-baby-1-dead"
         },
         "file": "game:entities/land/wolf-pup.json"
     },
@@ -62,19 +62,13 @@
     {
         "op": "replace",
         "path": "/server/behaviors/6/drops/1/quantity/avg",
-        "value": 0.5,
+        "value": 0,
         "file": "game:entities/land/wolf-male.json"
     },
     {
         "op": "replace",
         "path": "/server/behaviors/6/drops/2/quantity/avg",
-        "value": 1,
-        "file": "game:entities/land/wolf-male.json"
-    },
-    {
-        "op": "replace",
-        "path": "/server/behaviors/6/drops/3/quantity/avg",
-        "value": 1.7,
+        "value": 0,
         "file": "game:entities/land/wolf-male.json"
     },
     {
@@ -86,19 +80,25 @@
     {
         "op": "replace",
         "path": "/server/behaviors/6/drops/1/quantity/avg",
-        "value": 0.5,
+        "value": 0,
         "file": "game:entities/land/wolf-female.json"
     },
     {
         "op": "replace",
         "path": "/server/behaviors/6/drops/2/quantity/avg",
-        "value": 1,
+        "value": 0,
         "file": "game:entities/land/wolf-female.json"
     },
     {
         "op": "replace",
-        "path": "/server/behaviors/6/drops/3/quantity/avg",
-        "value": 1.7,
-        "file": "game:entities/land/wolf-female.json"
+        "path": "/server/behaviors/6/drops/0/quantity/avg",
+        "value": 1,
+        "file": "game:entities/land/wolf-pup.json"
+    },
+    {
+        "op": "replace",
+        "path": "/server/behaviors/6/drops/1/quantity/avg",
+        "value": 0,
+        "file": "game:entities/land/wolf-pup.json"
     }
 ]

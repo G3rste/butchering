@@ -1,0 +1,36 @@
+[
+    {
+        "op": "add",
+        "path": "/attributes/onHookTransform",
+        "value": {
+            "scale": 1,
+            "origin": { "x": 0, "y": 0, "z": 0 },
+            "translation": { "x": -0.24875, "y": 0.03625, "z": 0.725 },
+            "rotation": { "x": 0, "y": 70, "z": 90 }
+        },
+        "file": "game:itemtypes/food/redmeat.json"
+    },
+    {
+        "op": "add",
+        "path": "/attributes/transformsWhenSmokedByType",
+        "value": { "*-raw": "butchering:smoked-redmeat", "*": null },
+        "file": "game:itemtypes/food/redmeat.json"
+    },
+    {
+        "op": "add",
+        "path": "/attributes/onHookTransform",
+        "value": {
+            "scale": 1,
+            "origin": { "x": 0, "y": 0, "z": 0 },
+            "translation": { "x": -0.32875, "y": 0.00225, "z": 0.675 },
+            "rotation": { "x": 0, "y": 70, "z": 90 }
+        },
+        "file": "game:itemtypes/food/bushmeat.json"
+    },
+    {
+        "op": "add",
+        "path": "/attributes/transformsWhenSmokedByType",
+        "value": { "*-raw": "butchering:smoked-bushmeat", "*": null },
+        "file": "game:itemtypes/food/bushmeat.json"
+    }
+]

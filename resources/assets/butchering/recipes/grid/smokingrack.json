@@ -1,0 +1,14 @@
+[
+	{
+		"ingredientPattern": "HPH,SRS,HPH",
+		"ingredients": {
+			"P": { "type": "item", "code": "game:plank-*", "quantity": 4 },
+			"H": { "type": "item", "code": "hook-copper", "quantity": 4 },
+			"R": { "type": "item", "code": "game:resin", "quantity": 1 },
+			"S": { "type": "item", "code": "game:stick", "quantity": 8 }
+		},
+		"width": 3,
+		"height": 3,
+		"output": { "type": "block", "code": "smokingrack-north", "quantity": 1  }
+	}
+]

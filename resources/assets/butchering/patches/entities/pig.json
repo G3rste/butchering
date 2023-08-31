@@ -73,12 +73,6 @@
     },
     {
         "op": "replace",
-        "path": "/server/behaviors/6/drops/3/quantity/avg",
-        "value": 1.7,
-        "file": "game:entities/land/pig-wild-male.json"
-    },
-    {
-        "op": "replace",
         "path": "/server/behaviors/6/drops/0/quantity/avg",
         "value": 4.5,
         "file": "game:entities/land/pig-wild-female.json"
@@ -97,13 +91,13 @@
     },
     {
         "op": "replace",
-        "path": "/server/behaviors/6/drops/3/quantity/avg",
-        "value": 1.7,
-        "file": "game:entities/land/pig-wild-female.json"
+        "path": "/server/behaviors/6/drops/0/quantity/avg",
+        "value": 0.5,
+        "file": "game:entities/land/pig-wild-piglet.json"
     },
     {
         "op": "replace",
-        "path": "/server/behaviors/6/drops/0/quantity/avg",
+        "path": "/server/behaviors/6/drops/1/quantity/avg",
         "value": 0,
         "file": "game:entities/land/pig-wild-piglet.json"
     }

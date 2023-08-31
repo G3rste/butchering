@@ -13,38 +13,35 @@
 		"deadpig-male-*-dead": { "boar": { "base": "game:entity/pig/pig-wild-male{texture}" } },
 		"deadpig-female-1-dead": { "sow": { "base": "game:entity/pig/pig-wild-female1" } },
 		"deadpig-baby-1-dead": { "piglet": { "base": "game:entity/pig/pig-wild-piglet" } },
-		"deadpig-male-*-skinned": { "boar": { "base": "butchering:item/animalredmeatbloody" } },
-		"deadpig-female-1-skinned": { "sow": { "base": "butchering:item/animalredmeatbloody" } },
-		"deadpig-baby-1-skinned": { "piglet": { "base": "butchering:item/animalredmeatbloody" } },
-		"deadpig-male-*-bledout": { "boar": { "base": "butchering:item/animalredmeatdeblooded" } },
-		"deadpig-female-1-bledout": { "sow": { "base": "butchering:item/animalredmeatdeblooded" } },
-		"deadpig-baby-1-bledout": { "piglet": { "base": "butchering:item/animalredmeatdeblooded" } },
+		"deadpig-male-*-skinned": { "boar": { "base": "butchering:item/butchercreatures/animalredmeatbloody" } },
+		"deadpig-female-1-skinned": { "sow": { "base": "butchering:item/butchercreatures/animalredmeatbloody" } },
+		"deadpig-baby-1-skinned": { "piglet": { "base": "butchering:item/butchercreatures/animalredmeatbloody" } },
+		"deadpig-male-*-bledout": { "boar": { "base": "butchering:item/butchercreatures/animalredmeatbledout" } },
+		"deadpig-female-1-bledout": { "sow": { "base": "butchering:item/butchercreatures/animalredmeatbledout" } },
+		"deadpig-baby-1-bledout": { "piglet": { "base": "butchering:item/butchercreatures/animalredmeatbledout" } },
 		"deadpig-male-*-rotten": { "boar": { "base": "game:block/creature/rot/rot" } },
 		"deadpig-female-1-rotten": { "sow": { "base": "game:block/creature/rot/rot" } },
 		"deadpig-baby-1-rotten": { "piglet": { "base": "game:block/creature/rot/rot" } }
-
 	},
 	"attributesByType": {
 	    "deadpig-male-*": {
 			"size": 0.5,
-			"wearableAttachment": true,
+			"handbook": {
+				"exclude": true
+			},
+			"wearableAttachment": false,
 			"attachShape": { "base": "butchering:butchercreatures/pig/pig-wild-male-carried" },
 			"hangingShape": { "base": "butchering:butchercreatures/pig/pig-wild-male-hanging" },
 			"butcheringRewards": [
 				{
 					"Code": "game:redmeat-raw",
-					"MinAmount": 10,
-					"MaxAmount": 12
+					"MinAmount": 8,
+					"MaxAmount": 10
 				},
 				{
 					"Code": "game:fat",
 					"MinAmount": 2,
-					"MaxAmount": 4
-				},
-				{
-					"Code": "game:bone",
-					"MinAmount": 4,
-					"MaxAmount": 5
+					"MaxAmount": 2
 				}
 			],
 			"skinningRewards": [
@@ -53,31 +50,26 @@
 					"MinAmount": 1,
 					"MaxAmount": 2
 				}
-			],
-			"handbook": {
-				"exclude": true
-			}
+			]
 		},
 		"deadpig-female-*": {
 			"size": 0.5,
-			"wearableAttachment": true,
+			"handbook": {
+				"exclude": true
+			},
+			"wearableAttachment": false,
 			"attachShape": { "base": "butchering:butchercreatures/pig/pig-wild-female-carried" },
 			"hangingShape": { "base": "butchering:butchercreatures/pig/pig-wild-female-hanging" },
 			"butcheringRewards": [
 				{
 					"Code": "game:redmeat-raw",
-					"MinAmount": 10,
-					"MaxAmount": 12
+					"MinAmount": 8,
+					"MaxAmount": 10
 				},
 				{
 					"Code": "game:fat",
 					"MinAmount": 2,
-					"MaxAmount": 4
-				},
-				{
-					"Code": "game:bone",
-					"MinAmount": 4,
-					"MaxAmount": 5
+					"MaxAmount": 2
 				}
 			],
 			"skinningRewards": [
@@ -86,14 +78,14 @@
 					"MinAmount": 1,
 					"MaxAmount": 2
 				}
-			],
-			"handbook": {
-				"exclude": true
-			}
+			]
 		},
 		"deadpig-baby-*": {
 			"size": 0.5,
-			"wearableAttachment": true,
+			"handbook": {
+				"exclude": true
+			},
+			"wearableAttachment": false,
 			"attachShape": { "base": "butchering:butchercreatures/pig/pig-wild-piglet-carried" },
 			"hangingShape": { "base": "butchering:butchercreatures/pig/pig-wild-piglet-hanging" },
 			"butcheringRewards": [
@@ -101,22 +93,15 @@
 					"Code": "game:redmeat-raw",
 					"MinAmount": 1,
 					"MaxAmount": 2
-				},
-				{
-					"Code": "game:fat",
-					"MinAmount": 2,
-					"MaxAmount": 4
-				},
-				{
-					"Code": "game:bone",
-					"MinAmount": 4,
-					"MaxAmount": 5
 				}
 			],
-			"skinningRewards": [],
-			"handbook": {
-				"exclude": true
-			}
+			"skinningRewards": [
+				{
+					"Code": "game:hide-raw-small",
+					"MinAmount": 0.8,
+					"MaxAmount": 1
+				}
+			]
 		}
 	},
 	
