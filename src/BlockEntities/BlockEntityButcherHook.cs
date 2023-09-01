@@ -182,7 +182,7 @@ namespace Butchering
 
         public override void GetBlockInfo(IPlayer forPlayer, StringBuilder dsc)
         {
-            if (skinnedAt > 0)
+            if (skinnedAt > 0 && inventory[0]?.Itemstack?.Item is ItemButcherable item && item.Variant["state"] == "skinned")
             {
                 double timeLeft = Math.Max(hoursToBleedOut - (Api.World.Calendar.ElapsedHours - skinnedAt), 0);
                 int hoursLeft = (int)timeLeft;
