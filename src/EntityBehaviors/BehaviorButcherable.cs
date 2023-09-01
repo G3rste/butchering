@@ -46,7 +46,7 @@ namespace Butchering
                 if (entity.HasBehavior<EntityBehaviorHarvestable>())
                 {
                     var harvestable = entity.GetBehavior<EntityBehaviorHarvestable>();
-                    float dropQuantityMultiplier = (float)harvestable.GetType().GetField("dropQuantityMultiplier", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(harvestable);
+                    float dropQuantityMultiplier = (float)harvestable.GetType().GetProperty("dropQuantityMultiplier", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(harvestable);
                     stack.Attributes.SetFloat("AnimalWeight", harvestable.AnimalWeight * dropQuantityMultiplier);
                 }
                 if (entity.HasBehavior<EntityBehaviorDeadDecay>())
