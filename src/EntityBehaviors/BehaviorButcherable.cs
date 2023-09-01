@@ -45,7 +45,9 @@ namespace Butchering
                 var stack = new ItemStack(itemWithTexture);
                 if (entity.HasBehavior<EntityBehaviorHarvestable>())
                 {
-                    stack.Attributes.SetFloat("AnimalWeight", entity.GetBehavior<EntityBehaviorHarvestable>().AnimalWeight);
+                    var harvestable = entity.GetBehavior<EntityBehaviorHarvestable>();
+                    float dropQuantityMultiplier = (float)harvestable.GetType().GetField("dropQuantityMultiplier", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(harvestable);
+                    stack.Attributes.SetFloat("AnimalWeight", harvestable.AnimalWeight * dropQuantityMultiplier);
                 }
                 if (entity.HasBehavior<EntityBehaviorDeadDecay>())
                 {
