@@ -4,6 +4,7 @@ namespace Butchering
 {
     public class Butchering : ModSystem
     {
+        public ButcheringConfig Config;
         public override void Start(ICoreAPI api)
         {
             base.Start(api);
@@ -19,6 +20,35 @@ namespace Butchering
             api.RegisterBlockEntityClass("MeatHook", typeof(BlockEntityMeatHook));
 
             api.RegisterEntityBehaviorClass("butcherable", typeof(EntityBehaviorButcherable));
+
+            try
+            {
+                Config = api.LoadModConfig<ButcheringConfig>("ButcheringConfig.json");
+                if (Config != null)
+                {
+                    api.Logger.Notification("Mod Config successfully loaded.");
+                }
+                else
+                {
+                    api.Logger.Notification("No Mod Config specified. Falling back to default settings");
+                    Config = new ButcheringConfig();
+                }
+            }
+            catch
+            {
+                api.Logger.Error("Failed to load custom mod configuration. Falling back to default settings!");
+                Config = new ButcheringConfig();
+            }
+            finally
+            {
+                api.StoreModConfig(Config, "ButcheringConfig.json");
+            }
         }
+    }
+
+    public class ButcheringConfig
+    {
+        public float butcheringTableLootMultiplier = 1;
+        public float SkinningRackLootMultiplier = 1;
     }
 }

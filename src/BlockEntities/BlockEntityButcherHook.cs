@@ -13,6 +13,7 @@ namespace Butchering
         private long bleedingListenerId;
 
         public double skinnedAt;
+        public float configuredEfficiency;
 
         const double hoursToBleedOut = 2;
 
@@ -20,6 +21,7 @@ namespace Butchering
         {
             base.Initialize(api);
             bleedingListenerId = Api.World.RegisterGameTickListener(dropBloodDroplets, 1200);
+            configuredEfficiency = Api.ModLoader.GetModSystem<Butchering>().Config.SkinningRackLootMultiplier;
         }
 
         public override void OnBlockRemoved()
@@ -136,7 +138,7 @@ namespace Butchering
             }
             var item = inventory[0].Itemstack.Item as ItemButcherable;
             MarkDirty(true);
-            float efficiency = (Block as BlockButcherHook).ButcheringEfficiency;
+            float efficiency = (Block as BlockButcherHook).ButcheringEfficiency * configuredEfficiency;
             foreach (var loot in item.SkinningRewards)
             {
                 Api.World.PlaySoundAt(new AssetLocation("sounds/thud"), byPlayer.Entity, byPlayer, false);

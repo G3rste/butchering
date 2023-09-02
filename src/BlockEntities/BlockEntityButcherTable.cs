@@ -6,8 +6,15 @@ namespace Butchering
 {
     public class BlockEntityButcherTable : BlockEntityButcherWorkstation
     {
+        public float configuredEfficiency;
+
         private float tableWidth => (Block as BlockButcherTable).TableWith;
 
+        public override void Initialize(ICoreAPI api)
+        {
+            base.Initialize(api);
+            configuredEfficiency = Api.ModLoader.GetModSystem<Butchering>().Config.butcheringTableLootMultiplier;
+        }
         protected override float[][] genTransformationMatrices()
         {
             var sideOffset = tableWidth / 2;
@@ -52,7 +59,7 @@ namespace Butchering
             }
             var item = inventory[0].Itemstack.Item as ItemButcherable;
             MarkDirty(true);
-            float efficiency = (Block as BlockButcherTable).ButcheringEfficiency;
+            float efficiency = (Block as BlockButcherTable).ButcheringEfficiency * configuredEfficiency;
             foreach (var loot in item.ButcheringRewards)
             {
                 Api.World.PlaySoundAt(new AssetLocation("sounds/thud"), byPlayer.Entity, byPlayer, false);
