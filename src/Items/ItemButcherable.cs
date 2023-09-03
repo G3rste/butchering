@@ -19,6 +19,7 @@ namespace Butchering
     public class ButcheringReward
     {
         public string Code { get; set; }
+        public int AbsoluteMinAmount { get; set; }
         public double MinAmount { get; set; }
         public double MaxAmount { get; set; }
     }

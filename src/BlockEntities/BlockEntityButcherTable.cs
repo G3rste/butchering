@@ -1,3 +1,4 @@
+using System;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.MathTools;
@@ -63,7 +64,7 @@ namespace Butchering
             foreach (var loot in item.ButcheringRewards)
             {
                 Api.World.PlaySoundAt(new AssetLocation("sounds/thud"), byPlayer.Entity, byPlayer, false);
-                int lootAmount = (int)(getNextRandomDoubleBetween(Api.World.Rand, loot.MinAmount, loot.MaxAmount + 1) * efficiency * inventory[0].Itemstack.Attributes.GetFloat("AnimalWeight", 1) * byPlayer.Entity.Stats.GetBlended("animalLootDropRate"));
+                int lootAmount = Math.Max((int)(getNextRandomDoubleBetween(Api.World.Rand, loot.MinAmount, loot.MaxAmount + 1) * efficiency * inventory[0].Itemstack.Attributes.GetFloat("AnimalWeight", 1) * byPlayer.Entity.Stats.GetBlended("animalLootDropRate")), loot.AbsoluteMinAmount);
                 if (lootAmount > 0)
                 {
                     Api.World.SpawnItemEntity(
