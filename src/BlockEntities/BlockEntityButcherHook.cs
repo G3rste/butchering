@@ -92,7 +92,7 @@ namespace Butchering
                 MeshCache.TryGetValue(key, out var mesh);
                 if (mesh != null) return mesh;
 
-                capi.Tesselator.TesselateShape("hangingshape", item.GetHangingShape(), out mesh, this);
+                capi.Tesselator.TesselateShape("hangingshape", item.GetHangingShape(Api), out mesh, this);
 
                 MeshCache[key] = mesh;
 

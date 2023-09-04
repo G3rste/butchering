@@ -24,6 +24,10 @@ namespace Butchering
             {
                 item = entity.World.GetBlock(new AssetLocation(attributes["item"].AsString()));
             }
+            if (item == null)
+            {
+                entity.Api.Logger.Error(string.Format("Tried to load collectable {0}, but it could not be resolved.", attributes["item"].AsString()));
+            }
         }
 
         public override void OnInteract(EntityAgent byEntity, ItemSlot itemslot, Vec3d hitPosition, EnumInteractMode mode, ref EnumHandling handled)

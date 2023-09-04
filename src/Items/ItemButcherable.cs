@@ -8,9 +8,13 @@ namespace Butchering
         public ButcheringReward[] SkinningRewards => Attributes["skinningRewards"].AsObject<ButcheringReward[]>();
         public float Size => Attributes["size"].AsFloat(1);
         public string ProcessingState => Variant["state"];
-        public Shape GetHangingShape()
+        public Shape GetHangingShape(ICoreAPI api)
         {
             var shape = Attributes["hangingShape"].AsObject<CompositeShape>(null, Code.Domain);
+
+            if(shape == null){
+                api.Logger.Error(string.Format("Tried to load shape for a hanging {0}, but it could not be found!", Code.Path));
+            }
 
             return api.Assets.Get<Shape>(shape.Base.CopyWithPath("shapes/" + shape.Base.Path + ".json"));
         }
