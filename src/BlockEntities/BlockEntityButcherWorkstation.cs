@@ -11,7 +11,7 @@ namespace Butchering
 {
     public abstract class BlockEntityButcherWorkstation : BlockEntityDisplay
     {
-        public readonly string[] SkinningRackExclusives = new string[] { "hide-", "fat" };
+        public readonly string[] SkinningRackExclusives = new string[] { "hide-", "fat", "feather" };
         protected InventoryGeneric inventory;
         public override InventoryBase Inventory => inventory;
 
