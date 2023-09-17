@@ -20,7 +20,7 @@ namespace Butchering
         const int rows = 4;
         const int cols = 4;
 
-        const int smokingTimeHours = 24;
+        const int smokingTimeHours = 8;
 
         private double lastCheck;
         private long listenerId;
