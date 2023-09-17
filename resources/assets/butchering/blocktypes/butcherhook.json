@@ -3,7 +3,10 @@
 	"class": "BlockButcherHook",
 	"entityClass": "ButcherHook",
 	"attributes": {
-		"butcheringEfficiency": 1
+		"butcheringEfficiencyByType": {
+			"butcherhook-copper-*": 2,
+			"butcherhook-flint-*": 1.5
+		}
 	},
 	"variantGroups": [
 		{

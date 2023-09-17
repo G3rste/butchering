@@ -33,22 +33,15 @@
 			"attachShape": { "base": "butchering:butchercreatures/pig/pig-wild-male-carried" },
 			"hangingShape": { "base": "butchering:butchercreatures/pig/pig-wild-male-hanging" },
 			"butcheringRewards": [
-				{
-					"Code": "game:redmeat-raw",
-					"MinAmount": 8,
-					"MaxAmount": 10
-				},
-				{
-					"Code": "game:fat",
-					"MinAmount": 2,
-					"MaxAmount": 2
+				{  
+					"type": "item", "code": "game:redmeat-cured",
+				    "quantity": { "avg": 15, "var": 4 }
 				}
 			],
 			"skinningRewards": [
 				{
-					"Code": "game:hide-raw-medium",
-					"MinAmount": 1,
-					"MaxAmount": 2
+					"type": "item", "code": "game:hide-raw-huge",
+				    "quantity": { "avg": 2, "var": 1 }
 				}
 			]
 		},
@@ -61,22 +54,15 @@
 			"attachShape": { "base": "butchering:butchercreatures/pig/pig-wild-female-carried" },
 			"hangingShape": { "base": "butchering:butchercreatures/pig/pig-wild-female-hanging" },
 			"butcheringRewards": [
-				{
-					"Code": "game:redmeat-raw",
-					"MinAmount": 8,
-					"MaxAmount": 10
-				},
-				{
-					"Code": "game:fat",
-					"MinAmount": 2,
-					"MaxAmount": 2
+				{  
+					"type": "item", "code": "game:redmeat-cured",
+				    "quantity": { "avg": 15, "var": 4 }
 				}
 			],
 			"skinningRewards": [
 				{
-					"Code": "game:hide-raw-medium",
-					"MinAmount": 1,
-					"MaxAmount": 2
+					"type": "item", "code": "game:hide-raw-huge",
+				    "quantity": { "avg": 2, "var": 1 }
 				}
 			]
 		},
@@ -89,17 +75,15 @@
 			"attachShape": { "base": "butchering:butchercreatures/pig/pig-wild-piglet-carried" },
 			"hangingShape": { "base": "butchering:butchercreatures/pig/pig-wild-piglet-hanging" },
 			"butcheringRewards": [
-				{
-					"Code": "game:redmeat-raw",
-					"MinAmount": 1,
-					"MaxAmount": 2
+				{  
+					"type": "item", "code": "game:redmeat-cured",
+				    "quantity": { "avg": 15, "var": 4 }
 				}
 			],
 			"skinningRewards": [
 				{
-					"Code": "game:hide-raw-small",
-					"MinAmount": 0.8,
-					"MaxAmount": 1
+					"type": "item", "code": "game:hide-raw-huge",
+				    "quantity": { "avg": 2, "var": 1 }
 				}
 			]
 		}

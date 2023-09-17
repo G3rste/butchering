@@ -1,11 +1,13 @@
 using System;
 using System.Reflection;
+using Newtonsoft.Json;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;
 using Vintagestory.API.Config;
 using Vintagestory.API.Datastructures;
 using Vintagestory.API.MathTools;
+using Vintagestory.API.Util;
 using Vintagestory.GameContent;
 
 namespace Butchering
@@ -52,6 +54,8 @@ namespace Butchering
                     var harvestable = entity.GetBehavior<EntityBehaviorHarvestable>();
                     float dropQuantityMultiplier = (float)harvestable.GetType().GetProperty("dropQuantityMultiplier", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(harvestable);
                     stack.Attributes.SetFloat("AnimalWeight", harvestable.AnimalWeight * dropQuantityMultiplier);
+                    var drops = (BlockDropItemStack[])harvestable.GetType().GetField("jsonDrops", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(harvestable);
+                    stack.Attributes.SetString("AnimalDrops", JsonConvert.SerializeObject(drops));
                 }
                 if (entity.HasBehavior<EntityBehaviorDeadDecay>())
                 {

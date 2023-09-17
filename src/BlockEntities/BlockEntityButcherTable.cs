@@ -1,13 +1,13 @@
-using System;
+using System.Linq;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.MathTools;
+using Vintagestory.API.Util;
 
 namespace Butchering
 {
     public class BlockEntityButcherTable : BlockEntityButcherWorkstation
     {
-        public float configuredEfficiency;
 
         private float tableWidth => (Block as BlockButcherTable).TableWith;
 
@@ -59,19 +59,13 @@ namespace Butchering
                     break;
             }
             var item = inventory[0].Itemstack.Item as ItemButcherable;
-            MarkDirty(true);
-            float efficiency = (Block as BlockButcherTable).ButcheringEfficiency * configuredEfficiency;
-            foreach (var loot in item.ButcheringRewards)
-            {
-                Api.World.PlaySoundAt(new AssetLocation("sounds/thud"), byPlayer.Entity, byPlayer, false);
-                int lootAmount = Math.Max((int)(getNextRandomDoubleBetween(Api.World.Rand, loot.MinAmount, loot.MaxAmount + 1) * efficiency * inventory[0].Itemstack.Attributes.GetFloat("AnimalWeight", 1) * byPlayer.Entity.Stats.GetBlended("animalLootDropRate")), loot.AbsoluteMinAmount);
-                if (lootAmount > 0)
-                {
-                    Api.World.SpawnItemEntity(
-                        new ItemStack(Api.World.GetItem(new AssetLocation(loot.Code)), lootAmount),
-                        Pos.ToVec3d().Add(offset));
-                }
-            }
+
+            var loot = item.ButcheringRewards
+                .Append(GetHarvestableProps())
+                .Where(drop => !SkinningRackExclusives.Any(exclusive => drop.Code.Path.StartsWith(exclusive))).ToArray();
+
+            DropLoot(byPlayer, offset, loot);
+
             if (inventory[0].Itemstack.Attributes.HasAttribute("AnimalCarcass"))
             {
                 Block carcass = Api.World.GetBlock(new AssetLocation(inventory[0].Itemstack.Attributes.GetString("AnimalCarcass")));

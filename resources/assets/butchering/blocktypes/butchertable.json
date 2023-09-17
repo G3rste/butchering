@@ -3,7 +3,7 @@
 	"class": "BlockButcherTable",
 	"entityClass": "ButcherTable",
 	"attributes": {
-		"butcheringEfficiency": 1,
+		"butcheringEfficiency": 2,
 		"butcherTableWidth": 3
 	},
 	"variantGroups": [

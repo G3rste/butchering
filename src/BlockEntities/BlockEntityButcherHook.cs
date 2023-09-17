@@ -1,10 +1,12 @@
 using System;
+using System.Linq;
 using System.Text;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Config;
 using Vintagestory.API.Datastructures;
 using Vintagestory.API.MathTools;
+using Vintagestory.API.Util;
 
 namespace Butchering
 {
@@ -13,7 +15,6 @@ namespace Butchering
         private long bleedingListenerId;
 
         public double skinnedAt;
-        public float configuredEfficiency;
 
         const double hoursToBleedOut = 2;
 
@@ -120,36 +121,15 @@ namespace Butchering
 
         protected override bool processItem(IPlayer byPlayer)
         {
-            var offset = new Vec3d(0, 1.5, 0);
-            switch (Block.Variant["side"])
-            {
-                case "north":
-                    offset.Add(0.5, 0, 0.5);
-                    break;
-                case "east":
-                    offset.Add(0.5, 0, 0.5);
-                    break;
-                case "south":
-                    offset.Add(-0.5 + 1, 0, 0.5);
-                    break;
-                case "west":
-                    offset.Add(0.5, 0, -0.5 + 1);
-                    break;
-            }
+            var offset = new Vec3d(0.5, 0.5, 0.5);
             var item = inventory[0].Itemstack.Item as ItemButcherable;
-            MarkDirty(true);
-            float efficiency = (Block as BlockButcherHook).ButcheringEfficiency * configuredEfficiency;
-            foreach (var loot in item.SkinningRewards)
-            {
-                Api.World.PlaySoundAt(new AssetLocation("sounds/thud"), byPlayer.Entity, byPlayer, false);
-                int lootAmount = Math.Max((int)(getNextRandomDoubleBetween(Api.World.Rand, loot.MinAmount, loot.MaxAmount + 1) * efficiency * inventory[0].Itemstack.Attributes.GetFloat("AnimalWeight", 1)), loot.AbsoluteMinAmount);
-                if (lootAmount > 0)
-                {
-                    Api.World.SpawnItemEntity(
-                        new ItemStack(Api.World.GetItem(new AssetLocation(loot.Code)), lootAmount),
-                        Pos.ToVec3d().Add(offset));
-                }
-            }
+
+            var loot = item.SkinningRewards
+                .Append(GetHarvestableProps())
+                .Where(drop => SkinningRackExclusives.Any(exclusive => drop.Code.Path.StartsWith(exclusive))).ToArray();
+
+            DropLoot(byPlayer, offset, loot);
+            
             inventory[0].Itemstack = cloneStack(inventory[0].Itemstack, Api.World.GetItem(item.CodeWithVariant("state", "skinned")));
             skinnedAt = Api.World.Calendar.ElapsedHours;
             updateMesh(0);
@@ -166,6 +146,10 @@ namespace Butchering
             if (oldStack.Attributes.HasAttribute("AnimalCarcass"))
             {
                 newStack.Attributes.SetString("AnimalCarcass", oldStack.Attributes.GetString("AnimalCarcass"));
+            }
+            if (oldStack.Attributes.HasAttribute("AnimalDrops"))
+            {
+                newStack.Attributes.SetString("AnimalDrops", oldStack.Attributes.GetString("AnimalDrops"));
             }
             return newStack;
         }
