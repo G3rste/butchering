@@ -43,7 +43,8 @@
 					"type": "item", "code": "game:hide-raw-huge",
 				    "quantity": { "avg": 2, "var": 1 }
 				}
-			]
+			],
+			"excludeRewards": ["hide-raw-medium"]
 		},
 		"deadpig-female-*": {
 			"size": 0.5,
@@ -64,7 +65,8 @@
 					"type": "item", "code": "game:hide-raw-huge",
 				    "quantity": { "avg": 2, "var": 1 }
 				}
-			]
+			],
+			"excludeRewards": ["hide-raw-medium"]
 		},
 		"deadpig-baby-*": {
 			"size": 0.5,
@@ -85,7 +87,8 @@
 					"type": "item", "code": "game:hide-raw-huge",
 				    "quantity": { "avg": 2, "var": 1 }
 				}
-			]
+			],
+			"excludeRewards": ["hide-raw-medium"]
 		}
 	},
 	

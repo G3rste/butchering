@@ -6,6 +6,7 @@ namespace Butchering
     {
         public BlockDropItemStack[] ButcheringRewards => Attributes["butcheringRewards"].AsObject<BlockDropItemStack[]>(new BlockDropItemStack[0]);
         public BlockDropItemStack[] SkinningRewards => Attributes["skinningRewards"].AsObject<BlockDropItemStack[]>(new BlockDropItemStack[0]);
+        public string[] ExcludeRewards => Attributes["excludeRewards"].AsArray<string>(new string[0]);
         public float Size => Attributes["size"].AsFloat(1);
         public string ProcessingState => Variant["state"];
         public Shape GetHangingShape(ICoreAPI api)

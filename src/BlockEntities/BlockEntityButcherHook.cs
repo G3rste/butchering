@@ -126,7 +126,9 @@ namespace Butchering
 
             var loot = item.SkinningRewards
                 .Append(GetHarvestableProps())
-                .Where(drop => SkinningRackExclusives.Any(exclusive => drop.Code.Path.StartsWith(exclusive))).ToArray();
+                .Where(drop => SkinningRackExclusives.Any(exclusive => drop.Code.Path.StartsWith(exclusive)))
+                .Where(drop => !item.ExcludeRewards.Any(exclusive => drop.Code.Path.Equals(exclusive)))
+                .ToArray();
 
             DropLoot(byPlayer, offset, loot);
             
