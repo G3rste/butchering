@@ -42,46 +42,5 @@
 
     "game:tabname-butchery": "Butchery",
     "game:butchery-title": "Butchery",
-    "game:butchery-text": "<font size=24 weight=bold align=center>Butchery</font>
-    
-    <font size=20 weight=bold align=center>Introduction</font>
-
-    This mod is designed to provide more immersive butchering mechanics but in doing so DOES make the game harder. This is done by having to do several steps before you are able to get the resources out of an animal.
-
-    <font size=18 weight=bold align=center>How do I start butchering animals?<br>A step by step guide.</font>
-
-    <strong>Step 0:</strong>
-    You will need these things to start butchering
-        - Any Knife
-        - <a href=handbooksearch://Skinning Hook>Skinning Hook</a> (This will be destroyed if broken so place carefully)
-        - <a href=handbooksearch://Butchering Table>Butchering Table</a> (This will be destroyed if broken so place carefully. The Butchery Tables are 3 blocks wide and will extend 2 blocks to the right of where you place it.)
-        - Optional: <a href=handbooksearch://Butchering>Butchering Bag</a>
-        
-    <strong>Step 1:</strong>
-    When you kill a creature, you have two options. Either you cut it open and get only a small fraction of the items from it (for when you are truly desperate) or you right click it and it will be placed in a open bag slot (the four to the right of your hotbar). If you have a Butchering Bag it will be placed in your inventory instead.
-
-    <strong>Step 2:</strong>
-    Bring that animal to a place where you have built a Skinning Hook. Right clicking this will place the animal upon the hook from your inventory or bag slot.
-
-    <strong>Step 3:</strong>
-    Aiming at the hook, you hold right click with any knife until the creature is skinned.
-
-    <strong>Step 4:</strong>
-    Wait for the creature to be bled out (this takes a short while). You will notice the body will change colour to a less red hue when it is done.
-
-    <strong>Step 5:</strong>
-    Right click the hook again to take the body down and it will be once again placed into your inventory (if you have a butchery bag) or bag slots
-
-    <strong>Step 6:</strong>
-    Place the bled-out body upon a Butchery Table then hold right click with any knife. This will butcher the body into its raw bits and leave behind a bone carcass which can be broken for bones.
-    
-        Some things to NOTE:
-    
-    - Small creatures such as chickens, hares and foxes can be fit in any inventory slot and don't require placing in the bag slots.
-    - Creature can and will rot if left too long on the skinning hooks and butchery bench. To get rot from them simply place in your crafting menu.
-    - Butchery is best done in a cellar enviroment. As you will have longer to butcher the animal.
-    - Butchery bags can be made to provide extra room to carry back dead animals.
-    - The Butchery Tables are 3 blocks wide and will extend 2 blocks to the right of where you place it.
-    - This mod also allows you to smoke things with an added block called <a href=handbooksearch://Smoking>Smoking Rack</a>. Please use the freshest of meat when smoking to ensure it doesn't rot or smoke in a cellar.
-    "
+    "game:butchery-text": "<font size=24 weight=bold align=center>Butchery</font>\n    \n    <font size=20 weight=bold align=center>Introduction</font>\n\n    This mod is designed to provide more immersive butchering mechanics but in doing so DOES make the game harder. This is done by having to do several steps before you are able to get the resources out of an animal.\n\n    <font size=18 weight=bold align=center>How do I start butchering animals?<br>A step by step guide.</font>\n\n    <strong>Step 0:</strong>\n    You will need these things to start butchering\n        - Any Knife\n        - <a href=handbooksearch://Skinning Hook>Skinning Hook</a> (This will be destroyed if broken so place carefully)\n        - <a href=handbooksearch://Butchering Table>Butchering Table</a> (This will be destroyed if broken so place carefully. The Butchery Tables are 3 blocks wide and will extend 2 blocks to the right of where you place it.)\n        - Optional: <a href=handbooksearch://Butchering>Butchering Bag</a>\n        \n    <strong>Step 1:</strong>\n    When you kill a creature, you have two options. Either you cut it open and get only a small fraction of the items from it (for when you are truly desperate) or you right click it and it will be placed in a open bag slot (the four to the right of your hotbar). If you have a Butchering Bag it will be placed in your inventory instead.\n\n    <strong>Step 2:</strong>\n    Bring that animal to a place where you have built a Skinning Hook. Right clicking this will place the animal upon the hook from your inventory or bag slot.\n\n    <strong>Step 3:</strong>\n    Aiming at the hook, you hold right click with any knife until the creature is skinned.\n\n    <strong>Step 4:</strong>\n    Wait for the creature to be bled out (this takes a short while). You will notice the body will change colour to a less red hue when it is done.\n\n    <strong>Step 5:</strong>\n    Right click the hook again to take the body down and it will be once again placed into your inventory (if you have a butchery bag) or bag slots\n\n    <strong>Step 6:</strong>\n    Place the bled-out body upon a Butchery Table then hold right click with any knife. This will butcher the body into its raw bits and leave behind a bone carcass which can be broken for bones.\n    \n        Some things to NOTE:\n    \n    - Small creatures such as chickens, hares and foxes can be fit in any inventory slot and don't require placing in the bag slots.\n    - Creature can and will rot if left too long on the skinning hooks and butchery bench. To get rot from them simply place in your crafting menu.\n    - Butchery is best done in a cellar enviroment. As you will have longer to butcher the animal.\n    - Butchery bags can be made to provide extra room to carry back dead animals.\n    - The Butchery Tables are 3 blocks wide and will extend 2 blocks to the right of where you place it.\n    - This mod also allows you to smoke things with an added block called <a href=handbooksearch://Smoking>Smoking Rack</a>. Please use the freshest of meat when smoking to ensure it doesn't rot or smoke in a cellar.\n    "
 }
