@@ -1,13 +1,19 @@
-﻿using Vintagestory.API.Common;
+﻿using System.Reflection;
+using HarmonyLib;
+using Vintagestory.API.Common;
+using Vintagestory.GameContent;
 
 namespace Butchering
 {
     public class Butchering : ModSystem
     {
+        Harmony harmony = new Harmony("gerste.butchering");
         public ButcheringConfig Config;
         public override void Start(ICoreAPI api)
         {
             base.Start(api);
+
+            HarvestablePatch.Patch(harmony);
 
             api.RegisterItemClass("butcherable", typeof(ItemButcherable));
 
@@ -50,5 +56,32 @@ namespace Butchering
     {
         public float butcheringTableLootMultiplier = 1;
         public float SkinningRackLootMultiplier = 1;
+    }
+
+    public class HarvestablePatch
+    {
+
+        public static void Patch(Harmony harmony)
+        {
+            harmony.Patch(methodInfo()
+                , prefix: new HarmonyMethod(typeof(HarvestablePatch).GetMethod("Postfix", BindingFlags.Static | BindingFlags.Public)));
+        }
+
+        public static void Unpatch(Harmony harmony)
+        {
+            harmony.Unpatch(methodInfo()
+                , HarmonyPatchType.Prefix, "gerste.petai");
+        }
+
+        public static MethodInfo methodInfo()
+        {
+            return typeof(EntityBehaviorHarvestable).GetMethod("get_dropQuantityMultiplier", BindingFlags.Instance | BindingFlags.NonPublic);
+        }
+        public static void Postfix(ref float __result, EntityBehaviorHarvestable __instance)
+        {
+            if(__instance.entity.HasBehavior<EntityBehaviorButcherable>()){
+                __result *= 0.5f;
+            }
+        }
     }
 }
